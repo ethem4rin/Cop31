@@ -7,6 +7,9 @@ import {
 } from "../content/ContentContext";
 import { useTheme } from "../hooks/useTheme";
 import { ADMIN_PASSCODE, ADMIN_SESSION_KEY } from "./config";
+
+/* Yayınlarken API'ye gönderilecek parola bu oturum anahtarında tutulur. */
+const ADMIN_CODE_KEY = ADMIN_SESSION_KEY + "-code";
 import { SECTION_HINTS, SECTION_LABELS } from "./labels";
 import FieldEditor from "./FieldEditor";
 import { download, toSiteJs } from "./serialize";
@@ -39,6 +42,8 @@ function Gate({ onUnlock }) {
     if (code === ADMIN_PASSCODE) {
       try {
         sessionStorage.setItem(ADMIN_SESSION_KEY, "1");
+        // Yayınlarken sunucuya göndermek için sakla (oturum boyunca)
+        sessionStorage.setItem(ADMIN_CODE_KEY, code);
       } catch {
         /* yok sayılabilir */
       }
@@ -73,9 +78,8 @@ function Gate({ onUnlock }) {
         </button>
 
         <p className="adgate__note">
-          Bu panel tarayıcında çalışır. Yaptığın değişiklikler bu cihazda
-          saklanır; siteye kalıcı işlemek için panelden <b>site.js indir</b>
-          &nbsp;seçeneğini kullan.
+          Düzenledikten sonra <b>Yayınla</b> dersen değişiklikler siteye
+          kalıcı olarak işlenir ve herkese yansır.
         </p>
       </form>
     </div>
@@ -89,6 +93,7 @@ function Panel({ onLock }) {
   const [draft, setDraft] = useState(() => clone(content));
   const [section, setSection] = useState(SECTION_KEYS[0]);
   const [toast, setToast] = useState("");
+  const [publishing, setPublishing] = useState(false);
   const fileRef = useRef(null);
 
   const dirty = useMemo(
@@ -119,6 +124,51 @@ function Panel({ onLock }) {
         ? "Kaydedildi. Siteyi açıp görebilirsin."
         : "Kaydedilemedi — tarayıcı depolaması dolmuş olabilir. Yüklediğin görselleri azalt ya da public/images/ içine atıp yol kullan."
     );
+  };
+
+  /* --- Herkese kalıcı yayınla: site.js'i GitHub'a commit'ler --- */
+  const handlePublish = async () => {
+    // Yayınlamadan önce taslağı yerel olarak da kaydet
+    save(clone(draft));
+
+    let passcode = "";
+    try {
+      passcode = sessionStorage.getItem(ADMIN_CODE_KEY) || "";
+    } catch {
+      /* yok sayılabilir */
+    }
+    if (!passcode) passcode = window.prompt("Yayınlamak için parolanı gir:") || "";
+    if (!passcode) return;
+
+    if (
+      !window.confirm(
+        "Değişiklikler GitHub'a kaydedilip siteye yüklenecek ve HERKESE kalıcı olacak.\n" +
+          "Yayın (Vercel yeniden build alır) yaklaşık 1 dakika içinde yansır. Devam?"
+      )
+    )
+      return;
+
+    setPublishing(true);
+    flash("Yayınlanıyor…");
+    try {
+      const res = await fetch("/api/save-content", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ passcode, source: toSiteJs(draft) }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        flash("Yayınlandı! Site ~1 dakika içinde güncellenir.");
+      } else if (res.status === 401) {
+        flash("Parola hatalı — yayınlanamadı.");
+      } else {
+        flash(data.error || "Yayınlanamadı. (Sunucu ayarlarını kontrol et.)");
+      }
+    } catch {
+      flash("Bağlantı hatası — yayınlanamadı.");
+    } finally {
+      setPublishing(false);
+    }
   };
 
   const handleReset = () => {
@@ -210,8 +260,15 @@ function Panel({ onLock }) {
 
           <span className="admin__sep" />
 
-          <button className="adbtn is-primary" onClick={handleSave} disabled={!dirty}>
-            Kaydet
+          <button className="adbtn" onClick={handleSave} disabled={!dirty}>
+            Önizle (sadece bende)
+          </button>
+          <button
+            className="adbtn is-primary"
+            onClick={handlePublish}
+            disabled={publishing}
+          >
+            {publishing ? "Yayınlanıyor…" : "Yayınla (herkese)"}
           </button>
           <button className="adbtn" onClick={onLock}>
             Çıkış
@@ -232,10 +289,14 @@ function Panel({ onLock }) {
           ))}
 
           <div className="admin__sidenote">
-            <strong>Kalıcı yapmak için</strong>
+            <strong>Nasıl çalışır?</strong>
             <p>
-              Kaydet → <b>site.js indir</b> → inen dosyayı{" "}
-              <code>src/content/site.js</code> ile değiştir.
+              <b>Önizle</b> → değişiklik yalnızca senin tarayıcında görünür,
+              test için.
+            </p>
+            <p>
+              <b>Yayınla</b> → değişiklik GitHub'a kaydedilir, site ~1 dakikada
+              güncellenir ve <b>herkese kalıcı</b> olur.
             </p>
           </div>
         </nav>
