@@ -75,7 +75,7 @@ export const hero = {
   // Arka planda sırayla kayan fotoğraflar. İstediğin kadar ekle/çıkar.
   // Boş bırakırsan ("") o slayt degrade arka planla gösterilir.
   slides: [
-    { image: "/images/hero-1.webp", caption: "Kırklareli Üniversitesi Kampüsü" },
+    { image: "/images/banner.webp", caption: "Kırklareli Üniversitesi Kampüsü" },
     // Yeni fotoğraf eklemek için: dosyayı public/images/ içine at ve
     // aşağıdaki gibi bir satır ekle (tek slayt varsa geçiş yapılmaz):
     // { image: "/images/hero-2.jpg", caption: "Kampüste fidan dikimi" },
