@@ -1,0 +1,126 @@
+.map__head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: clamp(26px, 3.2vw, 40px);
+}
+
+.map__head .section-lead {
+  margin-top: 6px;
+}
+
+/* Harita, içerik kolonundan taşarak iki yana doğru genişler.
+   Taşma payı ekranda kalan boşluktan hesaplandığı için yatay
+   kaydırma oluşmaz; dar ekranlarda pay 0'a iner. */
+.map {
+  --map-breakout: clamp(
+    0px,
+    calc((100vw - var(--maxw)) / 2 - var(--gutter)),
+    150px
+  );
+}
+
+/* Menüden bu bölüme geçildiğinde başlık + harita + açıklama birlikte
+   tek ekrana sığsın diye yükseklik görünür alandan hesaplanır. */
+.map__frame {
+  position: relative;
+  /* width olmadan max-height, aspect-ratio yüzünden genişliği de daraltır */
+  width: calc(100% + 2 * var(--map-breakout));
+  margin-left: calc(-1 * var(--map-breakout));
+  aspect-ratio: 16 / 9;
+  /* alt sınır, kısa ekranlarda haritanın basık kalmaması için */
+  max-height: clamp(340px, calc(100svh - 490px), 760px);
+  overflow: hidden;
+  border: var(--rule) solid var(--border);
+  border-radius: var(--radius);
+  /* bölüm zemini --bg-alt olduğu için çerçeve ondan ayrılsın */
+  background: var(--bg);
+}
+
+.map__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 24px;
+}
+
+.map__placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: var(--rule) dashed var(--border);
+  border-radius: var(--radius);
+  pointer-events: none;
+}
+
+.map__placeholder strong {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-soft);
+}
+
+.map__placeholder span {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+
+.map__legend {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: var(--rule) solid var(--border-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 32px;
+}
+
+.map__legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+.map__pin {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.map__pin.is-green {
+  background: var(--accent);
+}
+
+.map__pin.is-blue {
+  background: var(--blue);
+}
+
+.map__pin.is-soft {
+  background: var(--text-faint);
+}
+
+@media (max-width: 860px) {
+  .map__head {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .map__frame {
+    width: 100%;
+    margin-left: 0;
+    aspect-ratio: 4 / 3;
+  }
+}

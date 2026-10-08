@@ -1,0 +1,48 @@
+.university__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+  margin-bottom: clamp(56px, 7vw, 92px);
+}
+
+/* Bölümün son bloğuysa alttaki boşluğa gerek yok */
+.university__top--last {
+  margin-bottom: 0;
+}
+
+.university__figure {
+  margin: 0;
+}
+
+.university__media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 48vh;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.university__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.university__figure figcaption {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: var(--rule) solid var(--border-soft);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+@media (max-width: 980px) {
+  .university__top {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}

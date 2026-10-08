@@ -1,0 +1,119 @@
+.wm {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(3, 10, 8, 0.74);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.wm__card {
+  position: relative;
+  width: min(460px, 100%);
+  padding: 46px 40px 40px;
+  text-align: center;
+  background: var(--surface);
+  border: var(--rule) solid var(--border);
+  border-radius: 22px;
+}
+
+.wm__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--text-faint);
+  transition: color 0.18s linear, background-color 0.18s linear;
+}
+
+.wm__close:hover {
+  color: var(--text);
+  background: var(--bg-alt);
+}
+
+.wm__close svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ------------------------------ Rozet -------------------------------- */
+.wm__badge {
+  position: relative;
+  width: 86px;
+  height: 86px;
+  margin: 0 auto 26px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  background: #06100c;
+  border: var(--rule) solid rgba(6, 195, 119, 0.3);
+}
+
+.wm__leaf svg {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.wm__bolt {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffd43b;
+  color: #3a2a00;
+}
+
+.wm__bolt svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* ----------------------------- Metinler ------------------------------- */
+.wm__title {
+  font-size: clamp(24px, 4.4vw, 30px);
+  font-weight: var(--w-display);
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+  text-wrap: balance;
+}
+
+.wm__body {
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--text-soft);
+  max-width: 34ch;
+  margin: 0 auto;
+}
+
+.wm__thanks {
+  margin-top: 22px;
+  font-size: 15px;
+  font-weight: var(--w-bold);
+  color: var(--accent);
+}
+
+.wm__cta {
+  margin-top: 30px;
+  min-width: 200px;
+}
+
+@media (max-width: 480px) {
+  .wm__card {
+    padding: 40px 24px 32px;
+  }
+  .wm__cta {
+    width: 100%;
+  }
+}

@@ -1,0 +1,367 @@
+/* ============================================================================
+ *  Navbar — koyu şerit üzerinde beyaz kapsül
+ *  (COP31 Türkiye sitesindeki düzen, bizim renk paletimizle)
+ * ==========================================================================*/
+
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 90;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--gutter);
+  /* Saydam: hero fotoğrafı navbarın arkasından devam eder.
+     Linkler zaten opak kapsülün içinde olduğu için okunurluk korunur. */
+  background: transparent;
+}
+
+/* ---------------------------- Beyaz kapsül ---------------------------- */
+.nav__inner {
+  width: 100%;
+  height: calc(var(--nav-h) - 22px);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 8px 0 18px;
+  /* Hafif buzlu cam: arkadaki fotoğraf belli belirsiz sızar,
+     yazılar okunur kalır. */
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  transition: background-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+/* Koyu temada kapsül de koyulaşır */
+:root[data-theme="dark"] .nav__inner {
+  background: rgba(20, 27, 23, 0.9);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Sayfa kaydırılınca kapsül biraz daha matlaşır ve içerikten ayrılır */
+.nav.is-scrolled .nav__inner {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: var(--border);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.14);
+}
+
+:root[data-theme="dark"] .nav.is-scrolled .nav__inner {
+  background: rgba(23, 31, 27, 0.9);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------- Logolar + marka -------------------------- */
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  min-width: 0;
+  margin-left: 35px;
+}
+
+.nav__logos {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Kapsül zaten beyaz olduğu için logolara ayrıca madalyon gerekmiyor */
+/* Logolar lacivert/renkli ve beyaz zeminli dosyalar olduğu için
+   koyu temada da beyaz madalyonun içinde kalır. */
+.nav__logo {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.nav__logo + .nav__logo {
+  margin-left: -8px;
+}
+
+.nav__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nav__words {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.nav__words strong {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--blue-deep);
+}
+
+.nav__words em {
+  font-style: normal;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--green-700);
+  white-space: nowrap;
+}
+
+:root[data-theme="dark"] .nav__words strong {
+  color: #fff;
+}
+
+:root[data-theme="dark"] .nav__words em {
+  color: var(--green);
+}
+
+/* ------------------------------ Linkler ------------------------------- */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-left: auto;
+}
+
+.nav__links a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 0;
+  font-size: 14.5px;
+  font-weight: var(--w-bold);
+  letter-spacing: -0.02em;
+  color: var(--blue-deep);
+  white-space: nowrap;
+  transition: color 0.18s linear;
+}
+
+.nav__links a:hover,
+.nav__links a.is-active {
+  color: var(--green-700);
+}
+
+:root[data-theme="dark"] .nav__links a {
+  color: rgba(238, 243, 239, 0.75);
+}
+
+:root[data-theme="dark"] .nav__links a:hover,
+:root[data-theme="dark"] .nav__links a.is-active {
+  color: var(--green);
+}
+
+.nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2.5px;
+  border-radius: 2px;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--ease);
+}
+
+.nav__links a.is-active::after {
+  transform: scaleX(1);
+}
+
+/* --------------------- Sağ taraf / tema anahtarı ---------------------- */
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Referanstaki mavi "Ziyaretçi Rehberi" düğmesinin karşılığı:
+   dolu yeşil kapsül içinde tema anahtarı */
+.nav .themetoggle {
+  height: calc(var(--nav-h) - 46px);
+  padding: 0 20px 0 16px;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  background: var(--green-700);
+  color: #fff;
+}
+
+.nav .themetoggle:hover {
+  background: var(--blue-deep);
+  color: #fff;
+}
+
+.nav .themetoggle__icon {
+  color: #fff;
+  width: 35px;
+  height: 19px;
+}
+
+.nav .themetoggle__icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.nav .themetoggle__label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: var(--w-bold);
+  letter-spacing: -0.015em;
+  text-transform: none;
+}
+
+/* Koyu temada koyu kapsül üzerinde daha parlak yeşil */
+:root[data-theme="dark"] .nav .themetoggle {
+  background: var(--green);
+  color: var(--accent-ink);
+}
+
+:root[data-theme="dark"] .nav .themetoggle:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+:root[data-theme="dark"] .nav .themetoggle__icon {
+  color: var(--accent-ink);
+}
+
+:root[data-theme="dark"] .nav__burger {
+  background: var(--green);
+}
+
+:root[data-theme="dark"] .nav__burger span {
+  background: var(--accent-ink);
+}
+
+/* Kapsül içinde ayraç çizgisine gerek yok */
+.nav__divider {
+  display: none;
+}
+
+/* ----------------------------- Hamburger ------------------------------ */
+.nav__burger {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--blue-deep);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.nav__burger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #fff;
+  transition: transform 0.28s var(--ease);
+}
+
+.nav__burger span.is-x:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.nav__burger span.is-x:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+/* ---------------------------- Mobil menü ------------------------------ */
+.navsheet {
+  position: fixed;
+  inset: var(--nav-h) 0 0;
+  z-index: 85;
+  padding: 10px var(--gutter) 40px;
+  background: var(--bg);
+  overflow-y: auto;
+}
+
+.navsheet a {
+  display: flex;
+  align-items: baseline;
+  padding: 19px 2px;
+  font-size: clamp(23px, 6.6vw, 32px);
+  font-weight: var(--w-display);
+  letter-spacing: -0.04em;
+  border-bottom: var(--rule) solid var(--border-soft);
+}
+
+/* --------------------------- Duyarlı davranış ------------------------- */
+@media (max-width: 1240px) {
+  .nav__links {
+    gap: 18px;
+  }
+  .nav__links a {
+    font-size: 14px;
+  }
+  .nav .themetoggle {
+    padding: 0 16px 0 13px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .nav__links {
+    display: none;
+  }
+  .nav__burger {
+    display: flex;
+  }
+  .nav__right {
+    margin-left: auto;
+  }
+  .nav .themetoggle__label {
+    display: none;
+  }
+  .nav .themetoggle {
+    padding: 0;
+    width: calc(var(--nav-h) - 36px);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --nav-h: 72px;
+  }
+  .nav {
+    padding: 0 12px;
+  }
+  .nav__inner {
+    gap: 12px;
+    padding: 0 6px 0 12px;
+  }
+  .nav__logo {
+    width: 36px;
+    height: 36px;
+  }
+  .nav__logo + .nav__logo {
+    margin-left: -7px;
+  }
+  .nav__words strong {
+    font-size: 17px;
+  }
+  .nav__words em {
+    display: none;
+  }
+  .nav__brand {
+    gap: 9px;
+  }
+  .nav__burger {
+    width: 38px;
+    height: 38px;
+  }
+}

@@ -1,0 +1,310 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--band);
+  color: var(--band-text);
+}
+
+/* ---------------------------- Arka plan ------------------------------ */
+.hero__bg {
+  position: absolute;
+  inset: -6% 0;
+  z-index: 0;
+}
+
+.hero__slide {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fotoğraf yokken: tek yönlü, sakin bir koyu yeşil geçiş */
+.hero__fallback {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(170deg, #06382a 0%, #04231a 55%, #041512 100%);
+}
+
+/* Ortalanmış metin fotoğrafın her yerinde okunsun diye perde merkeze
+   doğru biraz daha koyu; üst ve alt kenarlar fotoğrafı gösterir. */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      ellipse 70% 65% at 26% 46%,
+      rgba(3, 16, 12, 0.34) 0%,
+      rgba(3, 16, 12, 0.12) 58%,
+      rgba(3, 16, 12, 0) 100%
+    ),
+    linear-gradient(
+      to right,
+      rgba(3, 16, 12, 0.22) 0%,
+      rgba(3, 16, 12, 0.04) 42%,
+      rgba(3, 16, 12, 0) 66%
+    ),
+    linear-gradient(
+      to top,
+      rgba(3, 16, 12, 0.5) 0%,
+      rgba(3, 16, 12, 0.16) 26%,
+      rgba(3, 16, 12, 0.04) 55%,
+      rgba(3, 16, 12, 0.1) 100%
+    );
+}
+
+/* ----------------------------- İçerik -------------------------------- */
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  margin: auto;
+  padding-top: calc(var(--nav-h) + min(4vh, 40px));
+  padding-bottom: min(4vh, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: min(3vh, 24px);
+}
+
+.hero__title {
+  /* Poppins — Inter'e göre daha geniş ve yuvarlak olduğu için
+     harf aralığı biraz gevşetildi. */
+  font-family: var(--font-display);
+  font-size: min(6vw, 10vh, 68px);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  color: #fff;
+  text-wrap: balance;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+
+.hero__line {
+  display: block;
+  overflow: hidden;
+}
+
+.hero__line > span {
+  display: block;
+  padding-top: 0.1em;
+}
+
+.hero__subtitle {
+  margin-top: min(3vh, 26px);
+  max-width: 34ch;
+  font-size: clamp(16px, 2vw, 23px);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.84);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------------------------- Bilgi satırı ---------------------------- */
+.hero__info {
+  margin-top: min(4vh, 34px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 28px;
+}
+
+.hero__info li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.86);
+  text-align: left;
+}
+
+.hero__infoicon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--green);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.hero__infoicon svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ---------------------------- Aşağı ok -------------------------------- */
+.hero__down {
+  margin-top: min(5vh, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.72);
+  transition: color 0.2s linear;
+}
+
+.hero__down:hover {
+  color: #fff;
+}
+
+.hero__downlabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.hero__downarrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #04140d;
+  animation: heroBob 2.4s var(--ease) infinite;
+}
+
+.hero__downarrow svg {
+  width: 19px;
+  height: 19px;
+}
+
+@keyframes heroBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.hero__down:active .hero__downarrow {
+  transform: scale(0.94);
+}
+
+/* ---------------------------- Alt şerit ------------------------------- */
+.hero__foot {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(3, 16, 12, 0.4);
+}
+
+.hero__footinner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding-top: min(2.2vh, 18px);
+  padding-bottom: min(2.2vh, 18px);
+}
+
+.hero__stats {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 40px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.hero__stats::-webkit-scrollbar {
+  display: none;
+}
+
+.hero__stats > div {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  white-space: nowrap;
+}
+
+.hero__stats dt {
+  font-size: 21px;
+  font-weight: var(--w-display);
+  letter-spacing: -0.04em;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero__stats dd {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hero__dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.hero__caption {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-right: 6px;
+}
+
+.hero__dot {
+  width: 22px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.25);
+  transition: background-color 0.3s linear;
+}
+
+.hero__dot.is-on {
+  background: var(--green);
+}
+
+@media (max-width: 860px) {
+  .hero__info {
+    gap: 12px 18px;
+  }
+  .hero__info li {
+    font-size: 13px;
+  }
+  .hero__footinner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .hero__stats {
+    gap: 26px;
+    width: 100%;
+  }
+  .hero__caption {
+    display: none;
+  }
+}

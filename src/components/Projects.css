@@ -1,0 +1,195 @@
+.projects__head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.projects__head .section-lead {
+  margin-top: 6px;
+}
+
+/* İki proje yan yana */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  align-items: start;
+}
+
+/* ------------------------------- Kart --------------------------------- */
+.pcard {
+  display: flex;
+  flex-direction: column;
+  padding-top: 22px;
+  border-top: 2px solid var(--text);
+}
+
+.pcard__frame {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 34vh;
+  overflow: hidden;
+  border-radius: var(--radius);
+  margin-bottom: 22px;
+}
+
+.pcard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pcard__head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.pcard__number {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.pcard__badge {
+  font-size: 10.5px;
+  font-weight: var(--w-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  line-height: 1.4;
+}
+
+.pcard__title {
+  font-size: clamp(22px, 2.3vw, 30px);
+  font-weight: var(--w-display);
+  letter-spacing: -0.038em;
+  text-wrap: balance;
+}
+
+.pcard__subtitle {
+  margin-top: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--accent);
+}
+
+.pcard__summary {
+  margin-top: 16px;
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: var(--text-soft);
+}
+
+/* ------------------------------ Künye --------------------------------- */
+.pcard__facts {
+  margin: 22px 0 0;
+  border-top: var(--rule) solid var(--border);
+}
+
+.pcard__facts > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: var(--rule) solid var(--border-soft);
+}
+
+.pcard__facts dt {
+  font-size: 11px;
+  font-weight: var(--w-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.pcard__facts dd {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: var(--w-bold);
+  text-align: right;
+}
+
+/* --------------------------- Açılır paneller --------------------------- */
+.pcard__panels {
+  margin-top: 22px;
+}
+
+.pcard__toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: var(--rule) solid var(--border);
+  font-size: 14px;
+  font-weight: var(--w-bold);
+  letter-spacing: -0.02em;
+  text-align: left;
+  transition: color 0.18s linear;
+}
+
+.pcard__panel:first-child .pcard__toggle {
+  border-top: var(--rule) solid var(--border);
+}
+
+.pcard__toggle:hover {
+  color: var(--accent);
+}
+
+.pcard__toggle i {
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.pcard__list {
+  overflow: hidden;
+}
+
+.pcard__list ul {
+  padding: 6px 0 14px;
+}
+
+.pcard__list li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 7px 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-soft);
+  border-bottom: var(--rule) solid var(--border-soft);
+}
+
+.pcard__list li span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+@media (max-width: 980px) {
+  .projects__head {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .projects__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .pcard__frame {
+    max-height: 42vh;
+  }
+}

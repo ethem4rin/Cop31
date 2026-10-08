@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="tr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Sekme ikonu: COP31 logosu (public/images/logo-cop31.jpg).
+         Değiştirmek için aynı adla üzerine yaz ya da aşağıdaki yolu düzenle. -->
+    <link rel="icon" type="image/jpeg" href="/images/logo-cop31.jpg" />
+    <link rel="apple-touch-icon" href="/images/logo-cop31.jpg" />
+    <meta name="theme-color" content="#070c0a" />
+    <meta
+      name="description"
+      content="Kırklareli Üniversitesi öğrencilerinin COP31 kapsamında yürüttüğü iklim ve sürdürülebilirlik projeleri."
+    />
+    <title>COP31 | Kırklareli Üniversitesi</title>
+    <script>
+      // Sayfa boyanmadan önce temayı uygula (beyaz parlama olmasın)
+      (function () {
+        try {
+          var t = localStorage.getItem("cop31-theme");
+          document.documentElement.setAttribute(
+            "data-theme",
+            t === "light" ? "light" : "dark"
+          );
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

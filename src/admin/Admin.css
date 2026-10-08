@@ -1,0 +1,595 @@
+/* ==========================================================================
+ *  COP31 — Yönetim Paneli arayüzü
+ * ========================================================================*/
+
+/* ------------------------------ Giriş --------------------------------- */
+.adgate {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--bg);
+}
+
+.adgate__card {
+  width: min(400px, 100%);
+  padding: 36px 32px 30px;
+  background: var(--surface);
+  border: var(--rule) solid var(--border);
+  border-top: 2px solid var(--green);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+}
+
+.adgate__tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 16px;
+}
+
+.adgate h1 {
+  font-size: 26px;
+  letter-spacing: -0.035em;
+}
+
+.adgate p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+.adgate input {
+  margin-top: 22px;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--bg);
+  border: var(--rule) solid var(--border);
+  border-radius: var(--radius);
+}
+
+.adgate input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.adgate__error {
+  color: var(--red);
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.adgate .btn {
+  margin-top: 16px;
+}
+
+.adgate__note {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: var(--rule) solid var(--border-soft);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text-faint);
+}
+
+/* ------------------------------ Kabuk --------------------------------- */
+.admin {
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.admin__top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 12px 22px;
+  background: var(--bg);
+  border-bottom: var(--rule) solid var(--border);
+}
+
+.admin__brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.admin__brand strong {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.admin__brand span {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.admin__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.admin__sep {
+  width: 1px;
+  height: 18px;
+  background: var(--border);
+  margin: 0 4px;
+}
+
+.admin__dirty {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  padding: 4px 9px;
+  border: var(--rule) solid currentColor;
+  border-radius: var(--radius-pill);
+}
+
+.adbtn {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-soft);
+  border: var(--rule) solid var(--border);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  transition: color 0.15s linear, border-color 0.15s linear,
+    background-color 0.15s linear;
+}
+
+.adbtn:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.adbtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.adbtn.is-primary {
+  background: var(--green);
+  border-color: var(--green);
+  color: #042016;
+  font-weight: 600;
+}
+
+.adbtn.is-primary:hover:not(:disabled) {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #042016;
+}
+
+/* ------------------------------ Gövde --------------------------------- */
+.admin__body {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  align-items: start;
+}
+
+.admin__side {
+  position: sticky;
+  top: 61px;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 14px 28px;
+  border-right: var(--rule) solid var(--border);
+  min-height: calc(100svh - 61px);
+}
+
+.admin__side button {
+  text-align: left;
+  padding: 9px 12px;
+  font-size: 13.5px;
+  color: var(--text-soft);
+  border-radius: var(--radius);
+  transition: color 0.15s linear, background-color 0.15s linear;
+}
+
+.admin__side button:hover {
+  color: var(--text);
+  background: var(--bg-alt);
+}
+
+.admin__side button.is-on {
+  color: var(--text);
+  background: var(--bg-alt);
+  font-weight: 600;
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.admin__sidenote {
+  margin-top: auto;
+  padding: 16px 12px 0;
+  border-top: var(--rule) solid var(--border-soft);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-faint);
+}
+
+.admin__sidenote strong {
+  display: block;
+  color: var(--text-soft);
+  margin-bottom: 6px;
+}
+
+.admin__sidenote code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+}
+
+.admin__main {
+  padding: 28px 32px 90px;
+  max-width: 900px;
+}
+
+.admin__sechead {
+  padding-bottom: 18px;
+  border-bottom: var(--rule) solid var(--border);
+  margin-bottom: 28px;
+}
+
+.admin__sechead h2 {
+  font-size: 24px;
+  letter-spacing: -0.035em;
+}
+
+.admin__sechead p {
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-soft);
+  max-width: 70ch;
+}
+
+.admin__toast {
+  position: fixed;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  z-index: 60;
+  padding: 11px 20px;
+  font-size: 13.5px;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: var(--radius-pill);
+}
+
+/* ============================ ALAN EDİTÖRÜ ============================= */
+.ae-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ae-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.ae-field.is-nested {
+  padding: 16px 0 4px;
+  border-top: var(--rule) solid var(--border-soft);
+}
+
+.ae-label {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.ae-label code {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 400;
+  color: var(--text-faint);
+}
+
+.ae-fields input[type="text"],
+.ae-fields input[type="number"],
+.ae-fields input:not([type]),
+.ae-list input,
+.ae-fields textarea,
+.ae-list textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text);
+  background: var(--surface);
+  border: var(--rule) solid var(--border);
+  border-radius: var(--radius);
+  resize: vertical;
+}
+
+.ae-fields input:focus,
+.ae-fields textarea:focus,
+.ae-list input:focus,
+.ae-list textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.ae-hint {
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+
+.ae-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--text-soft);
+}
+
+/* ----------------------------- Görsel alanı ---------------------------- */
+.imgfield {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.imgfield__row {
+  display: flex;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.imgfield__preview {
+  width: 108px;
+  height: 76px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--bg-alt);
+  border: var(--rule) dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.imgfield__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imgfield__preview span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.imgfield__controls {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.imgfield__buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.imgfield__buttons button {
+  padding: 8px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-soft);
+  border: var(--rule) solid var(--border);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  transition: color 0.15s linear, border-color 0.15s linear;
+}
+
+.imgfield__buttons button:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.imgfield__buttons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.imgfield__buttons button.is-danger:hover {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.imgfield__path {
+  width: 100%;
+  padding: 9px 12px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--surface);
+  border: var(--rule) solid var(--border);
+  border-radius: var(--radius);
+}
+
+.imgfield__path:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.imgfield__path:disabled {
+  opacity: 0.45;
+}
+
+.imgfield__error {
+  font-size: 12px;
+  color: var(--red);
+}
+
+.imgfield__ok {
+  font-size: 12px;
+  color: var(--accent);
+}
+
+/* ---------------------------- Metin listesi ---------------------------- */
+.ae-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ae-list__row {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+}
+
+.ae-list__num {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-faint);
+  padding-top: 13px;
+}
+
+.ae-list__tools {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.ae-list__tools button {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  color: var(--text-faint);
+  border: var(--rule) solid var(--border);
+  border-radius: var(--radius);
+  transition: color 0.15s linear, border-color 0.15s linear;
+}
+
+.ae-list__tools button:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.ae-list__tools button.is-danger:hover {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.ae-add {
+  align-self: flex-start;
+  margin-top: 6px;
+  padding: 8px 15px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  border: var(--rule) dashed var(--border);
+  border-radius: var(--radius-pill);
+  transition: border-color 0.15s linear;
+}
+
+.ae-add:hover {
+  border-color: var(--accent);
+}
+
+/* --------------------------- Nesne listesi ----------------------------- */
+.ae-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ae-item {
+  border: var(--rule) solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+
+.ae-item__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-bottom: var(--rule) solid var(--border);
+}
+
+.ae-item__num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.ae-item__title {
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ae-item__head .ae-list__tools {
+  margin-left: auto;
+}
+
+.ae-item > .ae-fields {
+  padding: 18px 14px;
+}
+
+@media (max-width: 900px) {
+  .admin__body {
+    grid-template-columns: 1fr;
+  }
+  .admin__side {
+    position: relative;
+    top: auto;
+    min-height: 0;
+    flex-direction: row;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: var(--rule) solid var(--border);
+    padding: 12px;
+    gap: 6px;
+  }
+  .admin__side button {
+    white-space: nowrap;
+  }
+  .admin__sidenote {
+    display: none;
+  }
+  .admin__main {
+    padding: 22px 18px 80px;
+  }
+}

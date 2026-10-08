@@ -1,0 +1,51 @@
+/* Navbar'dan ayrık duran, sade açık/koyu tema anahtarı. */
+.themetoggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 8px;
+  border: var(--rule) solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--text-soft);
+  transition: border-color 0.18s linear, color 0.18s linear,
+    transform 0.18s var(--ease);
+}
+
+.themetoggle:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+.themetoggle:active {
+  transform: scale(0.96);
+}
+
+.themetoggle__icon {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  color: var(--accent);
+}
+
+.themetoggle__icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.themetoggle__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 560px) {
+  .themetoggle__label {
+    display: none;
+  }
+  .themetoggle {
+    padding: 7px;
+  }
+}

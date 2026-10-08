@@ -1,0 +1,223 @@
+.teamsec__title {
+  max-width: 14ch;
+  margin-bottom: clamp(44px, 5vw, 64px);
+}
+
+.teamsec__stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 56px;
+  align-items: end;
+  padding-bottom: clamp(40px, 5vw, 56px);
+  border-bottom: var(--rule) solid var(--border);
+}
+
+/* ------------------------------ Alıntı -------------------------------- */
+.teamsec__quotecol {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.teamsec__quote {
+  margin: 0;
+  font-size: clamp(20px, 2.7vw, 32px);
+  line-height: 1.3;
+  letter-spacing: -0.038em;
+  font-weight: var(--w-bold);
+  text-wrap: balance;
+}
+
+.teamsec__quote::before {
+  content: "“";
+  color: var(--accent);
+}
+
+.teamsec__quote::after {
+  content: "”";
+  color: var(--accent);
+}
+
+.teamsec__id {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: var(--rule) solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+}
+
+.teamsec__id strong {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.teamsec__id span {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.teamsec__id em {
+  font-style: normal;
+  font-size: 12.5px;
+  color: var(--text-faint);
+  margin-left: auto;
+}
+
+/* ------------------------------ Portre -------------------------------- */
+.teamsec__portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 40vh;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.teamsec__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teamsec__portrait.ph .ph__label {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--border);
+}
+
+/* ----------------------------- Ekip listesi ---------------------------- */
+.teamsec__roster {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+}
+
+.teamsec__roster li {
+  border-right: var(--rule) solid var(--border-soft);
+}
+
+.teamsec__roster li:last-child {
+  border-right: none;
+}
+
+.teamsec__roster button {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 24px 18px 24px 0;
+  text-align: left;
+  opacity: 0.45;
+  transition: opacity 0.22s linear;
+}
+
+.teamsec__roster li:not(:first-child) button {
+  padding-left: 18px;
+}
+
+.teamsec__roster button:hover {
+  opacity: 0.8;
+}
+
+.teamsec__roster button.is-on {
+  opacity: 1;
+}
+
+.teamsec__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  filter: grayscale(1);
+  transition: filter 0.22s linear;
+}
+
+.teamsec__roster button.is-on .teamsec__avatar {
+  filter: none;
+  box-shadow: 0 0 0 1.5px var(--accent);
+}
+
+.teamsec__avatarphoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teamsec__avatar.ph {
+  border-style: solid;
+}
+
+.teamsec__avatar.ph .ph__label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 0;
+  color: var(--text-faint);
+}
+
+.teamsec__rostername {
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.teamsec__rosterrole {
+  font-size: 11.5px;
+  color: var(--text-faint);
+  line-height: 1.3;
+}
+
+@media (max-width: 980px) {
+  .teamsec__stage {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .teamsec__portraitcol {
+    max-width: 260px;
+    order: -1;
+  }
+  .teamsec__quotecol {
+    min-height: 0;
+  }
+  .teamsec__roster {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .teamsec__roster li:nth-child(3n) {
+    border-right: none;
+  }
+  .teamsec__roster li:nth-child(n + 4) {
+    border-top: var(--rule) solid var(--border-soft);
+  }
+}
+
+@media (max-width: 560px) {
+  .teamsec__roster {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .teamsec__roster li:nth-child(3n) {
+    border-right: var(--rule) solid var(--border-soft);
+  }
+  .teamsec__roster li:nth-child(2n) {
+    border-right: none;
+  }
+  .teamsec__roster li:nth-child(n + 3) {
+    border-top: var(--rule) solid var(--border-soft);
+  }
+  .teamsec__id em {
+    margin-left: 0;
+  }
+}

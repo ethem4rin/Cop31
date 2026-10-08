@@ -1,0 +1,301 @@
+/* ============================================================================
+ *  Timeline — Yatay kaydırılabilir COP zaman çizelgesi
+ * ==========================================================================*/
+
+/* ---- Kapsayıcı ---- */
+.tl-root {
+  margin-top: 40px;
+  position: relative;
+}
+
+/* Kaydırma ipucu */
+.tl-hint {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.tl-hint-arrow {
+  display: inline-block;
+  animation: tl-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes tl-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ---- Kaydırma alanı ---- */
+.tl-track {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: relative;
+  min-height: 280px;
+  padding: 0 48px;
+  cursor: grab;
+  user-select: none;
+}
+
+/* Çizgi: track'in pseudo-elementi olarak tüm içeriği kaplar */
+.tl-track::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+  border-top: 2px dotted var(--accent, #4caf50);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+  /* Scroll genişliğini kapsasın */
+  min-width: max-content;
+}
+
+.tl-track::-webkit-scrollbar {
+  display: none;
+}
+
+.tl-track.is-dragging {
+  cursor: grabbing;
+}
+
+/* ---- Her düğümden geçen yatay bağlantı çizgisi ---- */
+.tl-node::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-top: 2px dotted var(--accent, #4caf50);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---- Tekil düğüm ---- */
+.tl-node {
+  position: relative;
+  flex: 0 0 auto;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 280px;
+  z-index: 1;
+}
+
+/* ---- Üst alan (şehir + COP kodu) ---- */
+.tl-top {
+  position: absolute;
+  top: 24px;
+  text-align: center;
+  width: 100%;
+  padding: 0 12px;
+}
+
+.tl-city {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.tl-code {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-soft);
+  letter-spacing: 0.03em;
+}
+
+/* ---- Yeşil Nokta ---- */
+.tl-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg, #fff);
+  border: 2px solid var(--accent, #4caf50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s var(--ease);
+  z-index: 2;
+}
+
+.tl-dot span {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent, #4caf50);
+}
+
+.tl-node:hover .tl-dot {
+  transform: translate(-50%, -50%) scale(1.18);
+}
+
+/* ---- Alt alan (yıl) ---- */
+.tl-bottom {
+  position: absolute;
+  bottom: 24px;
+  text-align: center;
+  width: 100%;
+}
+
+.tl-year {
+  font-size: 28px;
+  font-weight: var(--w-display, 800);
+  color: var(--text);
+  letter-spacing: -0.03em;
+  font-family: var(--font-sans);
+}
+
+/* ================================================================
+   FINAL DÜĞÜM — 2026 COP31 Türkiye
+   ================================================================ */
+.tl-node--final {
+  width: 300px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding-right: 40px;
+}
+
+.tl-final-year {
+  font-size: 28px;
+  font-weight: var(--w-display, 800);
+  color: var(--blue-deep, #00479b);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  letter-spacing: 0.06em;
+  font-family: var(--font-sans);
+  margin-right: 10px;
+  margin-bottom: 11px;
+  user-select: none;
+}
+
+:root[data-theme="dark"] .tl-final-year {
+  color: var(--blue, #4c8dff);
+}
+
+.tl-final-badge {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow:
+    0 8px 24px rgba(10, 95, 158, 0.22),
+    0 0 0 3px rgba(10, 95, 158, 0.1);
+  position: relative;
+  z-index: 3;
+}
+
+.tl-logo-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.tl-final-label {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+}
+
+.tl-final-label strong {
+  font-size: 22px;
+  font-weight: var(--w-display, 800);
+  color: var(--blue-deep, #00479b);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.tl-final-label span {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--blue-deep, #00479b);
+  opacity: 0.8;
+}
+
+:root[data-theme="dark"] .tl-final-label strong,
+:root[data-theme="dark"] .tl-final-label span {
+  color: var(--blue, #4c8dff);
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 768px) {
+  .tl-track {
+    padding: 0 24px;
+    min-height: 240px;
+  }
+
+  .tl-node {
+    width: 160px;
+    height: 240px;
+  }
+
+  .tl-city {
+    font-size: 12.5px;
+  }
+
+  .tl-year {
+    font-size: 22px;
+  }
+
+  .tl-node--final {
+    width: 240px;
+  }
+
+  .tl-final-badge {
+    width: 72px;
+    height: 72px;
+  }
+
+  .tl-final-year {
+    font-size: 22px;
+  }
+
+  .tl-final-label strong {
+    font-size: 18px;
+  }
+
+  .tl-final-label span {
+    font-size: 14px;
+  }
+}
