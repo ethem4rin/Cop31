@@ -111,11 +111,24 @@
   gap: 18px;
 }
 
+/* Kartlar <Reveal> sarmalayıcısı içinde. Sarmalayıcı grid hücresini
+   doldurmazsa her kart kendi metni kadar uzun kalıyor ve satırlar
+   tırtıklı görünüyordu. İkisi de hücreyi doldursun: */
+.uniworks__grid > * {
+  height: 100%;
+}
+
+/* Kart sayısı tekse son kart yanında boşluk bırakmasın, satırı kaplasın */
+.uniworks__grid > *:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .wcard {
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
   padding: 26px 24px;
   border-radius: 15px;
   background: rgba(20, 27, 23, 0.6);
