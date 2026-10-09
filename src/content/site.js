@@ -111,9 +111,9 @@ export const about = {
 
 export const copHistory = {
   eyebrow: "COP Zirveleri",
-  title: "Berlin'den Antalya'ya",
-  lead: "İlk Taraflar Konferansı 1995'te Berlin'de toplandı. O günden bu yana zirveler, iklim politikasının dönüm noktalarını üretti.",
-  scrollHint: "Kaydırarak keşfet",
+  title: "COP31 Nedir ? ",
+  lead: "COP31, Birleşmiş Milletler İklim Değişikliği Konferanslarının 31’incisidir ve Kasım \n2026’da Antalya’da düzenlenecektir. Zirvede dünya liderleri, uzmanlar ve sivil toplum \ntemsilcileri iklim değişikliğiyle mücadele ve sürdürülebilir gelecek için ortak çözümleri \ntartışacaktır. Türkiye’nin ev sahipliği yapacağı bu konferans, küresel iklim politikaları \naçısından önemli bir buluşma olacaktır.",
+  scrollHint: "COP Zirveleri",
   items: [
     {
       code: "COP 1",
