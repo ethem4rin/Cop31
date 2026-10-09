@@ -191,14 +191,12 @@
 /* Referanstaki mavi "Ziyaretçi Rehberi" düğmesinin karşılığı:
    dolu yeşil kapsül içinde tema anahtarı */
 .nav .themetoggle {
-  width: 100%;
-  height: calc(var(--nav-h) - 42px);
-  padding: 0 20px 0 16px;
-  gap: 10px;
+  height: calc(var(--nav-h) - 48px);
+  padding: 0 16px 0 13px;
+  gap: 9px;
   background: #fffff0;
   border: 1px solid #ffffff8c;
   border-radius: 999px;
-  gap: 24px;
   color: var(--blue-deep);
 }
 
@@ -209,8 +207,8 @@
 
 .nav .themetoggle__icon {
   color: var(--blue-deep);
-  width: 35px;
-  height: 19px;
+  width: 18px;
+  height: 18px;
 }
 
 .nav .themetoggle__icon svg {
@@ -296,10 +294,10 @@
 .navsheet a {
   display: flex;
   align-items: baseline;
-  padding: 19px 2px;
-  font-size: clamp(23px, 6.6vw, 32px);
-  font-weight: var(--w-display);
-  letter-spacing: -0.04em;
+  padding: 15px 2px;
+  font-size: clamp(16px, 4.6vw, 20px);
+  font-weight: var(--w-bold);
+  letter-spacing: -0.02em;
   border-bottom: var(--rule) solid var(--border-soft);
 }
 
@@ -329,9 +327,13 @@
   .nav .themetoggle__label {
     display: none;
   }
+  /* Tema düğmesi, hamburger ile birebir aynı daire olsun */
   .nav .themetoggle {
+    width: 42px;
+    height: 42px;
     padding: 0;
-    width: calc(var(--nav-h) - 36px);
+    gap: 0;
+    border-radius: 50%;
     justify-content: center;
   }
 }
@@ -355,15 +357,24 @@
     margin-left: -7px;
   }
   .nav__words strong {
-    font-size: 17px;
+    font-size: 16px;
   }
+  /* "KIRKLARELİ ÜNİVERSİTESİ" alt yazısı mobilde de görünsün,
+     COP31'in altına hizalı ve dar ekrana sığacak kadar küçük. */
   .nav__words em {
-    display: none;
+    display: block;
+    font-size: 8px;
+    letter-spacing: 0.04em;
   }
   .nav__brand {
     gap: 9px;
   }
   .nav__burger {
+    width: 38px;
+    height: 38px;
+  }
+  /* Tema düğmesi de hamburgerle aynı: 38px daire */
+  .nav .themetoggle {
     width: 38px;
     height: 38px;
   }
