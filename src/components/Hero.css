@@ -121,7 +121,10 @@
   margin-top: min(4vh, 34px);
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* Başlık sola yaslı olduğu için bilgi satırları da sola yaslanmalı;
+     "center" olduğunda alt satıra kayan satırlar ayrı ayrı ortalanıp
+     birbiriyle hizasız duruyordu. */
+  justify-content: flex-start;
   gap: 12px 28px;
 }
 

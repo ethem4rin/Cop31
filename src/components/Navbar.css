@@ -346,8 +346,12 @@
     padding: 0 12px;
   }
   .nav__inner {
-    gap: 12px;
-    padding: 0 6px 0 12px;
+    /* Telefonda %80 genişlik dar kalıyor ve hamburger kapsülün dışına
+       taşıyordu; dar ekranlarda kapsül tam genişlik olsun. */
+    width: 100%;
+    margin-left: 0;
+    gap: 10px;
+    padding: 0 6px 0 10px;
   }
   .nav__logo {
     width: 36px;
