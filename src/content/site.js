@@ -70,7 +70,7 @@ export const hero = {
   ],
 
   // Aşağı ok düğmesinin etrafındaki yazı. Boş bırakırsan ok da gizlenir.
-  scrollHint: "Keşfet",
+  scrollHint: "",
 
   // Arka planda sırayla kayan fotoğraflar. İstediğin kadar ekle/çıkar.
   // Boş bırakırsan ("") o slayt degrade arka planla gösterilir.

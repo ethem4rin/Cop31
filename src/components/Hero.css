@@ -301,10 +301,23 @@
     gap: 16px;
   }
   .hero__stats {
-    gap: 26px;
+    gap: 14px 26px;
     width: 100%;
+    /* Mobilde tek satıra sığmayan rakamlar yatay kaymak yerine alt satıra
+       sarsın; böylece "240+ Hedef Öğrenci" kesilmez. */
+    flex-wrap: wrap;
+    overflow: visible;
   }
   .hero__caption {
     display: none;
+  }
+}
+
+/* Dar telefonlarda rakamları 2×2 düzene al — hepsi kesilmeden görünür. */
+@media (max-width: 560px) {
+  .hero__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 18px;
   }
 }
