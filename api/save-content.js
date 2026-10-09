@@ -9,7 +9,7 @@
  *    ADMIN_PASSCODE   Panel parolası (tarayıcıya inmez, gerçek güvenlik budur)
  *    GITHUB_TOKEN     Repoya yazma yetkisi olan fine-grained Personal Access Token
  *    GITHUB_OWNER     (opsiyonel) varsayılan: ethem4rin
- *    GITHUB_REPO      (opsiyonel) varsayılan: cop31website
+ *    GITHUB_REPO      (opsiyonel) varsayılan: Cop31
  *    GITHUB_BRANCH    (opsiyonel) varsayılan: main
  * ==========================================================================*/
 
@@ -50,7 +50,7 @@ export default async function handler(req, res) {
   }
 
   const owner = process.env.GITHUB_OWNER || "ethem4rin";
-  const repo = process.env.GITHUB_REPO || "cop31website";
+  const repo = process.env.GITHUB_REPO || "Cop31";
   const branch = process.env.GITHUB_BRANCH || "main";
   const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${FILE_PATH}`;
 
