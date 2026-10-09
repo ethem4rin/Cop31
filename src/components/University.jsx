@@ -32,6 +32,51 @@ export default function University() {
             </figure>
           </Reveal>
         </div>
+
+        {!!university.activities?.length && (
+          <div className="university__works">
+            {university.activitiesTitle && (
+              <Reveal>
+                <h3 className="university__workstitle">
+                  {university.activitiesTitle}
+                </h3>
+              </Reveal>
+            )}
+
+            <div className="university__grid">
+              {university.activities.map((a, i) => (
+                <Reveal key={a.title} delay={0.05 * (i % 2)}>
+                  <article className="univcard">
+                    <span className="univcard__no">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h4 className="univcard__title">{a.title}</h4>
+                    {a.summary && <p className="univcard__text">{a.summary}</p>}
+                    {a.href && (
+                      <a
+                        className="univcard__link"
+                        href={a.href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Habere git
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path
+                            d="M7 17 17 7M9 7h8v8"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </a>
+                    )}
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
