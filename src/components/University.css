@@ -40,82 +40,185 @@
   color: var(--text-faint);
 }
 
-/* --------------------- Çalışmalar / haberler listesi ------------------ */
-.university__works {
+/* ============================ ÇALIŞMALAR / HABERLER ====================
+ *  Arkada temaya göre değişen kampüs fotoğrafı (açık = gündüz, koyu = gece),
+ *  üzerinde cam kartlar; her kartın sağ üstünde hover'da beliren tek renk
+ *  logo filigranı (açık temada lacivert, koyu temada mint).
+ * ==========================================================================*/
+.uniworks {
+  position: relative;
   margin-top: clamp(52px, 6.5vw, 88px);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
 }
 
-.university__workstitle {
-  font-size: clamp(20px, 2.4vw, 27px);
-  letter-spacing: -0.03em;
-  padding-bottom: 14px;
+/* --- Arka plan fotoğrafı + okunabilirlik perdesi --- */
+.uniworks__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: linear-gradient(
+      rgba(8, 12, 10, 0.74),
+      rgba(8, 12, 10, 0.82)
+    ),
+    url("/images/kampus-gece.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+:root[data-theme="light"] .uniworks__bg {
+  background-image: linear-gradient(
+      rgba(238, 235, 228, 0.78),
+      rgba(238, 235, 228, 0.86)
+    ),
+    url("/images/kampus-gunduz.webp");
+}
+
+.uniworks__inner {
+  position: relative;
+  z-index: 1;
+  padding: clamp(26px, 4vw, 46px);
+}
+
+/* --- Başlık --- */
+.uniworks__head {
   margin-bottom: clamp(24px, 3vw, 36px);
-  border-bottom: var(--rule) solid var(--border);
 }
 
-.university__grid {
+.uniworks__kicker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.uniworks__title {
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: var(--w-display);
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+/* --- Kart gridi --- */
+.uniworks__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
 }
 
-.univcard {
+.wcard {
   position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: clamp(22px, 2.4vw, 30px);
-  background: var(--surface);
-  border: var(--rule) solid var(--border);
-  border-radius: var(--radius);
-  transition: border-color 0.2s linear, transform 0.2s var(--ease);
+  padding: 26px 24px;
+  border-radius: 15px;
+  background: rgba(20, 27, 23, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px) saturate(1.1);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s var(--ease), border-color 0.3s ease,
+    background-color 0.3s ease;
 }
 
-.univcard:hover {
-  border-color: var(--text-faint);
-  transform: translateY(-2px);
+:root[data-theme="light"] .wcard {
+  background: rgba(255, 255, 255, 0.74);
+  border-color: rgba(10, 26, 20, 0.12);
 }
 
-.univcard__no {
+.wcard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+:root[data-theme="light"] .wcard:hover {
+  border-color: rgba(10, 26, 20, 0.24);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+/* Logo filigranı — tek renk maske (sağ üst) */
+.wcard__badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+  pointer-events: none;
+  background: var(--green);
+  -webkit-mask: url("/images/klu-arma.png") center / contain no-repeat;
+  mask: url("/images/klu-arma.png") center / contain no-repeat;
+  opacity: 0.5;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+:root[data-theme="light"] .wcard__badge {
+  background: var(--blue-deep);
+}
+
+.wcard:hover .wcard__badge {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.wcard > *:not(.wcard__badge) {
+  position: relative;
+  z-index: 1;
+}
+
+.wcard__num {
   font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 13px;
   letter-spacing: 0.1em;
+  color: var(--text-faint);
+  transition: color 0.25s ease;
+}
+
+.wcard:hover .wcard__num {
   color: var(--accent);
 }
 
-.univcard__title {
-  font-size: 17px;
+.wcard__title {
+  font-size: 18px;
+  font-weight: 650;
   line-height: 1.3;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.012em;
+  margin: 14px 0 10px;
+  padding-right: 52px;
+  text-wrap: balance;
   color: var(--text);
 }
 
-.univcard__text {
+.wcard__desc {
   font-size: 14.5px;
   line-height: 1.6;
   color: var(--text-soft);
+  margin: 0 0 20px;
 }
 
-.univcard__link {
+.wcard__go {
   margin-top: auto;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  font-family: var(--font-mono);
   font-size: 13px;
-  font-weight: var(--w-bold);
-  letter-spacing: -0.01em;
+  font-weight: 500;
   color: var(--accent);
-  transition: gap 0.2s var(--ease);
 }
 
-.univcard__link:hover {
-  gap: 10px;
+.wcard__arw {
+  transition: transform 0.25s ease;
 }
 
-.univcard__link svg {
-  width: 15px;
-  height: 15px;
+.wcard:hover .wcard__arw {
+  transform: translate(3px, -3px);
 }
 
 @media (max-width: 980px) {
@@ -123,7 +226,10 @@
     grid-template-columns: 1fr;
     gap: 36px;
   }
-  .university__grid {
+}
+
+@media (max-width: 640px) {
+  .uniworks__grid {
     grid-template-columns: 1fr;
   }
 }

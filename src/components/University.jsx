@@ -34,46 +34,46 @@ export default function University() {
         </div>
 
         {!!university.activities?.length && (
-          <div className="university__works">
-            {university.activitiesTitle && (
-              <Reveal>
-                <h3 className="university__workstitle">
-                  {university.activitiesTitle}
-                </h3>
-              </Reveal>
-            )}
+          <div className="uniworks">
+            {/* Arka plan: açık temada gündüz, koyu temada gece kampüs fotoğrafı */}
+            <div className="uniworks__bg" aria-hidden="true" />
 
-            <div className="university__grid">
-              {university.activities.map((a, i) => (
-                <Reveal key={a.title} delay={0.05 * (i % 2)}>
-                  <article className="univcard">
-                    <span className="univcard__no">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h4 className="univcard__title">{a.title}</h4>
-                    {a.summary && <p className="univcard__text">{a.summary}</p>}
-                    {a.href && (
-                      <a
-                        className="univcard__link"
-                        href={a.href}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Habere git
-                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path
-                            d="M7 17 17 7M9 7h8v8"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </a>
-                    )}
-                  </article>
+            <div className="uniworks__inner">
+              {university.activitiesTitle && (
+                <Reveal>
+                  <div className="uniworks__head">
+                    <span className="uniworks__kicker">Haberler</span>
+                    <h3 className="uniworks__title">
+                      {university.activitiesTitle}
+                    </h3>
+                  </div>
                 </Reveal>
-              ))}
+              )}
+
+              <div className="uniworks__grid">
+                {university.activities.map((a, i) => (
+                  <Reveal key={a.title} delay={0.05 * (i % 2)}>
+                    <article className="wcard">
+                      <span className="wcard__badge" aria-hidden="true" />
+                      <span className="wcard__num">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h4 className="wcard__title">{a.title}</h4>
+                      {a.summary && <p className="wcard__desc">{a.summary}</p>}
+                      {a.href && (
+                        <a
+                          className="wcard__go"
+                          href={a.href}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Habere git <span className="wcard__arw">↗</span>
+                        </a>
+                      )}
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
             </div>
           </div>
         )}
