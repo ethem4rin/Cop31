@@ -112,7 +112,7 @@ export const about = {
 export const copHistory = {
   eyebrow: "COP Zirveleri",
   title: "COP31 Nedir ? ",
-  lead: "COP31, Birleşmiş Milletler İklim Değişikliği Konferanslarının 31’incisidir ve Kasım \n2026’da Antalya’da düzenlenecektir. Zirvede dünya liderleri, uzmanlar ve sivil toplum \ntemsilcileri iklim değişikliğiyle mücadele ve sürdürülebilir gelecek için ortak çözümleri \ntartışacaktır. Türkiye’nin ev sahipliği yapacağı bu konferans, küresel iklim politikaları \naçısından önemli bir buluşma olacaktır.",
+  lead: "COP31, Birleşmiş Milletler İklim Değişikliği Konferanslarının 31’incisidir ve Kasım \n2026’da Antalya’da düzenlenecektir.Türkiye’nin ev sahipliği yapacağı bu konferans, küresel iklim politikaları \naçısından önemli bir buluşma olacaktır.",
   scrollHint: "COP Zirveleri",
   items: [
     {
