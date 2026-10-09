@@ -4,7 +4,7 @@ import { useContent } from "../content/ContentContext";
 import "./Hero.css";
 
 export default function Hero() {
-  const { hero, navLinks } = useContent();
+  const { hero } = useContent();
   const [index, setIndex] = useState(0);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -14,8 +14,6 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
 
   const slides = hero.slides?.length ? hero.slides : [{ image: "", caption: "" }];
-  // Menüdeki ilk bölüm (COP Nedir?) hero'nun altındaki bölümdür.
-  const firstSectionId = navLinks[0]?.id || "cop31";
 
   useEffect(() => {
     if (slides.length < 2) return;
@@ -25,12 +23,6 @@ export default function Hero() {
     );
     return () => clearInterval(t);
   }, [slides.length, hero.slideDurationMs]);
-
-  const goDown = () => {
-    document
-      .getElementById(firstSectionId)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   return (
     <section className="hero" id="anasayfa" ref={ref}>
@@ -109,29 +101,6 @@ export default function Hero() {
           </motion.ul>
         )}
 
-        {hero.scrollHint?.trim() && (
-          <motion.button
-            className="hero__down"
-            onClick={goDown}
-            aria-label={hero.scrollHint}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.75 }}
-          >
-            <span className="hero__downlabel">{hero.scrollHint}</span>
-            <span className="hero__downarrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M12 5v14M5 12l7 7 7-7"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </motion.button>
-        )}
       </div>
 
       {/* Alt şerit: rakamlar + slayt göstergesi */}

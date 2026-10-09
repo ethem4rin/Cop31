@@ -158,59 +158,6 @@
   height: 17px;
 }
 
-/* ---------------------------- Aşağı ok -------------------------------- */
-.hero__down {
-  margin-top: min(5vh, 40px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  color: rgba(255, 255, 255, 0.72);
-  transition: color 0.2s linear;
-}
-
-.hero__down:hover {
-  color: #fff;
-}
-
-.hero__downlabel {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.hero__downarrow {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--green);
-  color: #04140d;
-  animation: heroBob 2.4s var(--ease) infinite;
-}
-
-.hero__downarrow svg {
-  width: 19px;
-  height: 19px;
-}
-
-@keyframes heroBob {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(5px);
-  }
-}
-
-.hero__down:active .hero__downarrow {
-  transform: scale(0.94);
-}
-
 /* ---------------------------- Alt şerit ------------------------------- */
 .hero__foot {
   position: relative;

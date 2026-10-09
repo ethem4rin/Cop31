@@ -69,8 +69,6 @@ export const hero = {
     { icon: "calendar", text: "19 – 22 Ekim 2026 · Fidan Dikimi ve Katalog Dağıtımı" },
   ],
 
-  // Aşağı ok düğmesinin etrafındaki yazı. Boş bırakırsan ok da gizlenir.
-  scrollHint: "",
 
   // Arka planda sırayla kayan fotoğraflar. İstediğin kadar ekle/çıkar.
   // Boş bırakırsan ("") o slayt degrade arka planla gösterilir.
