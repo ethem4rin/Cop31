@@ -142,29 +142,26 @@
   background: rgba(255, 255, 255, 0.86);
 }
 
-/* Logo filigranı — tek renk maske (sağ üst) */
+/* Logo rozeti — gerçek renkli arma, beyaz disk üstünde (sağ üst).
+   Beyaz disk sayesinde lacivert arma hem açık hem koyu temada net görünür. */
 .wcard__badge {
   position: absolute;
-  top: 22px;
-  right: 22px;
-  width: 40px;
-  height: 40px;
+  top: 18px;
+  right: 18px;
+  width: 46px;
+  height: 46px;
   z-index: 2;
   pointer-events: none;
-  background: var(--green);
-  -webkit-mask: url("/images/klu-arma.png") center / contain no-repeat;
-  mask: url("/images/klu-arma.png") center / contain no-repeat;
-  opacity: 0.5;
+  border-radius: 50%;
+  background: #fff url("/images/klu-logo.png") center / 74% no-repeat;
+  box-shadow: 0 2px 10px -4px rgba(0, 0, 0, 0.45);
+  opacity: 0.92;
   transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-:root[data-theme="light"] .wcard__badge {
-  background: var(--blue-deep);
 }
 
 .wcard:hover .wcard__badge {
   opacity: 1;
-  transform: scale(1.04);
+  transform: scale(1.06);
 }
 
 .wcard > *:not(.wcard__badge) {
