@@ -1,38 +1,43 @@
+/* Üst blok: önce metin, altında tam genişlik kampüs banner'ı.
+   Banner panoramik olduğu için yarım sütuna sıkıştırmak yerine
+   tüm genişliği kullanıyor; içindeki yazı ve logolar okunur kalıyor. */
 .university__top {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: start;
-  margin-bottom: clamp(56px, 7vw, 92px);
+  grid-template-columns: 1fr;
+  gap: clamp(26px, 3.4vw, 44px);
+  margin-bottom: 0;
 }
 
-/* Bölümün son bloğuysa alttaki boşluğa gerek yok */
-.university__top--last {
-  margin-bottom: 0;
+/* Tam genişlikte metin satırı çok uzamasın */
+.university__top .section-lead {
+  max-width: 62ch;
 }
 
 .university__figure {
   margin: 0;
 }
 
+/* Görsel kendi oranında durur (kırpılmaz); yumuşak köşe ve dağınık
+   gölge sayesinde keskin bir kutu yerine sayfaya gömülmüş gibi görünür. */
 .university__media {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  max-height: 48vh;
+  aspect-ratio: 2000 / 1116;
   overflow: hidden;
-  border-radius: var(--radius);
+  border-radius: clamp(16px, 1.8vw, 24px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16),
+    0 28px 64px -30px rgba(0, 0, 0, 0.62);
 }
 
 .university__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
+/* Alt yazı (boşsa hiç basılmaz) */
 .university__figure figcaption {
   margin-top: 12px;
-  padding-top: 10px;
-  border-top: var(--rule) solid var(--border-soft);
   font-family: var(--font-mono);
   font-size: 10.5px;
   letter-spacing: 0.1em;
@@ -229,13 +234,6 @@
 
 .wcard:hover .wcard__arw {
   transform: translate(3px, -3px);
-}
-
-@media (max-width: 980px) {
-  .university__top {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
 }
 
 @media (max-width: 640px) {

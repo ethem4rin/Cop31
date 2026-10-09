@@ -24,11 +24,13 @@ export default function University() {
               <SmartImage
                 className="university__media"
                 src={university.image}
-                alt={university.imageCaption}
+                alt={university.imageCaption || university.title}
                 label={university.imageCaption}
                 imgClassName="university__img"
               />
-              <figcaption>{university.imageCaption}</figcaption>
+              {university.imageCaption?.trim() && (
+                <figcaption>{university.imageCaption}</figcaption>
+              )}
             </figure>
           </Reveal>
         </div>

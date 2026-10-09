@@ -341,8 +341,8 @@ export const university = {
   eyebrow: "Kırklareli Üniversitesi",
   title: "COP31 Çalışmalarımız",
   lead: "Üniversitemiz, COP31 kapsamında öğrenci odaklı bir çalışma programı yürütüyor. Amacımız; farkındalığı sahaya, sahayı da kalıcı çıktıya dönüştürmek.",
-  image: "/images/universite.jpg",
-  imageCaption: "Kırklareli Üniversitesi Kampüsü",
+  image: "/images/universite-kampus.webp",
+  imageCaption: "",
   activitiesTitle: "Gerçekleştirilen ve Planlanan Çalışmalar",
   activities: [
     {
