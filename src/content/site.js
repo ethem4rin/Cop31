@@ -107,6 +107,9 @@ export const about = {
   eyebrow: "",
   title: "COP Nedir ? ",
   lead: "COP (Conference of the Parties – Taraflar Konferansı) Birleşmiş Milletler İklim Değişikliği \nÇerçeve Sözleşmesi'ne (UNFCCC) taraf ülkeler ve AB'nin her yıl bir araya gelerek küresel \niklim politikalarını değerlendirdiği ve yeni hedefler belirlediği en üst düzey uluslararası \niklim toplantısıdır.",
+  // Sol taraftaki sonsuz döngülü animasyon (public/videos/ içine koy).
+  // Boş bırakırsan video alanı hiç görünmez.
+  video: "/videos/cop-animasyon.mp4",
 };
 
 export const copHistory = {

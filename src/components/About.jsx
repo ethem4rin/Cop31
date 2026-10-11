@@ -14,27 +14,47 @@ export default function About() {
       <div className="container">
         <SectionHead label={about.eyebrow} />
 
-        <div className="about__head">
-          <Reveal>
-            <h2 className="section-title">{about.title}</h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="section-lead about__lead">{about.lead}</p>
-          </Reveal>
+        <div className="about__intro">
+          {/* Sol: sonsuz döngülü animasyon (siteye gömülü görünür) */}
+          {about.video?.trim() && (
+            <Reveal className="about__media">
+              <video
+                className="about__video"
+                src={about.video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-hidden="true"
+              />
+            </Reveal>
+          )}
+
+          {/* Sağ: COP Nedir? ve COP31 Nedir? blokları */}
+          <div className="about__qa">
+            <div className="about__qblock">
+              <Reveal>
+                <h2 className="about__qtitle">{about.title}</h2>
+              </Reveal>
+              <Reveal delay={0.08}>
+                <p className="about__qlead">{about.lead}</p>
+              </Reveal>
+            </div>
+
+            <div className="about__qblock">
+              <Reveal>
+                <h3 className="about__qtitle">{copHistory.title}</h3>
+              </Reveal>
+              <Reveal delay={0.08}>
+                <p className="about__qlead">{copHistory.lead}</p>
+              </Reveal>
+            </div>
+          </div>
         </div>
 
         {/* --- COP Zirveleri --- */}
         <div className="cops">
-          <div className="cops__head">
-            <Reveal>
-              <h3 className="cops__title">{copHistory.title}</h3>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <p className="cops__lead">{copHistory.lead}</p>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.15}>
+          <Reveal delay={0.1}>
             <Timeline items={copHistory.items} />
           </Reveal>
         </div>
