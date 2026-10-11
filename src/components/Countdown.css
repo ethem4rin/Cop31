@@ -1,126 +1,164 @@
 /* ============================================================
  *  COP31 Countdown — Geri Sayım Şeridi
- *  Tasarım: siyah arka plan · #0060F5 mavi · beyaz metin
- *  Her iki tema (dark / light) için uyarlanmış.
+ *  Navbar kapsülüyle birebir uyumlu renk & stil.
  * ============================================================ */
 
 /* ---------- Kapsayıcı şerit ---------- */
 .cdw {
   display: inline-flex;
   align-items: center;
-  gap: 15px;
+  gap: 0;
 
-  /* Koyu tema (varsayılan): siyah kart */
-  background: rgb(0, 0, 0);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-radius: 30px;
-  padding: 11px 15px;
+  /* Açık tema: navbar ile aynı beyaz buzlu cam kapsül */
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  padding: 8px 20px;
 
-  /* Hafif mavi glow */
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.12),
-    0 8px 32px rgba(0, 0, 0, 0.55),
-    0 0 40px rgba(0, 0, 0, 0.08);
-
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.10);
   white-space: nowrap;
   font-family: var(--font-mono, "JetBrains Mono", monospace);
-  transition: box-shadow 0.3s ease;
+  transition: background-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
-.cdw:hover {
-  box-shadow:
-    0 0 0 1px rgba(0, 96, 245, 0.3),
-    0 10px 40px rgba(0, 0, 0, 0.6),
-    0 0 60px rgba(0, 96, 245, 0.15);
-}
-
-/* ---------- Aydınlık tema ---------- */
-[data-theme="light"] .cdw {
+/* ---------- Koyu tema: navbar ile aynı siyah kapsül ---------- */
+:root[data-theme="dark"] .cdw {
   background: rgb(0, 0, 0);
-  
-  box-shadow:
-    0 0 0 1px rgb(0, 0, 0),
-    0 6px 28px rgb(0, 0, 0),
-    0 2px 8px rgb(0, 0, 0);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
 }
 
-/* ---------- CANLI etiketi ---------- */
+/* ---------- Hover ---------- */
+.cdw:hover {
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.16);
+}
+
+:root[data-theme="dark"] .cdw:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- Etiket: "COP31'E KALAN" ---------- */
 .cdw__label {
   display: flex;
   align-items: center;
   gap: 7px;
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #fff;
+  /* Açık tema: navbar link rengi */
+  color: var(--blue-deep);
+  padding-right: 14px;
 }
 
-/* Nabız animasyonu noktası */
+:root[data-theme="dark"] .cdw__label {
+  color: rgba(238, 243, 239, 0.75);
+}
 
+/* ---------- Nabız noktası ---------- */
+.cdw__pulse {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  /* Açık: yeşil (navbar active link rengi) */
+  background: var(--green-700, #15803d);
+  box-shadow: 0 0 0 0 rgba(21, 128, 61, 0.7);
+  animation: cdwPulse 1.8s ease-out infinite;
+  flex-shrink: 0;
+}
+
+:root[data-theme="dark"] .cdw__pulse {
+  background: var(--green, #22c55e);
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: cdwPulseDark 1.8s ease-out infinite;
+}
 
 @keyframes cdwPulse {
-  0%   { box-shadow: 0 0 0 0   rgba(0, 96, 245, 0.75); }
-  70%  { box-shadow: 0 0 0 8px rgba(0, 96, 245, 0);    }
-  100% { box-shadow: 0 0 0 0   rgba(0, 96, 245, 0);    }
+  0%   { box-shadow: 0 0 0 0   rgba(21, 128, 61, 0.75); }
+  70%  { box-shadow: 0 0 0 7px rgba(21, 128, 61, 0);    }
+  100% { box-shadow: 0 0 0 0   rgba(21, 128, 61, 0);    }
+}
+
+@keyframes cdwPulseDark {
+  0%   { box-shadow: 0 0 0 0   rgba(34, 197, 94, 0.75); }
+  70%  { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0);    }
+  100% { box-shadow: 0 0 0 0   rgba(34, 197, 94, 0);    }
 }
 
 /* ---------- Dikey ayraç ---------- */
 .cdw__divider {
   width: 1px;
-  height: 36px;
-  background: rgba(0, 96, 245, 0.25);
+  height: 28px;
+  background: rgba(0, 0, 0, 0.12);
   flex-shrink: 0;
+  margin: 0 14px;
+}
+
+:root[data-theme="dark"] .cdw__divider {
+  background: rgba(255, 255, 255, 0.14);
 }
 
 /* ---------- Birimler satırı ---------- */
 .cdw__units {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
-/* ---------- Tek birim (sayı + etiket) ---------- */
+/* ---------- Tek birim ---------- */
 .cdw__unit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 36px;
+  min-width: 32px;
 }
 
 .cdw__num {
-  font-size: 26px;
-  font-weight: 900;
-  line-height: 0.5;
-  letter-spacing: -0.03em;
-  color: #0060F5;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  /* Açık: navbar link aktif rengi (yeşil) */
+  color: var(--green-700, #15803d);
   font-variant-numeric: tabular-nums;
-  /* Sayı değişirken yumuşak geçiş */
-  transition: color 0.2s ease;
 }
 
-/* Saniye sayacı hafif farklı renk tonu */
-.cdw__num--sec {
-  color:#0060F5;
+:root[data-theme="dark"] .cdw__num {
+  color: var(--green, #22c55e);
 }
 
 .cdw__sub {
-  font-size: 8px;
-  font-weight: 600;
+  font-size: 7.5px;
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  margin-top: 3px;
+  /* Açık: soluk lacivert */
+  color: var(--blue-deep, #1e3a5f);
+  opacity: 0.45;
+}
+
+:root[data-theme="dark"] .cdw__sub {
   color: rgba(255, 255, 255, 0.5);
-  margin-top: 5px;
+  opacity: 1;
 }
 
 /* ---------- İki nokta ayırıcı ---------- */
 .cdw__sep {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
-  color: rgba(0, 96, 245, 0.6);
   line-height: 1;
-  margin-bottom: 10px; /* sub etiketinin yüksekliğini dengeler */
+  margin-bottom: 10px;
+  color: var(--green-700, #15803d);
+  opacity: 0.5;
+}
+
+:root[data-theme="dark"] .cdw__sep {
+  color: var(--green, #22c55e);
+  opacity: 0.45;
 }
 
 /* ---------- Konum etiketi ---------- */
@@ -130,19 +168,30 @@
   gap: 5px;
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(248, 245, 245, 0.6);
+  color: var(--blue-deep, #1e3a5f);
+  opacity: 0.65;
+  padding-left: 14px;
+}
+
+:root[data-theme="dark"] .cdw__location {
+  color: rgba(238, 243, 239, 0.55);
+  opacity: 1;
 }
 
 .cdw__pin {
   width: 12px;
   height: 12px;
-  color: #0060F5;
+  color: var(--green-700, #15803d);
   flex-shrink: 0;
 }
 
-/* ---------- Hero içindeki konumlandırma sarıcısı ---------- */
+:root[data-theme="dark"] .cdw__pin {
+  color: var(--green, #22c55e);
+}
+
+/* ---------- Hero konumlandırma ---------- */
 .hero__countdown {
   position: relative;
   z-index: 2;
@@ -154,21 +203,20 @@
 /* ---------- Duyarlı tasarım ---------- */
 @media (max-width: 640px) {
   .cdw {
-    gap: 12px;
-    padding: 11px 16px;
-    border-radius: 10px;
+    padding: 7px 14px;
+    gap: 0;
   }
 
   .cdw__num {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .cdw__sep {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .cdw__location {
-    display: none; /* küçük ekranda konum gizlenir */
+    display: none;
   }
 
   .cdw__divider:last-of-type {
@@ -178,10 +226,15 @@
 
 @media (max-width: 420px) {
   .cdw__label span {
-    display: none; /* yalnızca nabız noktası kalır */
+    display: none;
   }
 
   .cdw__divider:first-of-type {
     display: none;
   }
+
+  .cdw__label {
+    padding-right: 8px;
+  }
 }
+
