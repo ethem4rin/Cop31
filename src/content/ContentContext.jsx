@@ -34,6 +34,7 @@ export const SECTION_KEYS = [
   "campusMap",
   "teamSection",
   "team",
+  "thanks",
   "footer",
 ];
 

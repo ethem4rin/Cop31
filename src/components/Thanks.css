@@ -1,0 +1,50 @@
+/* ============================================================================
+ *  Teşekkür — sitenin kapanış bölümü (Ekibimiz'den sonra, footer'dan önce)
+ * ==========================================================================*/
+.thanksec__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.thanksec__intro .section-lead {
+  margin-top: 18px;
+}
+
+.thanksec__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.thanksec__item {
+  position: relative;
+  padding-left: 22px;
+  font-size: clamp(14.5px, 1.3vw, 16px);
+  line-height: 1.65;
+  color: var(--text-soft);
+}
+
+.thanksec__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.thanksec__item strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+@media (max-width: 860px) {
+  .thanksec__grid {
+    grid-template-columns: 1fr;
+    gap: clamp(22px, 5vw, 32px);
+  }
+}

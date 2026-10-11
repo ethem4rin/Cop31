@@ -391,19 +391,6 @@ export const university = {
   imageCaption: "",
   imageBadge: "Rektörümüz",
   imageName: "Prof. Dr. Rengin Ak",
-  thanks: {
-    title: "Teşekkür",
-    lead: "Etkinlik ve faaliyetlerimizin hayata geçirilmesinde büyük emeği olan Kırklareli Üniversitesi Akademisyenlerimize içten teşekkürlerimizi sunarız:",
-    people: [
-      "Bu tarz çalışmaların meydana getirilmesinde oldukça büyük rolü olan Sayın Rektörümüz **Prof. Dr. Rengin Ak**,",
-      "Fikirlerimizi ve projelerimizi her daim destekleyen Sayın Rektör Yardımcımız **Prof. Dr. Meryem Çamur Demir**,",
-      "Çevre Hukuku alanında uzmanlaşmış Türkiye'deki sayılı akademisyenlerden biri olan Sayın **Prof. Dr. Ahmet Mithat Güneş**,",
-      "Uluslararası Hukuk alanında uzmanlaşmış, aynı zamanda Hukuk Fakültesi Dekan Yardımcımız Sayın **Tuğçe İsayev**,",
-      "Çevre Politikası konusunda değerli çalışmaları olan Sayın **Dr. Öğr. Üyesi İlknur Gül**,",
-      "Her konuda destek olan, Ar-Ge Koordinatörlüğü'nde görevli Sayın **Dr. Öğr. Üyesi Nihat Akkurt**,",
-      "ve bizden desteğini hiç esirgemeyen Öğrenci Kulüpleri Koordinatörümüz Sayın **Arş. Gör. Eren Aydın**.",
-    ],
-  },
   activitiesTitle: "Gerçekleştirilen ve Planlanan Çalışmalar",
   activities: [
     {
@@ -832,6 +819,21 @@ export const team = [
     quote: "İki gün, sekiz yerleşke, 31 fidan. Planlama doğru olursa gerisi kendiliğinden geliyor.",
   },
 ];
+
+export const thanks = {
+  eyebrow: "Emeği Geçenler",
+  title: "Teşekkür",
+  lead: "Etkinlik ve faaliyetlerimizin hayata geçirilmesinde büyük emeği olan Kırklareli Üniversitesi Akademisyenlerimize içten teşekkürlerimizi sunarız:",
+  people: [
+    "Bu tarz çalışmaların meydana getirilmesinde oldukça büyük rolü olan Sayın Rektörümüz **Prof. Dr. Rengin Ak**,",
+    "Fikirlerimizi ve projelerimizi her daim destekleyen Sayın Rektör Yardımcımız **Prof. Dr. Meryem Çamur Demir**,",
+    "Çevre Hukuku alanında uzmanlaşmış Türkiye'deki sayılı akademisyenlerden biri olan Sayın **Prof. Dr. Ahmet Mithat Güneş**,",
+    "Uluslararası Hukuk alanında uzmanlaşmış, aynı zamanda Hukuk Fakültesi Dekan Yardımcımız Sayın **Dr. Öğr. Üyesi Tuğçe İsayev**,",
+    "Çevre Politikası konusunda değerli çalışmaları olan Sayın **Dr. Öğr. Üyesi İlknur Gül**,",
+    "Her konuda destek olan, Ar-Ge Koordinatörlüğü'nde görevli Sayın **Dr. Öğr. Üyesi Nihat Akkurt**,",
+    "ve bizden desteğini hiç esirgemeyen Öğrenci Kulüpleri Koordinatörümüz Sayın **Arş. Gör. Eren Aydın**.",
+  ],
+};
 
 export const footer = {
   title: "İklim için ortak eylem",

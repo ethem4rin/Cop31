@@ -12,6 +12,7 @@ import Projects from "./components/Projects";
 import Law from "./components/Law";
 import CampusMap from "./components/CampusMap";
 import Team from "./components/Team";
+import Thanks from "./components/Thanks";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -50,6 +51,7 @@ export default function App() {
         <Law />
         <CampusMap />
         <Team />
+        <Thanks />
       </main>
 
       <Footer />
