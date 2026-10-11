@@ -267,81 +267,15 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* ======================= BM Kalkınma Amaçları ======================= */
-.law__sdglead {
-  max-width: 72ch;
-  margin-bottom: clamp(24px, 3vw, 34px);
-}
-
-.sdg__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.sdg__card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: clamp(20px, 2.2vw, 26px);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease);
-}
-
-.sdg__card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.24);
-}
-
-.sdg__code {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 4px;
-  padding: 6px 13px;
-  border-radius: 10px;
-  background: var(--green);
-  color: #04140d;
-  font-family: var(--font-mono);
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.sdg__code small {
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-}
-
-.sdg__name {
-  font-size: 16px;
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-  color: #fff;
-}
-
-.sdg__text {
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.74);
-}
-
 /* ---------------------------- Duyarlı -------------------------------- */
 @media (max-width: 920px) {
-  .regs,
-  .sdg__grid {
+  .regs {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 620px) {
-  .regs,
-  .sdg__grid {
+  .regs {
     grid-template-columns: 1fr;
   }
   .acc__head {

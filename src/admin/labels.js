@@ -8,6 +8,7 @@ export const SECTION_LABELS = {
   hero: "1 · Giriş (tam ekran)",
   about: "1b · COP Nedir (metin)",
   copHistory: "1c · COP Zirveleri",
+  sdg: "1d · Kalkınma Amaçları (SKA)",
   university: "2 · Üniversite Çalışmaları",
   projectsSection: "3a · Projeler Başlığı",
   projects: "3b · Projeler",
@@ -28,6 +29,8 @@ export const SECTION_HINTS = {
   about: "\"COP Nedir?\" bölümünün başlığı ve açıklama metni.",
   copHistory:
     "Yatay kaydırmalı zirve çizelgesi. 'Vurgulu' işaretlenen zirve yeşil olarak öne çıkar. 'Metin' alanı şeritte görünmez; fareyle üzerine gelince ipucu olarak çıkar.",
+  sdg:
+    "BM Sürdürülebilir Kalkınma Amaçları. 'Simge' alanı resmi SKA ikon karesinin yoludur (örn. /images/ska-6.webp).",
   university: "Üniversitenin COP31 çalışmaları: başlık, metin ve görsel.",
   projectsSection: "Projeler bölümünün üst başlığı ve giriş metni.",
   projects: "İki projenin tüm detayları, künye bilgileri ve liste maddeleri.",

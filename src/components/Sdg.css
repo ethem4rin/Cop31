@@ -1,0 +1,77 @@
+/* ============================================================================
+ *  BM SÜRDÜRÜLEBİLİR KALKINMA AMAÇLARI (SKA)
+ *  Resmi ikon kareleri + açıklama; COP Nedir bölümünün altında.
+ * ==========================================================================*/
+.sdg__head {
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.sdg__lead {
+  max-width: 76ch;
+}
+
+.sdg__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.skacard {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 22px);
+  padding: clamp(16px, 1.8vw, 22px);
+  background: var(--surface);
+  border: var(--rule) solid var(--border);
+  border-radius: 16px;
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.skacard:hover {
+  transform: translateY(-3px);
+  border-color: var(--text-faint);
+}
+
+/* Resmi SKA ikon karesi — bütün, kendi renginde */
+.skacard__icon {
+  width: clamp(92px, 11vw, 116px);
+  height: clamp(92px, 11vw, 116px);
+  flex-shrink: 0;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px -10px rgba(0, 0, 0, 0.4);
+}
+
+.skacard__body {
+  min-width: 0;
+}
+
+.skacard__name {
+  font-size: clamp(15px, 1.5vw, 17px);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--text);
+  margin-bottom: 7px;
+}
+
+.skacard__text {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+@media (max-width: 760px) {
+  .sdg__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .skacard {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}

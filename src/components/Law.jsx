@@ -62,34 +62,6 @@ export default function Law() {
         {law.international && (
           <RegulationBlock data={law.international} international />
         )}
-
-        {/* --- BM Kalkınma Amaçları --- */}
-        {law.sdg && (
-          <div className="law__block law__block--sdg">
-            <Reveal>
-              <h3 className="law__blocktitle">{law.sdg.title}</h3>
-            </Reveal>
-            {law.sdg.lead && (
-              <Reveal delay={0.05}>
-                <p className="law__p law__sdglead">{law.sdg.lead}</p>
-              </Reveal>
-            )}
-            <div className="sdg__grid">
-              {(law.sdg.items || []).map((it, i) => (
-                <Reveal key={it.code} delay={0.04 * (i % 3)}>
-                  <article className="sdg__card">
-                    <span className="sdg__code">
-                      <small>SKA</small>
-                      {it.code}
-                    </span>
-                    <h4 className="sdg__name">{it.name}</h4>
-                    <p className="sdg__text">{it.body}</p>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

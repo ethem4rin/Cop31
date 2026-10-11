@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import WelcomeModal from "./components/WelcomeModal";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Sdg from "./components/Sdg";
 import University from "./components/University";
 import Projects from "./components/Projects";
 import Law from "./components/Law";
@@ -43,6 +44,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <Sdg />
         <University />
         <Projects />
         <Law />
