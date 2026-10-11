@@ -18,6 +18,22 @@ export default function University() {
           <Reveal className="university__intro">
             <h2 className="section-title">{university.title}</h2>
             <p className="section-lead">{richText(university.lead)}</p>
+
+            {university.thanks && (
+              <div className="thanks">
+                <h3 className="thanks__title">{university.thanks.title}</h3>
+                {university.thanks.lead && (
+                  <p className="thanks__lead">{university.thanks.lead}</p>
+                )}
+                {!!university.thanks.people?.length && (
+                  <ul className="thanks__list">
+                    {university.thanks.people.map((p, i) => (
+                      <li key={i}>{richText(p)}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
           </Reveal>
 
           <Reveal delay={0.1} className="university__portrait">

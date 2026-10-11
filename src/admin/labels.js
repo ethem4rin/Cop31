@@ -128,7 +128,8 @@ export const FIELD_LABELS = {
   storageKey: "Hatırlama anahtarı",
   titleAccent: "Başlık (renkli kısım)",
   titleRest: "Başlık (devamı)",
-  thanks: "Teşekkür satırı",
+  thanks: "Teşekkür bölümü",
+  people: "Kişiler (isimleri **...** ile kalın)",
   button: "Buton yazısı",
 };
 

@@ -348,3 +348,55 @@
       url("/images/kampus-gunduz.webp");
   }
 }
+
+/* --- Teşekkür bloğu (sol kolonda, giriş metninin altında) --- */
+.thanks {
+  margin-top: clamp(28px, 3.5vw, 44px);
+  padding-top: clamp(22px, 2.6vw, 30px);
+  border-top: var(--rule) solid var(--border);
+}
+
+.thanks__title {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: var(--w-display);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.thanks__lead {
+  font-size: clamp(14.5px, 1.3vw, 16px);
+  line-height: 1.7;
+  color: var(--text-soft);
+  margin-bottom: 16px;
+}
+
+.thanks__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.thanks__list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+.thanks__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.thanks__list strong {
+  color: var(--text);
+  font-weight: 700;
+}
