@@ -1,129 +1,351 @@
+/* ============================================================================
+ *  ÇEVRE HUKUKU — koyu yeşil band bölüm
+ *  Konu/Amaç → 6 Temel İlke (akordeon) → Ulusal / Uluslararası Düzenlemeler
+ *  → BM Kalkınma Amaçları (SKA kartları)
+ * ==========================================================================*/
+
+/* ----------------------------- Başlık -------------------------------- */
 .law__top {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 32px;
-  align-items: end;
-  padding-bottom: 32px;
+  padding-bottom: 26px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-  margin-bottom: clamp(44px, 5vw, 64px);
+  margin-bottom: clamp(32px, 4vw, 48px);
 }
 
 .law__title {
-  max-width: 15ch;
+  max-width: 22ch;
   color: #fff;
 }
 
-.law__byline {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
+.law__source {
+  margin-top: 14px;
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--band-soft);
-  white-space: nowrap;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--green);
 }
 
-.law__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  gap: 64px;
-  align-items: start;
-}
-
-/* --------------------------- Makale metni ---------------------------- */
-.law__article {
-  max-width: 64ch;
+/* --------------------------- Giriş metni ----------------------------- */
+.law__intro {
+  max-width: 72ch;
 }
 
 .law__p {
-  font-size: clamp(15.5px, 1.45vw, 17.5px);
+  font-size: clamp(15.5px, 1.4vw, 17px);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 20px;
+}
+
+/* --------------------------- Alt bloklar ----------------------------- */
+.law__block {
+  margin-top: clamp(52px, 6vw, 84px);
+}
+
+.law__blocktitle {
+  font-size: clamp(21px, 2.6vw, 30px);
+  font-weight: var(--w-display);
+  letter-spacing: -0.03em;
+  color: #fff;
+  padding-bottom: 16px;
+  margin-bottom: clamp(22px, 2.6vw, 32px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* ======================= Akordeon (6 ilke) ========================== */
+.acc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.acc__item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.acc__item.is-open {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.acc__head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px clamp(18px, 2.2vw, 26px);
+  text-align: left;
+}
+
+.acc__no {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--green);
+  color: #04140d;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.acc__title {
+  flex: 1;
+  font-size: clamp(16px, 1.8vw, 19px);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.acc__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.acc__icon::before,
+.acc__icon::after {
+  content: "";
+  position: absolute;
+  background: var(--green);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+
+.acc__icon::before {
+  /* yatay çizgi */
+  top: 9px;
+  left: 2px;
+  right: 2px;
+  height: 2px;
+}
+
+.acc__icon::after {
+  /* dikey çizgi (açıkken kaybolur → eksi işareti) */
+  left: 9px;
+  top: 2px;
+  bottom: 2px;
+  width: 2px;
+}
+
+.acc__item.is-open .acc__icon::after {
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+/* Açılır panel: max-height geçişi */
+.acc__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s var(--ease);
+}
+
+.acc__item.is-open .acc__panel {
+  grid-template-rows: 1fr;
+}
+
+.acc__inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.acc__inner p {
+  padding: 0 clamp(18px, 2.2vw, 26px);
+  font-size: 15px;
   line-height: 1.78;
   color: rgba(255, 255, 255, 0.78);
-  margin-bottom: 24px;
 }
 
-.law__p--first::first-letter {
-  float: left;
-  font-size: 3.1em;
-  line-height: 0.9;
-  padding: 6px 12px 0 0;
-  color: var(--green);
-  font-weight: var(--w-display);
+.acc__inner p:first-child {
+  padding-top: 2px;
 }
 
-.law__quote {
-  margin: 38px 0 0;
-  padding: 26px 0 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: clamp(19px, 2.1vw, 26px);
-  line-height: 1.32;
-  letter-spacing: -0.038em;
-  font-weight: var(--w-display);
+.acc__inner p:last-child {
+  padding-bottom: 22px;
+}
+
+.acc__inner p + p {
+  margin-top: 14px;
+}
+
+/* ===================== Düzenleme kartları ========================== */
+.regs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.reg {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(20px, 2.2vw, 26px);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+}
+
+.reg__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.reg__name {
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
   color: #fff;
-  text-wrap: balance;
 }
 
-/* ----------------------------- Yan kolon ----------------------------- */
-.law__aside {
-  position: sticky;
-  top: calc(var(--nav-h) + 32px);
+.reg__year {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--green);
+  white-space: nowrap;
 }
 
-.law__aside h3 {
+.reg__en {
+  font-size: 11.5px;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  color: var(--band-soft);
+  margin-bottom: 12px;
+}
+
+.reg__text {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.reg__intro {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 500;
+}
+
+/* Diğer düzenlemeler — çip listesi */
+.reg__others {
+  margin-top: 22px;
+}
+
+.reg__otherstitle {
+  display: block;
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--green);
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  margin-bottom: 4px;
+  color: var(--band-soft);
+  margin-bottom: 14px;
 }
 
-.law__aside li {
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.reg__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.reg__chips li {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ======================= BM Kalkınma Amaçları ======================= */
+.law__sdglead {
+  max-width: 72ch;
+  margin-bottom: clamp(24px, 3vw, 34px);
+}
+
+.sdg__grid {
   display: grid;
-  gap: 4px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
-.law__aside strong {
-  font-size: 14px;
+.sdg__card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: clamp(20px, 2.2vw, 26px);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.sdg__card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.sdg__code {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 6px 13px;
+  border-radius: 10px;
+  background: var(--green);
+  color: #04140d;
+  font-family: var(--font-mono);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.sdg__code small {
+  font-size: 9.5px;
   font-weight: 600;
-  letter-spacing: -0.015em;
+  letter-spacing: 0.08em;
+}
+
+.sdg__name {
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
   color: #fff;
 }
 
-.law__aside span {
-  font-size: 12.5px;
-  line-height: 1.5;
-  color: var(--band-soft);
+.sdg__text {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.74);
 }
 
-@media (max-width: 980px) {
-  .law__grid {
-    grid-template-columns: 1fr;
-    gap: 44px;
-  }
-  .law__aside {
-    position: relative;
-    top: auto;
+/* ---------------------------- Duyarlı -------------------------------- */
+@media (max-width: 920px) {
+  .regs,
+  .sdg__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 640px) {
-  .law__top {
+@media (max-width: 620px) {
+  .regs,
+  .sdg__grid {
     grid-template-columns: 1fr;
-    align-items: start;
-    gap: 18px;
   }
-  .law__byline {
-    align-items: flex-start;
-    flex-direction: row;
-    gap: 14px;
+  .acc__head {
+    gap: 12px;
+    padding: 16px 16px;
   }
 }

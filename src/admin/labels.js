@@ -91,6 +91,20 @@ export const FIELD_LABELS = {
   paragraphs: "Paragraflar",
   references: "Mevzuat listesi",
   referencesTitle: "Mevzuat kutusu başlığı",
+  // Çevre Hukuku yeni yapısı
+  source: "Kaynak",
+  intro: "Giriş paragrafları",
+  principlesTitle: "İlkeler başlığı",
+  principles: "Temel ilkeler",
+  no: "Sıra no",
+  national: "Ulusal düzenlemeler",
+  international: "Uluslararası düzenlemeler",
+  othersTitle: "Diğer düzenlemeler başlığı",
+  others: "Diğer düzenlemeler (liste)",
+  detail: "Ayrıntı metni",
+  en: "İngilizce adı",
+  sdg: "BM Kalkınma Amaçları",
+  code: "Amaç no / kodu",
   legend: "Harita açıklaması",
   copyright: "Telif satırı",
   columns: "Kolonlar",
@@ -121,6 +135,8 @@ export const LONG_FIELDS = new Set([
   "quote",
   "pullQuote",
   "paragraphs",
+  "detail",
+  "intro",
 ]);
 
 export const fieldLabel = (key) => FIELD_LABELS[key] || key;

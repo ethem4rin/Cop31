@@ -519,40 +519,142 @@ export const projects = [
 
 export const law = {
   eyebrow: "Çevre Hukuku",
-  title: "İklim eyleminin hukuki zemini",
-  author: "Hukuk Fakültesi Çalışma Grubu",
-  readingTime: "4 dk okuma",
-  pullQuote: "Çevre hakkı, yalnızca bugünün değil; henüz doğmamış kuşakların da hak sahibi olduğu nadir hukuki alanlardan biridir.",
-  paragraphs: [
-    "Çevre hukuku, doğal kaynakların korunması ve sürdürülebilir kullanımı amacıyla kişilere, işletmelere ve devlete yüklenen yükümlülükleri düzenleyen hukuk dalıdır. İklim krizi, bu alanı teorik bir tartışma olmaktan çıkarıp günlük hayatın ve ticari faaliyetin doğrudan bir parçası haline getirmiştir.",
-    "Türkiye hukukunda çevrenin korunması, Anayasa'nın 56. maddesinde \"herkes sağlıklı ve dengeli bir çevrede yaşama hakkına sahiptir\" ifadesiyle temel hak olarak güvence altına alınmıştır. Bu hak, devlete yalnızca müdahale etmeme değil, aynı zamanda çevreyi aktif olarak koruma ve iyileştirme ödevi yükler.",
-    "Uluslararası düzlemde Birleşmiş Milletler İklim Değişikliği Çerçeve Sözleşmesi ve Paris Anlaşması, taraf devletlere ulusal katkı beyanları hazırlama ve bunları periyodik olarak güncelleme yükümlülüğü getirmektedir. COP toplantıları, bu yükümlülüklerin müzakere edildiği ve denetlendiği platformlardır.",
-    "İşletmeler açısından ise sürdürülebilirlik artık gönüllü bir tercih değildir. Atık yönetimi, emisyon raporlaması, genişletilmiş üretici sorumluluğu ve Sıfır Atık mevzuatı gibi düzenlemeler, çevresel yükümlülükleri idari yaptırımlarla desteklenen somut hukuki ödevlere dönüştürmüştür.",
-    "Projemizin hukuki boyutu da tam olarak buradan doğmaktadır: Yeşil Dönüşüm Kataloğu'nda yer alan teknik önerilerin her biri, yürürlükteki mevzuatla uyumlu olacak şekilde Hukuk Fakültemizin öğretim üyeleri tarafından kontrol edilmektedir. Amacımız, işletmelere yalnızca \"iyi fikir\" değil, hukuken de doğru yol haritaları sunmaktır.",
+  title: "Çevre Hukukunun Konusu ve Amacı",
+  source: "Prof. Dr. Ahmet Mithat Güneş · Çevre Hukuku",
+
+  // Giriş: konu/amaç + ilkeler girişi (her eleman bir paragraf)
+  intro: [
+    "Çevre Kanununun ikinci maddesinde çevrenin korunmasına ilişkin oldukça kapsamlı bir tanıma yer verildiği dikkat çekmektedir. Buna göre çevre korunması çevresel değerlerin ve ekolojik dengenin tahribini, bozulmasını ve yok olmasını önlemeye, mevcut bozulmaları gidermeye, çevreyi iyileştirmeye ve geliştirmeye, çevre kirliliğini önlemeye yönelik çalışmaların bütününü tanımlar. Dikkat çekilmesi gereken diğer bir husus, çevrenin korunmasına yönelik girişimlerin insanlardan ve insan gereksinimlerinden soyutlanmadan gerçekleştirilmesi gerektiğidir. Zira çevre hukukunun amacı çevresel varlıkları insanlardan soyutlayarak korumak değildir; aksine çevresel denge bozulmayacak şekilde insanların çevreden yararlanmalarının düzenlenmesi amaçlanmaktadır.",
+    "Çevre hukukunun temel ilkeleri, çevre hukukuna temel oluşturan, bu hukuk dalının bağımsız bir alan olarak gelişmesinde ve kendine özgü bir karakter kazanmasında belirleyici olan ilkelerdir. Önleme ilkesi, ihtiyat ilkesi, kirleten öder ilkesi, sürdürülebilir kalkınma ilkesi, katılım ilkesi, entegrasyon ilkesi ve iş birliği ilkesi, bu bağlamda karşımıza çıkan başlıca ilkelerdir. İlkeler, modern bir çevre politikasının taşıyıcı sütunlarına benzetilebilir.",
   ],
-  referencesTitle: "İlgili Mevzuat",
-  references: [
+
+  // Çevre hukukunun 6 temel ilkesi (açılır akordeon). body içinde iki
+  // paragraf \n\n ile ayrılır.
+  principlesTitle: "Çevre Hukukunun Temel İlkeleri",
+  principles: [
     {
-      name: "T.C. Anayasası m. 56",
-      note: "Sağlıklı ve dengeli çevrede yaşama hakkı",
+      no: "1",
+      title: "Önleme İlkesi",
+      body: "Önleme ilkesi, günümüzde çevre hukukuna temel oluşturan en önemli ilkelerden biridir. Önleyici bir yaklaşıma esas alan önleme ilkesi, ilgili makamların henüz çevresel sorunlar ortaya çıkmadan harekete geçerek çevresel tehditleri bertaraf etmesini öngörür. Önleme ilkesinin doktrinde altın ilke olarak nitelendirildiği dikkat çekmektedir. Nitekim Avrupa Birliği'nin kurucu antlaşmalarında bu ilkeden doğrudan söz edilmektedir.\n\nÇevresel kirliliğin öncelikle doğduğu yerde önlenmesi gerektiğini ifade eden kaynakta önleme ilkesi, önleme ilkesinin bir alt ilkesidir. Kaynakta önleme ilkesi uyarınca, çevresel zararlarla ortaya çıkışlarından mümkün mertebe hemen sonra ve öncelikle ortaya çıktıkları yerde mücadele edilmelidir.",
     },
     {
-      name: "2872 sayılı Çevre Kanunu",
-      note: "Çevre kirliliğinin önlenmesi ve yaptırımlar",
+      no: "2",
+      title: "İhtiyat İlkesi",
+      body: "İhtiyat ilkesi genel olarak, bir madde veya faaliyetin çevre açısından olumsuz neticeler doğuracağı hususunda ciddi bir şüphenin varlığı halinde bilimsel bir kanıtın ortaya çıkışı beklenmeden önleyici tedbirlerin alınmasını öngörmektedir. İhtiyat ilkesi birçok yönden önleme ilkesine benzemektedir. Ancak ihtiyat ilkesi, önleme ilkesinden farklı olarak bilimsel belirsizlik ve düşük düzeydeki çevresel zarar olasılıkları hallerinde de önleyici tedbirlerin alınmasını öngörür.",
     },
     {
-      name: "Paris Anlaşması",
-      note: "Ulusal katkı beyanları ve 1,5 °C hedefi",
+      no: "3",
+      title: "Kirleten Öder İlkesi",
+      body: "Kirleten öder ilkesi genel olarak, çevresel zararlara neden olan kişilere sebep oldukları zararlarla mücadelenin bedelinin ödettirilmesini amaçlamaktadır. Kirleten öder ilkesi, kirletenlere sebep oldukları kirlilikle mücadelenin bedelinin ödettirilmesinin yanı sıra çevresel zararlara yol açan kişileri bu zararları azaltmaya ve daha az zarara neden olacak yöntemler bulmaya da teşvik etmektedir. Kirleten öder ilkesine, resmi düzeyde ilk defa OECD tarafından 1972 yılında kabul edilen bir tavsiye kararında yer verilmiştir.\n\nKirleten kavramına ilişkin ilk tanımlardan biri 1975 yılında Avrupa Konseyi tarafından yapılmıştır. Kirleten burada, doğrudan veya dolaylı bir şekilde çevrenin bozulmasına neden olan veya bozulmaya sebebiyet verecek bir koşulu ortaya çıkaran kişi olarak tanımlanmıştır. Çevre Kanununun 2. maddesi de benzer şekilde kirleteni, faaliyetleri sırasında veya sonrasında doğrudan veya dolaylı olarak çevre kirliliğine, ekolojik dengenin ve çevrenin bozulmasına neden olan gerçek ve tüzel kişiler olarak tanımlamaktadır.",
     },
     {
-      name: "Sıfır Atık Yönetmeliği",
-      note: "Kaynağında ayrıştırma yükümlülüğü",
+      no: "4",
+      title: "Sürdürülebilir Kalkınma İlkesi",
+      body: "Sürdürülebilir kalkınma ilkesi, doksanlı yılların başından itibaren çevre hukukunun etkisini ve ağırlığını en fazla hissettiren ilkesidir. Ekonomik büyüme ile doğal kaynakların korunması arasında bir denge kurulmasını öngören sürdürülebilir kalkınma ilkesi, bu doğrultuda şimdiki kuşakların ihtiyaçlarının; gelecek kuşakların kendi gereksinim ve beklentilerini karşılayabilme yeteneğini tehlikeye düşürmeden karşılanması gerektiği düşüncesine dayanır. Sürdürülebilir kalkınma ilkesi bu bakımdan, doğal varlıkların taşıma kapasitesini ve kendilerini yenileyebilme olanağını dikkate alan bir ekonomik büyüme modelini hedeflemektedir.",
     },
     {
-      name: "Atık Yönetimi Yönetmeliği",
-      note: "Üretici sorumluluğu ve bertaraf esasları",
+      no: "5",
+      title: "Katılım İlkesi",
+      body: "Katılım, bireylerin çevresel yönetim sürecinde rol oynaması, etkide bulunması ve böylelikle kendi yaşamlarını şekillendirecek bu süreci yönlendirmesini tanımlamaktadır. Katılım, çevresel kararların demokratik meşruiyetini ve etkililiğini artırmanın yanı sıra halka idari kararların alınması ve yürütülmesi sürecinde denetleme olanağı sunmakta, devlet idaresinde şeffaflığı artırmakta, ilgili idari birimlere kararlarına temel oluşturacak sağlam bilgilere erişme olanağı yaratmakta ve idari kararların yerel koşullar da göz önünde bulundurularak alınmasını sağlamaktadır. Stockholm Bildirgesi, çevresel konularda katılımın gerekliliğine dikkat çeken ilk metinlerden biridir. 1982 Anayasası'nın 56. maddesinde, çevrenin korunması devletin ve vatandaşların ortak ödevi olarak belirtilmiştir.",
+    },
+    {
+      no: "6",
+      title: "İş Birliği İlkesi",
+      body: "İş birliği ilkesi genel olarak, çevrenin korunmasının yalnızca devlet eliyle yerine getirilmesi gereken bir ödev olmadığını, aksine çevre sorunlarının çözümünde kamusal birimler ve toplumun ortaklaşa hareket etmesi gerektiğini öngörmektedir. Dolayısıyla iş birliği ilkesi; kamusal birimleri, sivil toplum örgütlerini ve diğer bütün özel işletme ve kişileri, çevrenin korunmasına katkıda bulunmak ve bu konuda ortaklaşa hareket etmekle yükümlü kılmaktadır.",
     },
   ],
+
+  // Ulusal düzenlemeler
+  national: {
+    title: "Ulusal Düzenlemeler",
+    items: [
+      {
+        name: "Türkiye Cumhuriyeti Anayasası",
+        year: "1982",
+        intro: "Türkiye Cumhuriyeti'nin devlet yapısını, devlet organlarının görev ve yetkilerini ve bireylerin temel hak ve özgürlüklerini düzenleyen Anayasa;",
+        detail: "56. maddeyle herkesin sağlıklı ve dengeli bir çevrede yaşama hakkını güvence altına alırken çevrenin geliştirilmesini, çevre sağlığının korunmasını ve çevre kirliliğinin önlenmesini devletin ve vatandaşların ödevi olarak belirler. 169. maddeyle ise ormanların korunması ve geliştirilmesi, orman alanlarının genişletilmesi ve ormanlara zarar verebilecek faaliyetlerin önlenmesine ilişkin esasları düzenler.",
+      },
+      {
+        name: "2872 Sayılı Çevre Kanunu",
+        year: "1983",
+        intro: "Çevrenin korunmasına ilişkin temel yasal düzenlemelerden biri olan bu kanun;",
+        detail: "1. maddeyle çevrenin, sürdürülebilir çevre ve sürdürülebilir kalkınma ilkeleri doğrultusunda korunmasını amaçlarken 28. maddeyle çevreyi kirleten ve çevreye zarar verenlerin, sebep oldukları kirlilik ve bozulmadan doğan zararlardan kusur şartı aranmaksızın sorumlu tutulmasını öngörür.",
+      },
+      {
+        name: "7552 Sayılı İklim Kanunu",
+        year: "2025",
+        intro: "Türkiye'nin iklim değişikliğiyle mücadelesine ilişkin yasal çerçeveyi oluşturan bu kanun;",
+        detail: "3. maddeyle iklim adaleti, ihtiyatlılık, katılım, sürdürülebilirlik, şeffaflık ve adil geçiş gibi ilkeleri esas alır. Ayrıca ortak fakat farklılaştırılmış sorumluluklar ve göreceli kabiliyetler ilkesini dikkate alarak kamu kurumları, kuruluşlar ve kişilerin alınan tedbirlere uyma yükümlülüğünü belirler; Ulusal Katkı Beyanı ve net sıfır emisyon hedefi doğrultusunda ülkenin kalkınma önceliklerinin ve özel koşullarının gözetilmesini öngörür.",
+      },
+    ],
+    othersTitle: "Diğer Bazı Ulusal Düzenlemeler",
+    others: [
+      "6831 sayılı Orman Kanunu",
+      "2873 sayılı Milli Parklar Kanunu",
+      "2863 sayılı Kültür ve Tabiat Varlıklarını Koruma Kanunu",
+      "5403 sayılı Toprak Koruma ve Arazi Kullanımı Kanunu",
+      "3621 sayılı Kıyı Kanunu",
+      "Çevresel Etki Değerlendirmesi Yönetmeliği",
+      "Sıfır Atık Yönetmeliği",
+    ],
+  },
+
+  // Uluslararası düzenlemeler
+  international: {
+    title: "Uluslararası Düzenlemeler",
+    items: [
+      {
+        name: "BM İklim Değişikliği Çerçeve Sözleşmesi",
+        en: "United Nations Framework Convention on Climate Change",
+        year: "UNFCCC · 1992",
+        intro: "COP zirvelerinin hukuki zeminini hazırlayan bu belge;",
+        detail: "2. başlıkta açıklandığı üzere atmosferdeki sera gazı yoğunluklarının, iklim sistemine yönelik tehlikeli insan kaynaklı müdahaleleri önleyecek bir düzeyde dengelenmesini sağlamayı amaçlamaktadır. Bu doğrultuda taraflar, 3. başlıkta yer alan ilkelere uygun eylemlerde bulunur. 7. başlıkta ise oluşturulan Taraflar Konferansı'nın görevleri belirlenmiştir.",
+      },
+      {
+        name: "Kyoto Protokolü",
+        en: "The Kyoto Protocol",
+        year: "1997",
+        intro: "BM İklim Değişikliği Çerçeve Sözleşmesi'nin uygulanmasına yönelik bu protokol;",
+        detail: "sürdürülebilir kalkınma kapsamında tarafların 3. başlık altında belirlenen nicelleştirilmiş emisyon sınırlama ve azaltım taahhütlerini yerine getirmelerini ve bu doğrultuda 2. başlıkta belirtilen politika ve önlemleri uygulamalarını öngörür. Protokol, atmosferdeki sera gazı yoğunluklarının azaltılmasına ve iklim sistemi üzerindeki tehlikeli müdahalelerin önlenmesine katkıda bulunurken 12. maddeyle birlikte temiz kalkınma mekanizması oluşturur; bu mekanizmanın amacı tarafları nihai amaca ulaşma doğrultusunda desteklemektir.",
+      },
+      {
+        name: "Paris Anlaşması",
+        en: "The Paris Agreement",
+        year: "2015",
+        intro: "BM İklim Değişikliği Çerçeve Sözleşmesi kapsamında kabul edilen bu anlaşma;",
+        detail: "sürdürülebilir kalkınma ve yoksulluğun ortadan kaldırılması amacıyla küresel iklim değişikliği tehdidine karşı mücadeleyi güçlendirir. 2. başlık altında küresel sıcaklık artışının sanayi öncesi seviyelere kıyasla 2°C'nin oldukça altında tutulması ve 1,5°C ile sınırlandırılması hedeflenirken 4. başlıkla beraber tarafların ulusal katkı beyanları aracılığıyla sera gazı emisyonlarını azaltmaya yönelik hedefler belirlemeleri ve bu hedefleri zaman içinde geliştirmeleri öngörülür. Anlaşmanın nihai amacı doğrultusunda ise 15. madde ile birlikte \"Anlaşmanın Uygulanmasını Kolaylaştırma ve Anlaşmaya Uyumu Teşvik Komitesi\" (PAICC) kurulmuştur.",
+      },
+    ],
+    othersTitle: "Diğer Bazı Uluslararası Düzenlemeler",
+    others: [
+      "2003/4 sayılı Halkın Çevresel Bilgilere Erişimine İlişkin Yönerge",
+      "1049/2001 sayılı Belgelere Erişime İlişkin Tüzük",
+      "2003/35 sayılı Halkın Katılımına İlişkin Yönerge",
+      "2000/60 sayılı Su Çerçeve Yönergesi",
+      "98/83 sayılı İçme Suyu Kalitesi Yönergesi",
+      "1013/2006 sayılı Atıkların Taşınımı Tüzüğü",
+      "99/31 sayılı Atık Depolama Yönergesi",
+      "2000/53 sayılı Ömrünü Tamamlamış Araçlar Yönergesi",
+      "2006/66 sayılı Atık Piller ve Bataryalar Yönergesi",
+      "2008/50 sayılı Hava Kalitesi Yönergesi",
+      "2003/17 sayılı Yakıt Kalitesi Yönergesi",
+    ],
+  },
+
+  // Birleşmiş Milletler Sürdürülebilir Kalkınma Amaçları (SKA)
+  sdg: {
+    title: "Birleşmiş Milletler Kalkınma Amaçları",
+    lead: "Sürdürülebilir Kalkınma Amaçları (SKA), Birleşmiş Milletler tarafından 2015 yılında kabul edilen ve 2030 yılına kadar dünyada yoksulluğu bitirmek, gezegeni korumak ve refahı güvence altına almak için belirlenen 17 küresel amaçtan oluşur. Projemiz, bu 17 amaçtan başlıca şunların gerçekleştirilmesine katkı sağlamayı hedefler:",
+    items: [
+      { code: "6", name: "Temiz Su ve Sanitasyon", body: "Herkes için su ve sanitasyonun erişilebilirliğini ve sürdürülebilir yönetimini güvence altına almak." },
+      { code: "7", name: "Erişilebilir ve Temiz Enerji", body: "Herkes için güvenilir, sürdürülebilir ve modern enerjiye erişimi sağlamak." },
+      { code: "11", name: "Sürdürülebilir Şehirler ve Topluluklar", body: "Şehirleri ve insan yerleşimlerini kapsayıcı, güvenli, dayanıklı ve sürdürülebilir kılmak." },
+      { code: "12", name: "Sorumlu Üretim ve Tüketim", body: "Sürdürülebilir üretim ve tüketim kalıplarını garanti altına almak." },
+      { code: "13", name: "İklim Eylemi", body: "İklim değişikliği ve etkileriyle mücadele etmek için acil eyleme geçmek." },
+      { code: "14", name: "Sudaki Yaşam", body: "Okyanusları, denizleri ve deniz kaynaklarını sürdürülebilir kalkınma için korumak ve sürdürülebilir şekilde kullanmak." },
+      { code: "15", name: "Karasal Yaşam", body: "Karasal ekosistemleri korumak ve sürdürülebilir kullanımını desteklemek; ormanları sürdürülebilir yönetmek, çölleşmeyle mücadele etmek ve biyolojik çeşitlilik kaybını durdurmak." },
+    ],
+  },
 };
 
 export const campusMap = {

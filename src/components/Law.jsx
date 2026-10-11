@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useContent } from "../content/ContentContext";
 import Reveal from "./Reveal";
 import SectionHead from "./SectionHead";
@@ -12,44 +13,161 @@ export default function Law() {
       <div className="container">
         <SectionHead label={law.eyebrow} />
 
+        {/* --- Başlık + kaynak --- */}
         <div className="law__top">
           <Reveal>
             <h2 className="section-title law__title">{law.title}</h2>
           </Reveal>
-          <Reveal delay={0.1} className="law__byline">
-            <span>{law.author}</span>
-            <span>{law.readingTime}</span>
-          </Reveal>
+          {law.source && (
+            <Reveal delay={0.08}>
+              <p className="law__source">{law.source}</p>
+            </Reveal>
+          )}
         </div>
 
-        <div className="law__grid">
-          <div className="law__article">
-            {law.paragraphs.map((p, i) => (
-              <Reveal key={i} delay={0.03 * i} y={16}>
-                <p className={i === 0 ? "law__p law__p--first" : "law__p"}>{p}</p>
-              </Reveal>
-            ))}
+        {/* --- Giriş paragrafları --- */}
+        <div className="law__intro">
+          {(law.intro || []).map((p, i) => (
+            <Reveal key={i} delay={0.04 * i} y={16}>
+              <p className="law__p">{p}</p>
+            </Reveal>
+          ))}
+        </div>
 
+        {/* --- 6 Temel İlke (akordeon) --- */}
+        {!!law.principles?.length && (
+          <div className="law__block">
             <Reveal>
-              <blockquote className="law__quote">{law.pullQuote}</blockquote>
+              <h3 className="law__blocktitle">{law.principlesTitle}</h3>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <Accordion
+                items={law.principles.map((pr) => ({
+                  key: pr.no,
+                  lead: pr.no,
+                  title: pr.title,
+                  body: pr.body,
+                }))}
+              />
             </Reveal>
           </div>
+        )}
 
-          <Reveal delay={0.12}>
-            <aside className="law__aside">
-              <h3>{law.referencesTitle}</h3>
-              <ul>
-                {law.references.map((r) => (
-                  <li key={r.name}>
-                    <strong>{r.name}</strong>
-                    <span>{r.note}</span>
-                  </li>
-                ))}
-              </ul>
-            </aside>
-          </Reveal>
-        </div>
+        {/* --- Ulusal Düzenlemeler --- */}
+        {law.national && (
+          <RegulationBlock data={law.national} />
+        )}
+
+        {/* --- Uluslararası Düzenlemeler --- */}
+        {law.international && (
+          <RegulationBlock data={law.international} international />
+        )}
+
+        {/* --- BM Kalkınma Amaçları --- */}
+        {law.sdg && (
+          <div className="law__block law__block--sdg">
+            <Reveal>
+              <h3 className="law__blocktitle">{law.sdg.title}</h3>
+            </Reveal>
+            {law.sdg.lead && (
+              <Reveal delay={0.05}>
+                <p className="law__p law__sdglead">{law.sdg.lead}</p>
+              </Reveal>
+            )}
+            <div className="sdg__grid">
+              {(law.sdg.items || []).map((it, i) => (
+                <Reveal key={it.code} delay={0.04 * (i % 3)}>
+                  <article className="sdg__card">
+                    <span className="sdg__code">
+                      <small>SKA</small>
+                      {it.code}
+                    </span>
+                    <h4 className="sdg__name">{it.name}</h4>
+                    <p className="sdg__text">{it.body}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
+  );
+}
+
+/* --- Ulusal / Uluslararası düzenleme bloğu --- */
+function RegulationBlock({ data, international }) {
+  return (
+    <div className="law__block">
+      <Reveal>
+        <h3 className="law__blocktitle">{data.title}</h3>
+      </Reveal>
+
+      <div className="regs">
+        {(data.items || []).map((it, i) => (
+          <Reveal key={it.name} delay={0.04 * (i % 3)}>
+            <article className="reg">
+              <div className="reg__head">
+                <h4 className="reg__name">{it.name}</h4>
+                {it.year && <span className="reg__year">{it.year}</span>}
+              </div>
+              {international && it.en && <p className="reg__en">{it.en}</p>}
+              <p className="reg__text">
+                {it.intro && <span className="reg__intro">{it.intro} </span>}
+                {it.detail}
+              </p>
+            </article>
+          </Reveal>
+        ))}
+      </div>
+
+      {!!data.others?.length && (
+        <Reveal delay={0.08}>
+          <div className="reg__others">
+            <span className="reg__otherstitle">{data.othersTitle}</span>
+            <ul className="reg__chips">
+              {data.others.map((o) => (
+                <li key={o}>{o}</li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+      )}
+    </div>
+  );
+}
+
+/* --- Basit akordeon --- */
+function Accordion({ items }) {
+  const [open, setOpen] = useState(null);
+  return (
+    <ul className="acc">
+      {items.map((it) => {
+        const isOpen = open === it.key;
+        return (
+          <li key={it.key} className={`acc__item ${isOpen ? "is-open" : ""}`}>
+            <button
+              type="button"
+              className="acc__head"
+              aria-expanded={isOpen}
+              onClick={() => setOpen(isOpen ? null : it.key)}
+            >
+              {it.lead && <span className="acc__no">{it.lead}</span>}
+              <span className="acc__title">{it.title}</span>
+              <span className="acc__icon" aria-hidden="true" />
+            </button>
+            <div className="acc__panel">
+              <div className="acc__inner">
+                {String(it.body)
+                  .split("\n\n")
+                  .map((para, i) => (
+                    <p key={i}>{para}</p>
+                  ))}
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
