@@ -185,7 +185,7 @@
 .uniworks__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 14px;
 }
 
 /* Kartlar <Reveal> sarmalayıcısı içinde. Sarmalayıcı grid hücresini
@@ -206,8 +206,8 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 26px 24px;
-  border-radius: 15px;
+  padding: 20px 20px;
+  border-radius: 12px;
   background: rgba(20, 27, 23, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(10px) saturate(1.1);
@@ -236,10 +236,10 @@
    Beyaz disk sayesinde lacivert arma hem açık hem koyu temada net görünür. */
 .wcard__badge {
   position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 46px;
-  height: 46px;
+  top: 15px;
+  right: 15px;
+  width: 38px;
+  height: 38px;
   z-index: 2;
   pointer-events: none;
   border-radius: 50%;
@@ -261,7 +261,7 @@
 
 .wcard__num {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   color: var(--text-faint);
   transition: color 0.25s ease;
@@ -272,21 +272,21 @@
 }
 
 .wcard__title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 650;
-  line-height: 1.3;
+  line-height: 1.28;
   letter-spacing: -0.012em;
-  margin: 14px 0 10px;
-  padding-right: 52px;
+  margin: 11px 0 8px;
+  padding-right: 42px;
   text-wrap: balance;
   color: var(--text);
 }
 
 .wcard__desc {
-  font-size: 14.5px;
-  line-height: 1.6;
+  font-size: 13.5px;
+  line-height: 1.55;
   color: var(--text-soft);
-  margin: 0 0 20px;
+  margin: 0 0 16px;
 }
 
 .wcard__go {
@@ -295,7 +295,7 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
   color: var(--accent);
 }
