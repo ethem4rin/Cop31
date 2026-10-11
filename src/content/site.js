@@ -682,6 +682,40 @@ export const law = {
       "2003/17 sayılı Yakıt Kalitesi Yönergesi",
     ],
   },
+  impacts: [
+    {
+      title: "İklim Değişikliğinin Tarımsal Süreç Üzerindeki Etkisi",
+      intro: [
+        "Tarım, insanların temel gıda ihtiyaçlarının karşılanmasını sağlayan ve ekonomik faaliyetlerin önemli bir bölümünü oluşturan stratejik bir sektördür. Tarımsal üretim; sıcaklık, yağış, toprak nemi ve su kaynakları gibi iklim koşullarıyla doğrudan ilişkilidir. İklim değişikliğiyle birlikte artan sıcaklıklar, yağış rejimindeki değişimler ve aşırı hava olaylarının daha sık görülmesi, tarımsal üretimin verimliliğini ve sürdürülebilirliğini olumsuz etkilemektedir. Hükümetlerarası İklim Değişikliği Paneli'nin (IPCC) 2022 yılında yayımlanan raporuna göre, insan kaynaklı küresel ısınma son 50 yılda özellikle orta ve düşük enlemlerde tarımsal verimlilik artışını yavaşlatmıştır. İklim değişikliğinin tarımsal süreç üzerindeki başlıca etkileri şunlardır:",
+      ],
+      points: [
+        "Sıcaklık ve yağış rejimindeki değişimler, bitkilerin büyüme ve gelişme süreçlerini, çiçeklenme dönemlerini, ürünlerin olgunlaşma zamanlarını ve hasat miktarlarını etkilemektedir. Aşırı sıcaklıklar ve düzensiz yağışlar, bitkilerin ihtiyaç duyduğu suya erişimini zorlaştırarak verim ve ürün kalitesinde düşüşlere neden olabilmektedir. Kuraklık ve aşırı yağışlar ise tarım alanlarında ürün kayıplarını artırmaktadır.",
+        "Kuraklık ve su kaynaklarının azalması, tarımsal üretimde sulama ihtiyacını artırmakta ve üretim maliyetlerini yükseltmektedir. Bitkilerin gelişme dönemlerinde ihtiyaç duydukları suya ulaşamaması, tarımsal kuraklığa ve verim kaybına yol açmaktadır. Türkiye Tarımsal Kuraklıkla Mücadele Stratejisi ve Eylem Planı'nda da kuraklığın tarımsal üretimi doğrudan ve dolaylı olarak etkileyerek verimliliği azalttığı belirtilmektedir.",
+        "Toprak yapısı ve tarımsal ekosistemlerde meydana gelen değişimler, toprak neminin azalmasına, erozyon riskinin artmasına ve toprak verimliliğinin olumsuz etkilenmesine neden olabilmektedir. Bunun yanında sıcaklık ve nem koşullarındaki değişimler, bitki hastalıklarının ve tarımsal zararlıların yayılımını etkileyerek bitki koruma uygulamalarına duyulan ihtiyacı artırabilmektedir.",
+        "Hayvansal üretim üzerindeki etkiler de iklim değişikliğinin tarımsal süreçteki önemli sonuçları arasındadır. Aşırı sıcaklıklar hayvanlarda ısı stresine neden olarak yem tüketimini, üreme performansını, süt ve et verimini olumsuz etkileyebilmektedir. Kuraklık nedeniyle meraların ve yem kaynaklarının zayıflaması da hayvancılık faaliyetlerini zorlaştırmaktadır.",
+      ],
+      after: [
+        "Türkiye, büyük ölçüde yarı kurak iklim koşullarının etkisinde olması nedeniyle iklim değişikliğinin tarımsal etkilerine karşı hassas bir konumdadır. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı tarafından yayımlanan İklim Değişikliğine Uyum Stratejisi ve Eylem Planı (2024–2030) kapsamında, Türkiye'de tarım sektörünü etkileyen başlıca risklerden birinin kuraklık olduğu belirtilmektedir. Kuraklık riskinin özellikle İç Anadolu, Güneydoğu Anadolu ve Doğu Anadolu bölgelerinde yüksek olduğu ifade edilmektedir. Bu koşullar, tarımsal üretimin devamlılığını, çiftçilerin gelirlerini ve gıda arzının güvenilirliğini tehdit etmektedir.",
+      ],
+    },
+    {
+      title: "İklim Değişikliğinin Su Varlıkları Üzerindeki Etkisi",
+      intro: [
+        "Su kaynakları insanlığın temel yaşam kaynağıdır. Günümüzde dünyanın iklim sistemini oluşturan atmosfer, hidrosfer ve litosferde bozulmalarla birlikte doğal denge de bozulmuş, bunun sonuçları da iklimi etkilemiştir. İklim değişikliğinin önemli sonuçlarından birisi, hatta belki de en önemlisi su kaynakları üzerinde yarattığı olumsuz etkileridir. İklim değişikliğinin en önemli etkisinin su döngüsü üzerinde olacağı tüm bilimsel raporlarda ispatlanmıştır. Araştırmalar 2025 yılından itibaren 3 milyardan fazla insanın su kıtlığı yaşayacağını ortaya koymaktadır. İklim değişikliği nedeniyle;",
+      ],
+      points: [
+        "Su döngüsünde değişimler (artan atmosferik su buharı, yağış rejiminde değişiklik, kuraklık ve seller gibi aşırı sonuçlar, dağ buzullarının geniş ölçüde erimesi, kurak dönemlerde suya erişebilirliği engelleyen buzul örtüsü, toprak neminde değişiklikler),",
+        "yüksek hava sıcaklıkları su kalitesini etkilemesi ve",
+        "deniz seviyesi yüksekliğinin nehir ağzı ve kıyı yer altı sularının tuzlanmasına yol açması, bu nedenle kıyı alanlarında insanların ve ekosistemlerin tatlı suya erişiminin azalması söz konusudur.",
+      ],
+      after: [
+        "İklim değişikliğinin su kaynakları üzerindeki etkileri, Hükümetlerarası İklim Değişikliği Paneli'nin (IPCC) 2022 yılında yayımlanan raporunda geniş bir kapsamda ele alınmaktadır. Buna göre, kabaca dünya nüfusunun (8 milyar kişi) yarısının en azından yılın bir bölümünde iklimsel ya da iklimsel olmayan nedenlere bağlı olarak ciddi su sıkıntısı çekeceği tahmin edilmektedir. İnsan kaynaklı iklim değişikliğinin etkisiyle, etkili taşkınlara ve kuraklıklara neden olan aşırı hava olaylarının ortaya çıkma sıklığı ve şiddeti artmaktadır.",
+        "Birleşmiş Milletler tarafından 2020 yılında yayımlanan Dünya Su Gelişim Raporu'na göre iklim değişikliği etkisiyle dünya genelinde dönemsel su kıtlığı yaşanma ihtimali ve ısı dalgaları, daha önce görülmemiş şiddette yağışlar, fırtınalar ve fırtına dalgası gibi aşırı hava olaylarının görülme sıklığının artacağı tahmin edilmektedir.",
+        "Türkiye, iklim değişikliği etkilerinden yoğun olarak etkileneceği tahmin edilen Akdeniz iklim kuşağında yer almaktadır. Türkiye'de iklim değişikliğinden kaynaklanan yaz sıcaklıklarının artması, kış yağışlarının azalması, yüzey sularının kaybı, kuraklıkların sıklaşması, toprağın bozulması, kıyılarda erozyon, taşkın ve su baskınları gibi etkiler doğrudan su kaynaklarının varlığını tehdit etmektedir.",
+        "Unutmayalım, su tasarrufu sadece bugünü değil, geleceğimizi de korumak demektir. Hep birlikte bilinçli adımlar atarak, sürdürülebilir bir gelecek için su kaynaklarımızı koruyabiliriz.",
+      ],
+    },
+  ],
 };
 
 export const campusMap = {

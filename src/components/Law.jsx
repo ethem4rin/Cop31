@@ -62,8 +62,48 @@ export default function Law() {
         {law.international && (
           <RegulationBlock data={law.international} international />
         )}
+
+        {/* --- İklim Değişikliğinin Etkileri (Tarım / Su) --- */}
+        {(law.impacts || []).map((im) => (
+          <ImpactBlock key={im.title} data={im} />
+        ))}
       </div>
     </section>
+  );
+}
+
+/* --- İklim değişikliği etki bloğu (giriş + numaralı maddeler + kapanış) --- */
+function ImpactBlock({ data }) {
+  return (
+    <div className="law__block">
+      <Reveal>
+        <h3 className="law__blocktitle">{data.title}</h3>
+      </Reveal>
+
+      {(data.intro || []).map((p, i) => (
+        <Reveal key={`in-${i}`} delay={0.04 * i} y={16}>
+          <p className="law__p">{p}</p>
+        </Reveal>
+      ))}
+
+      {!!data.points?.length && (
+        <Reveal delay={0.06}>
+          <ol className="impact">
+            {data.points.map((p, i) => (
+              <li key={i} className="impact__item">
+                {p}
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+      )}
+
+      {(data.after || []).map((p, i) => (
+        <Reveal key={`af-${i}`} delay={0.04 * i} y={16}>
+          <p className="law__p">{p}</p>
+        </Reveal>
+      ))}
+    </div>
   );
 }
 

@@ -283,3 +283,35 @@
     padding: 16px 16px;
   }
 }
+
+/* --- İklim etkileri: (i)(ii)(iii) numaralı maddeler --- */
+.impact {
+  list-style: none;
+  counter-reset: impact;
+  margin: 0 0 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.impact__item {
+  counter-increment: impact;
+  position: relative;
+  padding-left: 44px;
+  font-size: clamp(15px, 1.35vw, 16.5px);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.impact__item::before {
+  content: "(" counter(impact, lower-roman) ")";
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-width: 34px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--green);
+}
