@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useContent } from "../content/ContentContext";
 import Reveal from "./Reveal";
 import SectionHead from "./SectionHead";
-import SmartImage from "./SmartImage";
 import "./Team.css";
 
 const initials = (name = "") =>
@@ -26,85 +25,55 @@ export default function Team() {
       <div className="container">
         <SectionHead label={teamSection.eyebrow} />
 
-        <Reveal>
-          <h2 className="section-title teamsec__title">{teamSection.title}</h2>
-        </Reveal>
-
-        <div className="teamsec__stage">
-          {/* ---- Alıntı ---- */}
-          <div className="teamsec__quotecol">
-            <AnimatePresence mode="wait">
-              <motion.blockquote
-                key={active}
-                className="teamsec__quote"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {person.quote}
-              </motion.blockquote>
-            </AnimatePresence>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`${active}-id`}
-                className="teamsec__id"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <strong>{person.name}</strong>
-                <span>{person.role}</span>
-                <em>{person.meta}</em>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* ---- Portre ---- */}
-          <div className="teamsec__portraitcol">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.32 }}
-              >
-                <SmartImage
-                  className="teamsec__portrait"
-                  src={person.photo}
-                  alt={person.name}
-                  label={initials(person.name)}
-                  imgClassName="teamsec__photo"
-                />
-              </motion.div>
-            </AnimatePresence>
-          </div>
+        <div className="teamsec__header">
+          <Reveal>
+            <h2 className="section-title teamsec__title">{teamSection.title}</h2>
+          </Reveal>
         </div>
 
-        {/* ---- Ekip listesi ---- */}
-        <ul className="teamsec__roster">
-          {team.map((m, i) => (
-            <li key={`${m.name}-${i}`}>
+        {/* ---- Seçili Ekip Üyesi Kartı (Söz ve Fotoğraf kaldırıldı, doğrudan bilgi alanı) ---- */}
+        <div className="teamsec__display">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              className="teamsec__card"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
+            >
+              <div className="teamsec__card-badge">
+                <span className="teamsec__card-role">{person.role}</span>
+              </div>
+              <h3 className="teamsec__card-name">{person.name}</h3>
+              <p className="teamsec__card-meta">{person.meta}</p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* ---- Dairesel Butonlar (Kutu ızgarası yerine yuvarlak seçim elemanları) ---- */}
+        <div className="teamsec__bubbles">
+          {team.map((m, i) => {
+            const isOn = i === active;
+            return (
               <button
-                className={i === active ? "is-on" : ""}
+                key={`${m.name}-${i}`}
+                type="button"
+                className={`teamsec__bubble ${isOn ? "is-on" : ""}`}
                 onClick={() => setActive(i)}
+                aria-label={`${m.name} - ${m.role}`}
               >
-                <SmartImage
-                  className="teamsec__avatar"
-                  src={m.photo}
-                  alt={m.name}
-                  label={initials(m.name)}
-                  imgClassName="teamsec__avatarphoto"
-                />
-                <span className="teamsec__rostername">{m.name}</span>
-                <span className="teamsec__rosterrole">{m.role}</span>
+                <div className="teamsec__circle">
+                  <span className="teamsec__initials">{initials(m.name)}</span>
+                </div>
+                <div className="teamsec__bubble-info">
+                  <span className="teamsec__bubble-name">{m.name}</span>
+                  <span className="teamsec__bubble-role">{m.role}</span>
+                </div>
               </button>
-            </li>
-          ))}
-        </ul>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
