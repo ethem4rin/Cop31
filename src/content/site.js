@@ -107,8 +107,6 @@ export const about = {
   eyebrow: "",
   title: "COP Nedir ? ",
   lead: "COP (Conference of the Parties – Taraflar Konferansı) Birleşmiş Milletler İklim Değişikliği \nÇerçeve Sözleşmesi'ne (UNFCCC) taraf ülkeler ve AB'nin her yıl bir araya gelerek küresel \niklim politikalarını değerlendirdiği ve yeni hedefler belirlediği en üst düzey uluslararası \niklim toplantısıdır.",
-  // Sol taraftaki sonsuz döngülü animasyon (public/videos/ içine koy).
-  // Boş bırakırsan video alanı hiç görünmez.
   video: "/videos/cop-animasyon.mp4",
 };
 
@@ -340,10 +338,60 @@ export const copHistory = {
   ],
 };
 
+export const sdg = {
+  eyebrow: "Sürdürülebilir Kalkınma",
+  title: "Birleşmiş Milletler Kalkınma Amaçları",
+  lead: "Sürdürülebilir Kalkınma Amaçları (SKA), Birleşmiş Milletler tarafından 2015 yılında kabul edilen ve 2030 yılına kadar dünyada yoksulluğu bitirmek, gezegeni korumak ve refahı güvence altına almak için belirlenen 17 küresel amaçtan oluşur. Projemiz, bu 17 amaçtan başlıca şunların gerçekleştirilmesine katkı sağlamayı hedefler:",
+  items: [
+    {
+      code: "6",
+      name: "Temiz Su ve Sanitasyon",
+      icon: "/images/ska-6.webp",
+      body: "Herkes için su ve sanitasyonun erişilebilirliğini ve sürdürülebilir yönetimini güvence altına almak.",
+    },
+    {
+      code: "7",
+      name: "Erişilebilir ve Temiz Enerji",
+      icon: "/images/ska-7.webp",
+      body: "Herkes için güvenilir, sürdürülebilir ve modern enerjiye erişimi sağlamak.",
+    },
+    {
+      code: "11",
+      name: "Sürdürülebilir Şehirler ve Topluluklar",
+      icon: "/images/ska-11.webp",
+      body: "Şehirleri ve insan yerleşimlerini kapsayıcı, güvenli, dayanıklı ve sürdürülebilir kılmak.",
+    },
+    {
+      code: "12",
+      name: "Sorumlu Üretim ve Tüketim",
+      icon: "/images/ska-12.webp",
+      body: "Sürdürülebilir üretim ve tüketim kalıplarını garanti altına almak.",
+    },
+    {
+      code: "13",
+      name: "İklim Eylemi",
+      icon: "/images/ska-13.webp",
+      body: "İklim değişikliği ve etkileriyle mücadele etmek için acil eyleme geçmek.",
+    },
+    {
+      code: "14",
+      name: "Sudaki Yaşam",
+      icon: "/images/ska-14.webp",
+      body: "Okyanusları, denizleri ve deniz kaynaklarını sürdürülebilir kalkınma için korumak ve sürdürülebilir şekilde kullanmak.",
+    },
+    {
+      code: "15",
+      name: "Karasal Yaşam",
+      icon: "/images/ska-15.webp",
+      body: "Karasal ekosistemleri korumak ve sürdürülebilir kullanımını desteklemek; ormanları sürdürülebilir yönetmek, çölleşmeyle mücadele etmek ve biyolojik çeşitlilik kaybını durdurmak.",
+    },
+  ],
+};
+
 export const university = {
   eyebrow: "Kırklareli Üniversitesi",
   title: "COP31 Çalışmalarımız",
-  lead: "Okulumuzda, 9-20 Kasım 2026 tarihleri arasında Antalya’da gerçekleştirilecek COP31 kapsamında \nüniversitemiz tarafından planlanan etkinlik ve faaliyetlere ilişkin bildirimler alındı. Projelerimiz **“COP31 \nİÇİN 31 FİDAN”** ve **“Öğrenciden İşletmeye”** bu etkinlik ve faaliyet çağrısı üzerine düzenlenmektedir.",
+  lead: "Okulumuzda, 9-20 Kasım 2026 tarihleri arasında Antalya’da gerçekleştirilecek COP31 kapsamında \nüniversitemiz tarafından planlanan etkinlik ve faaliyetlere ilişkin bildirimler alındı. Projelerimiz **“COP31 \nİÇİN 31 FİDAN”** ve **“Öğrenciden İşletmeye”** bu etkinlik ve faaliyet çağrısı üzerine düzenlenmektedir.\n\n*Teşekkür*\nEtkinlik ve faaliyetlerimizin hayata geçirilmesinde büyük emeği olan Kırklareli Üniversitesi Akademisyenlerimize içten teşekkürlerimizi sunarız:\nBu tarz çalışmaların meydana getirilmesinde oldukça büyük rolü olan Sayın Rektörümüz Prof. Dr. Rengin Ak,\nFikirlerimizi ve projelerimizi her daim destekleyen Sayın Rektör Yardımcımız Prof. Dr. Meryem Çamur Demir,\nÇevre Hukuku alanında uzmanlaşmış Türkiye'deki sayılı akademisyenlerden biri olan Sayın Prof. Dr. Ahmet Mithat Güneş,\nUluslararası Hukuk alanında uzmanlaşmış, aynı zamanda Hukuk Fakültesi Dekan Yardımcımız Sayın Tuğçe İsayev,\nÇevre Politikası konusunda değerli çalışmaları olan Sayın Dr. Öğr. Üyesi İlknur Gül,\nHer konuda destek olan, Ar-Ge Koordinatörlüğü'nde görevli Sayın Dr. Öğr. Üyesi Nihat Akkurt,\nve bizden desteğini hiç esirgemeyen Öğrenci Kulüpleri Koordinatörümüz Sayın Arş. Gör. Eren Aydın.\n",
   image: "/images/rektor.webp",
   imageCaption: "",
   imageBadge: "Rektörümüz",
@@ -524,15 +572,10 @@ export const law = {
   eyebrow: "Çevre Hukuku",
   title: "Çevre Hukukunun Konusu ve Amacı",
   source: "Prof. Dr. Ahmet Mithat Güneş · Çevre Hukuku",
-
-  // Giriş: konu/amaç + ilkeler girişi (her eleman bir paragraf)
   intro: [
     "Çevre Kanununun ikinci maddesinde çevrenin korunmasına ilişkin oldukça kapsamlı bir tanıma yer verildiği dikkat çekmektedir. Buna göre çevre korunması çevresel değerlerin ve ekolojik dengenin tahribini, bozulmasını ve yok olmasını önlemeye, mevcut bozulmaları gidermeye, çevreyi iyileştirmeye ve geliştirmeye, çevre kirliliğini önlemeye yönelik çalışmaların bütününü tanımlar. Dikkat çekilmesi gereken diğer bir husus, çevrenin korunmasına yönelik girişimlerin insanlardan ve insan gereksinimlerinden soyutlanmadan gerçekleştirilmesi gerektiğidir. Zira çevre hukukunun amacı çevresel varlıkları insanlardan soyutlayarak korumak değildir; aksine çevresel denge bozulmayacak şekilde insanların çevreden yararlanmalarının düzenlenmesi amaçlanmaktadır.",
     "Çevre hukukunun temel ilkeleri, çevre hukukuna temel oluşturan, bu hukuk dalının bağımsız bir alan olarak gelişmesinde ve kendine özgü bir karakter kazanmasında belirleyici olan ilkelerdir. Önleme ilkesi, ihtiyat ilkesi, kirleten öder ilkesi, sürdürülebilir kalkınma ilkesi, katılım ilkesi, entegrasyon ilkesi ve iş birliği ilkesi, bu bağlamda karşımıza çıkan başlıca ilkelerdir. İlkeler, modern bir çevre politikasının taşıyıcı sütunlarına benzetilebilir.",
   ],
-
-  // Çevre hukukunun 6 temel ilkesi (açılır akordeon). body içinde iki
-  // paragraf \n\n ile ayrılır.
   principlesTitle: "Çevre Hukukunun Temel İlkeleri",
   principles: [
     {
@@ -566,8 +609,6 @@ export const law = {
       body: "İş birliği ilkesi genel olarak, çevrenin korunmasının yalnızca devlet eliyle yerine getirilmesi gereken bir ödev olmadığını, aksine çevre sorunlarının çözümünde kamusal birimler ve toplumun ortaklaşa hareket etmesi gerektiğini öngörmektedir. Dolayısıyla iş birliği ilkesi; kamusal birimleri, sivil toplum örgütlerini ve diğer bütün özel işletme ve kişileri, çevrenin korunmasına katkıda bulunmak ve bu konuda ortaklaşa hareket etmekle yükümlü kılmaktadır.",
     },
   ],
-
-  // Ulusal düzenlemeler
   national: {
     title: "Ulusal Düzenlemeler",
     items: [
@@ -601,8 +642,6 @@ export const law = {
       "Sıfır Atık Yönetmeliği",
     ],
   },
-
-  // Uluslararası düzenlemeler
   international: {
     title: "Uluslararası Düzenlemeler",
     items: [
@@ -643,27 +682,6 @@ export const law = {
       "2003/17 sayılı Yakıt Kalitesi Yönergesi",
     ],
   },
-
-};
-
-/* ---------------------------------------------------------------------------
- *  4b) BM SÜRDÜRÜLEBİLİR KALKINMA AMAÇLARI (SKA)
- *  COP Nedir / COP31 Nedir bölümünün altında gösterilir.
- *  icon: resmi SKA ikon karesinin yolu (public/images/ska-N.webp).
- * -------------------------------------------------------------------------*/
-export const sdg = {
-  eyebrow: "Sürdürülebilir Kalkınma",
-  title: "Birleşmiş Milletler Kalkınma Amaçları",
-  lead: "Sürdürülebilir Kalkınma Amaçları (SKA), Birleşmiş Milletler tarafından 2015 yılında kabul edilen ve 2030 yılına kadar dünyada yoksulluğu bitirmek, gezegeni korumak ve refahı güvence altına almak için belirlenen 17 küresel amaçtan oluşur. Projemiz, bu 17 amaçtan başlıca şunların gerçekleştirilmesine katkı sağlamayı hedefler:",
-  items: [
-    { code: "6", name: "Temiz Su ve Sanitasyon", icon: "/images/ska-6.webp", body: "Herkes için su ve sanitasyonun erişilebilirliğini ve sürdürülebilir yönetimini güvence altına almak." },
-    { code: "7", name: "Erişilebilir ve Temiz Enerji", icon: "/images/ska-7.webp", body: "Herkes için güvenilir, sürdürülebilir ve modern enerjiye erişimi sağlamak." },
-    { code: "11", name: "Sürdürülebilir Şehirler ve Topluluklar", icon: "/images/ska-11.webp", body: "Şehirleri ve insan yerleşimlerini kapsayıcı, güvenli, dayanıklı ve sürdürülebilir kılmak." },
-    { code: "12", name: "Sorumlu Üretim ve Tüketim", icon: "/images/ska-12.webp", body: "Sürdürülebilir üretim ve tüketim kalıplarını garanti altına almak." },
-    { code: "13", name: "İklim Eylemi", icon: "/images/ska-13.webp", body: "İklim değişikliği ve etkileriyle mücadele etmek için acil eyleme geçmek." },
-    { code: "14", name: "Sudaki Yaşam", icon: "/images/ska-14.webp", body: "Okyanusları, denizleri ve deniz kaynaklarını sürdürülebilir kalkınma için korumak ve sürdürülebilir şekilde kullanmak." },
-    { code: "15", name: "Karasal Yaşam", icon: "/images/ska-15.webp", body: "Karasal ekosistemleri korumak ve sürdürülebilir kullanımını desteklemek; ormanları sürdürülebilir yönetmek, çölleşmeyle mücadele etmek ve biyolojik çeşitlilik kaybını durdurmak." },
-  ],
 };
 
 export const campusMap = {
