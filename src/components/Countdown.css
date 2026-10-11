@@ -1,0 +1,197 @@
+/* ============================================================
+ *  COP31 Countdown — Geri Sayım Şeridi
+ *  Tasarım: siyah arka plan · #0060F5 mavi · beyaz metin
+ *  Her iki tema (dark / light) için uyarlanmış.
+ * ============================================================ */
+
+/* ---------- Kapsayıcı şerit ---------- */
+.cdw {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+
+  /* Koyu tema (varsayılan): siyah kart */
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 96, 245, 0.35);
+  border-radius: 14px;
+  padding: 13px 24px;
+
+  /* Hafif mavi glow */
+  box-shadow:
+    0 0 0 1px rgba(0, 96, 245, 0.12),
+    0 8px 32px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(0, 96, 245, 0.08);
+
+  white-space: nowrap;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  transition: box-shadow 0.3s ease;
+}
+
+.cdw:hover {
+  box-shadow:
+    0 0 0 1px rgba(0, 96, 245, 0.3),
+    0 10px 40px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(0, 96, 245, 0.15);
+}
+
+/* ---------- Aydınlık tema ---------- */
+[data-theme="light"] .cdw {
+  background: rgba(10, 15, 30, 0.90);
+  border-color: rgba(0, 96, 245, 0.5);
+  box-shadow:
+    0 0 0 1px rgba(0, 96, 245, 0.2),
+    0 6px 28px rgba(0, 96, 245, 0.18),
+    0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- CANLI etiketi ---------- */
+.cdw__label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* Nabız animasyonu noktası */
+.cdw__pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0060F5;
+  box-shadow: 0 0 0 0 rgba(0, 96, 245, 0.7);
+  animation: cdwPulse 1.8s ease-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes cdwPulse {
+  0%   { box-shadow: 0 0 0 0   rgba(0, 96, 245, 0.75); }
+  70%  { box-shadow: 0 0 0 8px rgba(0, 96, 245, 0);    }
+  100% { box-shadow: 0 0 0 0   rgba(0, 96, 245, 0);    }
+}
+
+/* ---------- Dikey ayraç ---------- */
+.cdw__divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(0, 96, 245, 0.25);
+  flex-shrink: 0;
+}
+
+/* ---------- Birimler satırı ---------- */
+.cdw__units {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- Tek birim (sayı + etiket) ---------- */
+.cdw__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 36px;
+}
+
+.cdw__num {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #0060F5;
+  font-variant-numeric: tabular-nums;
+  /* Sayı değişirken yumuşak geçiş */
+  transition: color 0.2s ease;
+}
+
+/* Saniye sayacı hafif farklı renk tonu */
+.cdw__num--sec {
+  color: rgba(80, 150, 255, 0.95);
+}
+
+.cdw__sub {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 3px;
+}
+
+/* ---------- İki nokta ayırıcı ---------- */
+.cdw__sep {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(0, 96, 245, 0.6);
+  line-height: 1;
+  margin-bottom: 10px; /* sub etiketinin yüksekliğini dengeler */
+}
+
+/* ---------- Konum etiketi ---------- */
+.cdw__location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cdw__pin {
+  width: 12px;
+  height: 12px;
+  color: #0060F5;
+  flex-shrink: 0;
+}
+
+/* ---------- Hero içindeki konumlandırma sarıcısı ---------- */
+.hero__countdown {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding-bottom: min(2.5vh, 22px);
+}
+
+/* ---------- Duyarlı tasarım ---------- */
+@media (max-width: 640px) {
+  .cdw {
+    gap: 12px;
+    padding: 11px 16px;
+    border-radius: 10px;
+  }
+
+  .cdw__num {
+    font-size: 20px;
+  }
+
+  .cdw__sep {
+    font-size: 16px;
+  }
+
+  .cdw__location {
+    display: none; /* küçük ekranda konum gizlenir */
+  }
+
+  .cdw__divider:last-of-type {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .cdw__label span {
+    display: none; /* yalnızca nabız noktası kalır */
+  }
+
+  .cdw__divider:first-of-type {
+    display: none;
+  }
+}

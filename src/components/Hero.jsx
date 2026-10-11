@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { useContent } from "../content/ContentContext";
+import Countdown from "./Countdown";
 import "./Hero.css";
 
 export default function Hero() {
@@ -102,6 +103,16 @@ export default function Hero() {
         )}
 
       </div>
+
+      {/* Geri sayım — hero alt orta */}
+      <motion.div
+        className="hero__countdown"
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.85 }}
+      >
+        <Countdown />
+      </motion.div>
 
       {/* Alt şerit: rakamlar + slayt göstergesi */}
       <motion.div
