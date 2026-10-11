@@ -1,4 +1,25 @@
-import { SECTION_KEYS } from "../content/ContentContext";
+import { SECTION_KEYS, DEFAULTS } from "../content/ContentContext";
+
+/* Yüklenen (data:) base64 görselleri kaynağa gömmeyiz — site.js'i şişirir ve
+   ziyaretçiye görünmez. Bunları aynı alandaki varsayılan dosya yoluna çeviririz
+   (yoksa boş bırakırız). Sunucu da ayrıca bu temizliği yapar. */
+function stripDataUrls(val, def) {
+  if (typeof val === "string") {
+    if (val.startsWith("data:")) return typeof def === "string" ? def : "";
+    return val;
+  }
+  if (Array.isArray(val)) {
+    return val.map((v, i) => stripDataUrls(v, Array.isArray(def) ? def[i] : undefined));
+  }
+  if (val && typeof val === "object") {
+    const out = {};
+    for (const k of Object.keys(val)) {
+      out[k] = stripDataUrls(val[k], def ? def[k] : undefined);
+    }
+    return out;
+  }
+  return val;
+}
 
 /** JS kaynak koduna gömülebilir dize üretir. */
 function str(value) {
@@ -52,7 +73,8 @@ export function toSiteJs(content) {
 `;
 
   const body = SECTION_KEYS.map(
-    (key) => `export const ${key} = ${literal(content[key], 0)};`
+    (key) =>
+      `export const ${key} = ${literal(stripDataUrls(content[key], DEFAULTS[key]), 0)};`
   ).join("\n\n");
 
   return `${header}\n${body}\n`;
