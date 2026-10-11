@@ -341,8 +341,10 @@ export const university = {
   eyebrow: "Kırklareli Üniversitesi",
   title: "COP31 Çalışmalarımız",
   lead: "Okulumuzda, 9-20 Kasım 2026 tarihleri arasında Antalya’da gerçekleştirilecek COP31 kapsamında \nüniversitemiz tarafından planlanan etkinlik ve faaliyetlere ilişkin bildirimler alındı. Projelerimiz “COP31 \nİÇİN 31 FİDAN” ve “Öğrenciden İşletmeye” bu etkinlik ve faaliyet çağrısı üzerine düzenlenmektedir.",
-  image: "/images/universite-kampus.webp",
+  image: "/images/rektor.webp",
   imageCaption: "",
+  imageBadge: "Rektörümüz",
+  imageName: "Prof. Dr. Rengin Ak",
   activitiesTitle: "Gerçekleştirilen ve Planlanan Çalışmalar",
   activities: [
     {

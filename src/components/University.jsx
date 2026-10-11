@@ -14,23 +14,33 @@ export default function University() {
         <SectionHead label={university.eyebrow} />
 
         <div className="university__top university__top--last">
-          <Reveal>
+          <Reveal className="university__intro">
             <h2 className="section-title">{university.title}</h2>
             <p className="section-lead">{university.lead}</p>
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <figure className="university__figure">
-              <SmartImage
-                className="university__media"
-                src={university.image}
-                alt={university.imageCaption || university.title}
-                label={university.imageCaption}
-                imgClassName="university__img"
-              />
-              {university.imageCaption?.trim() && (
-                <figcaption>{university.imageCaption}</figcaption>
-              )}
+          <Reveal delay={0.1} className="university__portrait">
+            <figure className="rektor">
+              <div className="rektor__frame">
+                <SmartImage
+                  className="rektor__media"
+                  src={university.image}
+                  alt={university.imageName || university.title}
+                  label={university.imageName}
+                  imgClassName="rektor__img"
+                />
+                {university.imageBadge?.trim() && (
+                  <span className="rektor__badge">
+                    <span className="rektor__badge-dash" aria-hidden="true" />
+                    {university.imageBadge}
+                  </span>
+                )}
+                {university.imageName?.trim() && (
+                  <figcaption className="rektor__name">
+                    {university.imageName}
+                  </figcaption>
+                )}
+              </div>
             </figure>
           </Reveal>
         </div>
