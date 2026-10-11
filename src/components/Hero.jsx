@@ -102,17 +102,16 @@ export default function Hero() {
           </motion.ul>
         )}
 
+        {/* Geri sayım kartı — sol alt alana yerleştirildi */}
+        <motion.div
+          className="hero__countdown"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.72 }}
+        >
+          <Countdown />
+        </motion.div>
       </div>
-
-      {/* Geri sayım — hero alt orta */}
-      <motion.div
-        className="hero__countdown"
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.85 }}
-      >
-        <Countdown />
-      </motion.div>
 
       {/* Alt şerit: rakamlar + slayt göstergesi */}
       <motion.div

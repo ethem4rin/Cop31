@@ -1,240 +1,248 @@
 /* ============================================================
- *  COP31 Countdown — Geri Sayım Şeridi
- *  Navbar kapsülüyle birebir uyumlu renk & stil.
+ *  COP31 Countdown Card — Resmi Zirve Tasarımı
+ *  Referans: cop31.tr resmi açılışa kalan kart tasarımı
  * ============================================================ */
 
-/* ---------- Kapsayıcı şerit ---------- */
-.cdw {
-  display: inline-flex;
+.cdcard {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  padding: 18px 22px 20px;
+  border-radius: 20px;
+
+  /* Buzlu cam / koyu mavi-gece saydam arka plan */
+  background: rgba(14, 27, 44, 0.78);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 2px 10px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+  color: #fff;
+  user-select: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.cdcard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(34, 197, 94, 0.35);
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.55),
+    0 0 30px rgba(34, 197, 94, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* ---------- Aydınlık Tema Uyumu ---------- */
+:root[data-theme="light"] .cdcard {
+  background: rgba(16, 32, 51, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 16px 36px rgba(4, 24, 18, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- Üst Kısım: Başlık + Ok İkonu ---------- */
+.cdcard__top {
+  display: flex;
   align-items: center;
-  gap: 0;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
 
-  /* Açık tema: navbar ile aynı beyaz buzlu cam kapsül */
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(18px) saturate(135%);
-  -webkit-backdrop-filter: blur(18px) saturate(135%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 999px;
-  padding: 8px 20px;
-
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.10);
-  white-space: nowrap;
+.cdcard__title {
   font-family: var(--font-mono, "JetBrains Mono", monospace);
-  transition: background-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
-}
-
-/* ---------- Koyu tema: navbar ile aynı siyah kapsül ---------- */
-:root[data-theme="dark"] .cdw {
-  background: rgb(0, 0, 0);
-  border-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
-}
-
-/* ---------- Hover ---------- */
-.cdw:hover {
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.16);
-}
-
-:root[data-theme="dark"] .cdw:hover {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
-}
-
-/* ---------- Etiket: "COP31'E KALAN" ---------- */
-.cdw__label {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  /* Açık tema: navbar link rengi */
-  color: var(--blue-deep);
-  padding-right: 14px;
+  color: rgba(255, 255, 255, 0.72);
 }
 
-:root[data-theme="dark"] .cdw__label {
-  color: rgba(238, 243, 239, 0.75);
+.cdcard__link {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.18s ease, transform 0.18s ease;
 }
 
-/* ---------- Nabız noktası ---------- */
-.cdw__pulse {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  /* Açık: yeşil (navbar active link rengi) */
-  background: var(--green-700, #15803d);
-  box-shadow: 0 0 0 0 rgba(21, 128, 61, 0.7);
-  animation: cdwPulse 1.8s ease-out infinite;
-  flex-shrink: 0;
+.cdcard__link svg {
+  width: 14px;
+  height: 14px;
 }
 
-:root[data-theme="dark"] .cdw__pulse {
-  background: var(--green, #22c55e);
-  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-  animation: cdwPulseDark 1.8s ease-out infinite;
+.cdcard__link:hover {
+  color: #fff;
+  transform: translate(2px, -2px);
 }
 
-@keyframes cdwPulse {
-  0%   { box-shadow: 0 0 0 0   rgba(21, 128, 61, 0.75); }
-  70%  { box-shadow: 0 0 0 7px rgba(21, 128, 61, 0);    }
-  100% { box-shadow: 0 0 0 0   rgba(21, 128, 61, 0);    }
-}
-
-@keyframes cdwPulseDark {
-  0%   { box-shadow: 0 0 0 0   rgba(34, 197, 94, 0.75); }
-  70%  { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0);    }
-  100% { box-shadow: 0 0 0 0   rgba(34, 197, 94, 0);    }
-}
-
-/* ---------- Dikey ayraç ---------- */
-.cdw__divider {
-  width: 1px;
-  height: 28px;
-  background: rgba(0, 0, 0, 0.12);
-  flex-shrink: 0;
-  margin: 0 14px;
-}
-
-:root[data-theme="dark"] .cdw__divider {
-  background: rgba(255, 255, 255, 0.14);
-}
-
-/* ---------- Birimler satırı ---------- */
-.cdw__units {
+/* ---------- Gövde: Sol Logo + Sağ Sayaç ---------- */
+.cdcard__body {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 18px;
 }
 
-/* ---------- Tek birim ---------- */
-.cdw__unit {
+/* ---------- Sol: Halka + Logo Rozeti ---------- */
+.cdcard__badge {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+}
+
+.cdcard__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.cdcard__ring-bg {
+  stroke: rgba(255, 255, 255, 0.12);
+}
+
+.cdcard__ring-arc {
+  stroke: #22c55e;
+  filter: drop-shadow(0 0 6px rgba(34, 197, 94, 0.45));
+  animation: cdcardPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes cdcardPulse {
+  0% {
+    stroke-opacity: 0.85;
+  }
+  100% {
+    stroke-opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.7));
+  }
+}
+
+.cdcard__logo-wrap {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.cdcard__logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+}
+
+/* ---------- Sağ: İstatistikler ve Sayaç ---------- */
+.cdcard__stats {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-width: 32px;
 }
 
-.cdw__num {
-  font-size: 22px;
+/* Gün Satırı */
+.cdcard__days-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.cdcard__days-num {
+  font-family: var(--font-display, "Poppins", sans-serif);
+  font-size: 46px;
   font-weight: 800;
-  line-height: 1;
+  line-height: 0.95;
   letter-spacing: -0.04em;
-  /* Açık: navbar link aktif rengi (yeşil) */
-  color: var(--green-700, #15803d);
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
+}
+
+.cdcard__days-label {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Alt Zaman Satırı (Saat, Dk, Sn) */
+.cdcard__units {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding-top: 4px;
+}
+
+.cdcard__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cdcard__unit-num {
+  font-family: var(--font-display, "Poppins", sans-serif);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #ffffff;
   font-variant-numeric: tabular-nums;
 }
 
-:root[data-theme="dark"] .cdw__num {
-  color: var(--green, #22c55e);
-}
-
-.cdw__sub {
-  font-size: 7.5px;
+.cdcard__unit-lbl {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 8.5px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-top: 3px;
-  /* Açık: soluk lacivert */
-  color: var(--blue-deep, #1e3a5f);
-  opacity: 0.45;
+  color: rgba(255, 255, 255, 0.52);
+  margin-top: 1px;
 }
 
-:root[data-theme="dark"] .cdw__sub {
-  color: rgba(255, 255, 255, 0.5);
-  opacity: 1;
-}
-
-/* ---------- İki nokta ayırıcı ---------- */
-.cdw__sep {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 10px;
-  color: var(--green-700, #15803d);
-  opacity: 0.5;
-}
-
-:root[data-theme="dark"] .cdw__sep {
-  color: var(--green, #22c55e);
-  opacity: 0.45;
-}
-
-/* ---------- Konum etiketi ---------- */
-.cdw__location {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--blue-deep, #1e3a5f);
-  opacity: 0.65;
-  padding-left: 14px;
-}
-
-:root[data-theme="dark"] .cdw__location {
-  color: rgba(238, 243, 239, 0.55);
-  opacity: 1;
-}
-
-.cdw__pin {
-  width: 12px;
-  height: 12px;
-  color: var(--green-700, #15803d);
-  flex-shrink: 0;
-}
-
-:root[data-theme="dark"] .cdw__pin {
-  color: var(--green, #22c55e);
-}
-
-/* ---------- Hero konumlandırma ---------- */
+/* ---------- Hero İçi Konumlandırma ---------- */
 .hero__countdown {
   position: relative;
   z-index: 2;
-  display: flex;
-  justify-content: center;
-  padding-bottom: min(2.5vh, 22px);
+  margin-top: min(3.5vh, 28px);
 }
 
-/* ---------- Duyarlı tasarım ---------- */
+/* Mobil ve Tablet Uyumu */
 @media (max-width: 640px) {
-  .cdw {
-    padding: 7px 14px;
-    gap: 0;
+  .cdcard {
+    max-width: 100%;
+    padding: 16px 18px;
   }
 
-  .cdw__num {
+  .cdcard__days-num {
+    font-size: 38px;
+  }
+
+  .cdcard__unit-num {
     font-size: 18px;
   }
 
-  .cdw__sep {
-    font-size: 14px;
+  .cdcard__badge {
+    width: 68px;
+    height: 68px;
   }
 
-  .cdw__location {
-    display: none;
-  }
-
-  .cdw__divider:last-of-type {
-    display: none;
+  .cdcard__logo-wrap {
+    width: 50px;
+    height: 50px;
   }
 }
-
-@media (max-width: 420px) {
-  .cdw__label span {
-    display: none;
-  }
-
-  .cdw__divider:first-of-type {
-    display: none;
-  }
-
-  .cdw__label {
-    padding-right: 8px;
-  }
-}
-

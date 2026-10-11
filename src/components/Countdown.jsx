@@ -29,55 +29,85 @@ export default function Countdown() {
   }, []);
 
   return (
-    <div className="cdw" aria-label="COP31'e kalan süre">
-      {/* Sol: etiket */}
-      <div className="cdw__label">
-        <span className="cdw__pulse" aria-hidden="true" />
-        <span>COP31&apos;E KALAN</span>
+    <div className="cdcard" aria-label="COP31 Açılışına Kalan Süre">
+      {/* Üst bar: Başlık + Dış Bağlantı Oku */}
+      <div className="cdcard__top">
+        <span className="cdcard__title">AÇILIŞA KALAN</span>
+        <a
+          href="https://cop31.tr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cdcard__link"
+          title="COP31 Resmi Sitesine Git"
+          aria-label="COP31 Resmi Sitesine Git"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
+        </a>
       </div>
 
-      <div className="cdw__divider" aria-hidden="true" />
-
-      {/* Sayaç birimleri */}
-      <div className="cdw__units">
-        <div className="cdw__unit">
-          <span className="cdw__num">{time.days}</span>
-          <span className="cdw__sub">GÜN</span>
+      {/* Ana gövde: Sol tarafta logo + halka, Sağ tarafta sayaç */}
+      <div className="cdcard__body">
+        {/* Sol: Halka içine yerleştirilmiş COP31 Logosu */}
+        <div className="cdcard__badge">
+          <svg className="cdcard__ring" viewBox="0 0 100 100" aria-hidden="true">
+            {/* Arka plan çemberi */}
+            <circle
+              className="cdcard__ring-bg"
+              cx="50"
+              cy="50"
+              r="44"
+              fill="none"
+              strokeWidth="3.5"
+            />
+            {/* Aktif yeşil çember yay */}
+            <circle
+              className="cdcard__ring-arc"
+              cx="50"
+              cy="50"
+              r="44"
+              fill="none"
+              strokeWidth="4"
+              strokeDasharray="276"
+              strokeDashoffset="90"
+              strokeLinecap="round"
+            />
+          </svg>
+          <div className="cdcard__logo-wrap">
+            <img
+              src="/images/cop31-badge.jpg"
+              alt="COP31 Türkiye Logosu"
+              className="cdcard__logo-img"
+            />
+          </div>
         </div>
 
-        <span className="cdw__sep" aria-hidden="true">:</span>
+        {/* Sağ: Gün ve Saat/Dk/Sn */}
+        <div className="cdcard__stats">
+          {/* Gün satırı */}
+          <div className="cdcard__days-row">
+            <span className="cdcard__days-num">{time.days}</span>
+            <span className="cdcard__days-label">GÜN</span>
+          </div>
 
-        <div className="cdw__unit">
-          <span className="cdw__num">{pad(time.hours)}</span>
-          <span className="cdw__sub">SAAT</span>
+          {/* Alt zaman satırı: SAAT - DK - SN */}
+          <div className="cdcard__units">
+            <div className="cdcard__unit">
+              <span className="cdcard__unit-num">{pad(time.hours)}</span>
+              <span className="cdcard__unit-lbl">SAAT</span>
+            </div>
+            <div className="cdcard__unit">
+              <span className="cdcard__unit-num">{pad(time.minutes)}</span>
+              <span className="cdcard__unit-lbl">DK</span>
+            </div>
+            <div className="cdcard__unit">
+              <span className="cdcard__unit-num">{pad(time.seconds)}</span>
+              <span className="cdcard__unit-lbl">SN</span>
+            </div>
+          </div>
         </div>
-
-        <span className="cdw__sep" aria-hidden="true">:</span>
-
-        <div className="cdw__unit">
-          <span className="cdw__num">{pad(time.minutes)}</span>
-          <span className="cdw__sub">DK</span>
-        </div>
-
-        <span className="cdw__sep" aria-hidden="true">:</span>
-
-        <div className="cdw__unit">
-          <span className="cdw__num cdw__num--sec">{pad(time.seconds)}</span>
-          <span className="cdw__sub">SN</span>
-        </div>
-      </div>
-
-      {/* Sağ: konum etiketi */}
-      <div className="cdw__divider" aria-hidden="true" />
-      <div className="cdw__location">
-        <svg className="cdw__pin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path
-            d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"
-            stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"
-          />
-          <circle cx="12" cy="10" r="2.5" fill="currentColor" />
-        </svg>
-        <span>Antalya, Türkiye</span>
       </div>
     </div>
   );
