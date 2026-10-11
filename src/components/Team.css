@@ -30,26 +30,6 @@
   transform: translateY(-2px);
 }
 
-/* Köşedeki büyük, soluk künye numarası — dergi dokunuşu */
-.member__num {
-  position: absolute;
-  top: clamp(12px, 1.4vw, 18px);
-  right: clamp(14px, 1.6vw, 20px);
-  font-family: var(--font-display, inherit);
-  font-size: clamp(30px, 4vw, 46px);
-  font-weight: var(--w-display);
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: var(--text);
-  opacity: 0.07;
-  transition: opacity 0.25s var(--ease), color 0.25s var(--ease);
-}
-
-.member:hover .member__num {
-  opacity: 0.16;
-  color: var(--accent);
-}
-
 .member__role {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -57,7 +37,7 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: clamp(26px, 3vw, 40px);
+  margin-bottom: clamp(16px, 1.8vw, 22px);
 }
 
 .member__name {
@@ -66,8 +46,6 @@
   letter-spacing: -0.03em;
   line-height: 1.18;
   color: var(--text);
-  /* numaranın altına taşmasın */
-  padding-right: 48px;
   text-wrap: balance;
 }
 
