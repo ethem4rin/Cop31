@@ -1,7 +1,7 @@
 /* ============================================================================
  *  COP31 — İÇERİK DOSYASI
  *  ---------------------------------------------------------------------------
- *  Bu dosya admin panelinden (09.10.2026) dışa aktarılmıştır.
+ *  Bu dosya admin panelinden (11.10.2026) dışa aktarılmıştır.
  *  Mevcut src/content/site.js dosyasının yerine koyarak değişiklikleri
  *  kalıcı hale getirebilirsin.
  *
@@ -414,11 +414,11 @@ export const projects = [
       },
       {
         label: "Süre",
-        value: "Yerleşke başına ~1 saat",
+        value: "Yerleşke başına ~2 saat",
       },
       {
         label: "Alan",
-        value: "8 yerleşke",
+        value: "3 yerleşke",
       },
       {
         label: "Hedef Katılım",
@@ -479,19 +479,15 @@ export const projects = [
     facts: [
       {
         label: "Tarih",
-        value: "21 – 22 Ekim 2026",
+        value: "22 Ekim 2026",
       },
       {
         label: "Format",
-        value: "Dijital PDF + Basılı",
+        value: "Basılı",
       },
       {
         label: "Ziyaret",
         value: "Üçerli öğrenci grupları",
-      },
-      {
-        label: "Ücret",
-        value: "İşletmeler için ücretsiz",
       },
     ],
     bulletsTitle: "Projenin kapsamı",
