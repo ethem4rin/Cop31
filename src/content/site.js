@@ -687,10 +687,21 @@ export const law = {
 export const campusMap = {
   eyebrow: "Nerede?",
   title: "Kırklareli Üniversitesi Yerleşke Haritası",
-  lead: "31 fidan, ağaç dikimine elverişli alanların durumuna göre 8 yerleşkeye paylaştırılacaktır. Dikim noktaları harita üzerinde işaretlenecektir.",
-  mapImage: "/images/harita.jpg",
-  placeholderText: "Harita görseli buraya gelecek",
-  placeholderHint: "public/images/harita.jpg olarak ekleyin",
+  lead: "31 fidan, ağaç dikimine elverişli alanların durumuna göre yerleşkelere paylaştırılacaktır. Dikim noktaları yerleşkeler üzerinde işaretlenecektir.",
+  campuses: [
+    {
+      name: "Kayalı Yerleşkesi",
+      image: "/images/yerleske-kayali.webp",
+    },
+    {
+      name: "Lüleburgaz Yerleşkesi",
+      image: "/images/yerleske-luleburgaz.webp",
+    },
+    {
+      name: "Karahıdır Yerleşkesi",
+      image: "/images/yerleske-karahidir.webp",
+    },
+  ],
   legend: [
     {
       label: "Fidan dikim noktası",

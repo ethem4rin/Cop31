@@ -85,6 +85,7 @@ export const FIELD_LABELS = {
   activitiesTitle: "Çalışmalar başlığı",
   activities: "Çalışmalar / Haberler",
   mapImage: "Harita görseli yolu",
+  campuses: "Yerleşke kartları",
   imageCaption: "Görsel alt yazısı",
   placeholderText: "Yer tutucu yazısı",
   placeholderHint: "Yer tutucu ipucu",

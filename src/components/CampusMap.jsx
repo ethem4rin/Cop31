@@ -6,9 +6,8 @@ import "./CampusMap.css";
 
 export default function CampusMap() {
   const { campusMap, navLinks } = useContent();
-  const [failed, setFailed] = useState(false);
   const id = navLinks[4]?.id || "harita";
-  const hasImage = campusMap.mapImage && !failed;
+  const campuses = campusMap.campuses || [];
 
   return (
     <section className="section section--alt map" id={id}>
@@ -24,38 +23,55 @@ export default function CampusMap() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.08}>
-          {/* ===== HARİTA ALANI =====
-              Görseli public/images/ içine atıp admin panelinden
-              (ya da site.js > campusMap.mapImage) yolunu ver. */}
-          <div className="map__frame">
-            {hasImage ? (
-              <img
-                src={campusMap.mapImage}
-                alt={campusMap.title}
-                className="map__img"
-                onError={() => setFailed(true)}
-              />
-            ) : (
-              <div className="map__placeholder">
-                <strong>{campusMap.placeholderText}</strong>
-                <span>{campusMap.placeholderHint}</span>
-              </div>
-            )}
-          </div>
-        </Reveal>
+        <div className="map__grid">
+          {campuses.map((c, i) => (
+            <Reveal key={c.name} delay={0.06 * i}>
+              <CampusCard campus={c} />
+            </Reveal>
+          ))}
+        </div>
 
-        <Reveal delay={0.14}>
-          <ul className="map__legend">
-            {campusMap.legend.map((l) => (
-              <li key={l.label}>
-                <span className={`map__pin is-${l.tone}`} aria-hidden="true" />
-                {l.label}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+        {!!campusMap.legend?.length && (
+          <Reveal delay={0.14}>
+            <ul className="map__legend">
+              {campusMap.legend.map((l) => (
+                <li key={l.label}>
+                  <span className={`map__pin is-${l.tone}`} aria-hidden="true" />
+                  {l.label}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        )}
       </div>
     </section>
+  );
+}
+
+function CampusCard({ campus }) {
+  const [failed, setFailed] = useState(false);
+  const hasImage = campus.image && !failed;
+
+  return (
+    <figure className="campus">
+      <div className="campus__frame">
+        {hasImage ? (
+          <img
+            src={campus.image}
+            alt={campus.name}
+            className="campus__img"
+            loading="lazy"
+            onError={() => setFailed(true)}
+          />
+        ) : (
+          <div className="campus__placeholder">
+            <strong>Fotoğraf buraya gelecek</strong>
+            <span>public{campus.image} olarak ekleyin</span>
+          </div>
+        )}
+        <span className="campus__scrim" aria-hidden="true" />
+        <figcaption className="campus__name">{campus.name}</figcaption>
+      </div>
+    </figure>
   );
 }
