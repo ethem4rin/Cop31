@@ -27,6 +27,7 @@ export default function Team() {
           {team.map((m, i) => (
             <Reveal key={`${m.name}-${i}`} delay={0.04 * (i % 3)}>
               <article className="member">
+                <span className="member__logo" aria-hidden="true" />
                 <span className="member__role">{m.role}</span>
                 <h3 className="member__name">{m.name}</h3>
                 {m.meta && <p className="member__meta">{m.meta}</p>}
