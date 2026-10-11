@@ -240,4 +240,39 @@
   .uniworks__grid {
     grid-template-columns: 1fr;
   }
+
+  /* Telefonda bu alan çok uzun (9 kart alt alta ~4000px). Yatay fotoğrafı
+     bu kadar uzun bir alana "cover" ile yaymak onu ~3.7 kat büyütüp
+     pikselliyordu. Çözüm: fotoğrafı tüm uzunluğa yaymak yerine ÜSTTE ekran
+     boyutunda NET bir bant olarak göster; bandın altı temaya uygun düz bir
+     zemine yumuşakça karışsın. Küçük bir alanı kapladığı için fotoğraf
+     büyütülmez (küçültülür), net çıkar. */
+  .uniworks {
+    background: #0b1310; /* koyu tema taban zemini */
+  }
+  :root[data-theme="light"] .uniworks {
+    background: #e8e5dd; /* açık tema taban zemini */
+  }
+
+  .uniworks__bg {
+    inset: 0 0 auto 0;
+    height: 540px; /* svh desteklenmeyen eski tarayıcılar için yedek */
+    height: min(72svh, 560px);
+    background-image: linear-gradient(
+        to bottom,
+        transparent 52%,
+        #0b1310 99%
+      ),
+      linear-gradient(rgba(8, 12, 10, 0.5), rgba(8, 12, 10, 0.72)),
+      url("/images/kampus-gece.webp");
+  }
+  :root[data-theme="light"] .uniworks__bg {
+    background-image: linear-gradient(
+        to bottom,
+        transparent 52%,
+        #e8e5dd 99%
+      ),
+      linear-gradient(rgba(238, 235, 228, 0.55), rgba(238, 235, 228, 0.8)),
+      url("/images/kampus-gunduz.webp");
+  }
 }
