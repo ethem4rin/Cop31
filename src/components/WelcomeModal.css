@@ -5,27 +5,29 @@
   display: grid;
   place-items: center;
   padding: 24px;
-  background: rgba(3, 10, 8, 0.74);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(3, 10, 8, 0.78);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
 }
 
 .wm__card {
   position: relative;
-  width: min(460px, 100%);
-  padding: 46px 40px 40px;
+  width: min(440px, 100%);
+  padding: clamp(32px, 5vw, 44px) clamp(26px, 4vw, 40px) clamp(28px, 4vw, 34px);
   text-align: center;
   background: var(--surface);
   border: var(--rule) solid var(--border);
-  border-radius: 22px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2),
+    0 40px 90px -45px rgba(0, 0, 0, 0.72);
 }
 
 .wm__close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 34px;
-  height: 34px;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -43,76 +45,51 @@
   height: 17px;
 }
 
-/* ------------------------------ Rozet -------------------------------- */
-.wm__badge {
-  position: relative;
-  width: 86px;
-  height: 86px;
-  margin: 0 auto 26px;
-  border-radius: 22px;
-  display: grid;
-  place-items: center;
-  background: #06100c;
-  border: var(--rule) solid rgba(6, 195, 119, 0.3);
+/* ------------------------- Kurumsal logolar -------------------------- */
+.wm__logos {
+  display: flex;
+  justify-content: center;
 }
 
-.wm__leaf svg {
-  width: 48px;
-  height: 48px;
+.wm__logos img {
+  height: clamp(50px, 9vw, 60px);
+  width: auto;
+}
+
+/* Logoların altındaki kısa vurgu çizgisi */
+.wm__rule {
   display: block;
-}
-
-.wm__bolt {
-  position: absolute;
-  top: -9px;
-  right: -9px;
-  width: 28px;
-  height: 28px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #ffd43b;
-  color: #3a2a00;
-}
-
-.wm__bolt svg {
-  width: 15px;
-  height: 15px;
+  width: 44px;
+  height: 2px;
+  margin: clamp(22px, 3vw, 28px) auto clamp(18px, 2.4vw, 22px);
+  background: var(--accent);
+  border-radius: 2px;
 }
 
 /* ----------------------------- Metinler ------------------------------- */
 .wm__title {
-  font-size: clamp(24px, 4.4vw, 30px);
+  font-size: clamp(23px, 4vw, 29px);
   font-weight: var(--w-display);
-  letter-spacing: -0.04em;
-  margin-bottom: 16px;
+  letter-spacing: -0.038em;
+  line-height: 1.16;
+  margin-bottom: 14px;
   text-wrap: balance;
 }
 
 .wm__body {
   font-size: 15px;
-  line-height: 1.68;
+  line-height: 1.7;
   color: var(--text-soft);
-  max-width: 34ch;
+  max-width: 36ch;
   margin: 0 auto;
 }
 
-.wm__thanks {
-  margin-top: 22px;
-  font-size: 15px;
-  font-weight: var(--w-bold);
-  color: var(--accent);
-}
-
 .wm__cta {
-  margin-top: 30px;
-  min-width: 200px;
+  margin-top: clamp(26px, 3.4vw, 32px);
+  min-width: 220px;
 }
 
 @media (max-width: 480px) {
-  .wm__card {
-    padding: 40px 24px 32px;
-  }
   .wm__cta {
     width: 100%;
   }

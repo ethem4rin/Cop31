@@ -68,35 +68,23 @@ export default function WelcomeModal() {
               </svg>
             </button>
 
-            {/* Yaprak rozeti + şimşek — ekran görüntüsündeki düzen */}
-            <div className="wm__badge">
-              <span className="wm__bolt" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5Z" fill="currentColor" />
-                </svg>
-              </span>
-              <span className="wm__leaf" aria-hidden="true">
-                <svg viewBox="0 0 48 48" fill="none">
-                  <circle cx="24" cy="24" r="19" stroke="var(--blue-bright)" strokeWidth="2.4" />
-                  <path
-                    d="M24 39c0-9.4 5.7-16 13.2-17.9C37.2 31.3 32 39 24 39Z"
-                    fill="var(--green)"
-                  />
-                  <path
-                    d="M24 39c-8 0-13.2-7.7-13.2-17.9C18.3 23 24 29.6 24 39Z"
-                    fill="var(--green)"
-                    opacity=".55"
-                  />
-                </svg>
-              </span>
+            {/* Kurumsal logolar — COP31 · Kırklareli Üniversitesi */}
+            <div className="wm__logos">
+              <img
+                src="/images/welcome-logos.png"
+                alt="COP31 · Kırklareli Üniversitesi"
+                width="1046"
+                height="500"
+              />
             </div>
+
+            <span className="wm__rule" aria-hidden="true" />
 
             <h2 className="wm__title" id="wm-title">
               <span className="accent">{welcome.titleAccent}</span> {welcome.titleRest}
             </h2>
 
             <p className="wm__body">{welcome.body}</p>
-            <p className="wm__thanks">{welcome.thanks}</p>
 
             <button className="btn btn--primary wm__cta" onClick={close}>
               {welcome.button}

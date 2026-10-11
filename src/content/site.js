@@ -50,8 +50,7 @@ export const welcome = {
   titleAccent: "Düşük Karbon",
   titleRest: "Modu Aktif",
   body: "Şu an bu siteyi Karanlık Mod'da görüntüleyerek ekran enerjisinden tasarruf ediyor ve dijital karbon ayak izimizi küçültüyorsunuz.",
-  thanks: "Gezegen için teşekkürler.",
-  button: "Harika",
+  button: "Gezegen için teşekkürler.",
 };
 
 export const hero = {
