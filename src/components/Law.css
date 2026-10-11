@@ -55,13 +55,13 @@
 .acc {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
 }
 
 .acc__item {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
+  border-radius: 11px;
   overflow: hidden;
   transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease);
 }
@@ -75,28 +75,28 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 20px clamp(18px, 2.2vw, 26px);
+  gap: 13px;
+  padding: 13px clamp(14px, 1.8vw, 20px);
   text-align: left;
 }
 
 .acc__no {
   flex-shrink: 0;
-  width: 34px;
-  height: 34px;
+  width: 27px;
+  height: 27px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   background: var(--green);
   color: #04140d;
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 12.5px;
   font-weight: 700;
 }
 
 .acc__title {
   flex: 1;
-  font-size: clamp(16px, 1.8vw, 19px);
+  font-size: clamp(14.5px, 1.5vw, 16px);
   font-weight: 650;
   letter-spacing: -0.02em;
   color: #fff;
@@ -105,8 +105,8 @@
 .acc__icon {
   position: relative;
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
 }
 
 .acc__icon::before,
@@ -120,17 +120,17 @@
 
 .acc__icon::before {
   /* yatay çizgi */
-  top: 9px;
-  left: 2px;
-  right: 2px;
+  top: 7.5px;
+  left: 1px;
+  right: 1px;
   height: 2px;
 }
 
 .acc__icon::after {
   /* dikey çizgi (açıkken kaybolur → eksi işareti) */
-  left: 9px;
-  top: 2px;
-  bottom: 2px;
+  left: 7.5px;
+  top: 1px;
+  bottom: 1px;
   width: 2px;
 }
 
