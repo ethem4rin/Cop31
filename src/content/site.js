@@ -391,7 +391,7 @@ export const sdg = {
 export const university = {
   eyebrow: "Kırklareli Üniversitesi",
   title: "COP31 Çalışmalarımız",
-  lead: "Okulumuzda, 9-20 Kasım 2026 tarihleri arasında Antalya’da gerçekleştirilecek COP31 kapsamında \nüniversitemiz tarafından planlanan etkinlik ve faaliyetlere ilişkin bildirimler alındı. Projelerimiz **“COP31 \nİÇİN 31 FİDAN”** ve **“Öğrenciden İşletmeye”** bu etkinlik ve faaliyet çağrısı üzerine düzenlenmektedir.\n\n*Teşekkür*\nEtkinlik ve faaliyetlerimizin hayata geçirilmesinde büyük emeği olan Kırklareli Üniversitesi Akademisyenlerimize içten teşekkürlerimizi sunarız:\nBu tarz çalışmaların meydana getirilmesinde oldukça büyük rolü olan Sayın Rektörümüz Prof. Dr. Rengin Ak,\nFikirlerimizi ve projelerimizi her daim destekleyen Sayın Rektör Yardımcımız Prof. Dr. Meryem Çamur Demir,\nÇevre Hukuku alanında uzmanlaşmış Türkiye'deki sayılı akademisyenlerden biri olan Sayın Prof. Dr. Ahmet Mithat Güneş,\nUluslararası Hukuk alanında uzmanlaşmış, aynı zamanda Hukuk Fakültesi Dekan Yardımcımız Sayın Tuğçe İsayev,\nÇevre Politikası konusunda değerli çalışmaları olan Sayın Dr. Öğr. Üyesi İlknur Gül,\nHer konuda destek olan, Ar-Ge Koordinatörlüğü'nde görevli Sayın Dr. Öğr. Üyesi Nihat Akkurt,\nve bizden desteğini hiç esirgemeyen Öğrenci Kulüpleri Koordinatörümüz Sayın Arş. Gör. Eren Aydın.\n",
+  lead: "Okulumuzda, 9-20 Kasım 2026 tarihleri arasında Antalya’da gerçekleştirilecek COP31 kapsamında \nüniversitemiz tarafından planlanan etkinlik ve faaliyetlere ilişkin bildirimler alındı. Projelerimiz **“COP31 \nİÇİN 31 FİDAN”** ve **“Öğrenciden İşletmeye”** bu etkinlik ve faaliyet çağrısı üzerine düzenlenmektedir.\n",
   image: "/images/rektor.webp",
   imageCaption: "",
   imageBadge: "Rektörümüz",
