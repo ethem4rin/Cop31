@@ -778,7 +778,7 @@ export const teamSection = {
 export const team = [
   {
     name: "Gaye Başaran",
-    role: "Ekip Üyesi",
+    role: "Ekip Lideri",
     meta: "Kırklareli Üniversitesi · Hukuk ",
     photo: "/images/ekip-1.jpg",
     quote: "İklim eylemini bir konferans salonundan çıkarıp kampüsün toprağına dokundurduğumuzda, farkındalık kalıcı bir alışkanlığa dönüşüyor.",
