@@ -562,20 +562,7 @@ export const campusMap = {
   mapImage: "",
   placeholderText: "Harita görseli buraya gelecek",
   placeholderHint: "public/images/harita.jpg olarak ekleyin",
-  legend: [
-    {
-      label: "Fidan dikim noktası",
-      tone: "green",
-    },
-    {
-      label: "Bilgilendirme standı",
-      tone: "blue",
-    },
-    {
-      label: "Toplanma alanı",
-      tone: "soft",
-    },
-  ],
+  legend: [],
 };
 
 export const teamSection = {
