@@ -1,4 +1,5 @@
 import { useContent } from "../content/ContentContext";
+import { richText } from "../lib/richText";
 import Reveal from "./Reveal";
 import SectionHead from "./SectionHead";
 import SmartImage from "./SmartImage";
@@ -16,7 +17,7 @@ export default function University() {
         <div className="university__top university__top--last">
           <Reveal className="university__intro">
             <h2 className="section-title">{university.title}</h2>
-            <p className="section-lead">{university.lead}</p>
+            <p className="section-lead">{richText(university.lead)}</p>
           </Reveal>
 
           <Reveal delay={0.1} className="university__portrait">

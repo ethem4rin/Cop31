@@ -261,6 +261,12 @@ ol {
   line-height: 1.7;
 }
 
+/* **...** ile kalın yapılan kısımlar: soluk gri metin içinde öne çıksın */
+.section-lead strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
 .accent {
   color: var(--accent);
 }
