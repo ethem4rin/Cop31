@@ -1,12 +1,7 @@
 /* ============================================================================
  *  COP31 — İÇERİK DOSYASI
- *  ---------------------------------------------------------------------------
- *  Bu dosya admin panelinden (11.10.2026) dışa aktarılmıştır.
- *  Mevcut src/content/site.js dosyasının yerine koyarak değişiklikleri
- *  kalıcı hale getirebilirsin.
- *
- *  Metinleri buradan da elle düzenleyebilirsin.
- *  Görseller: public/images/ klasörüne at, yolu "/images/ad.jpg" biçiminde yaz.
+ *  Bu dosya admin panelinden (11.10.2026) güncellenmiştir.
+ *  Görseller: public/images/ klasörüne atılıp yolu "/images/ad.webp" yazılır.
  * ==========================================================================*/
 
 export const brand = {
@@ -50,7 +45,8 @@ export const welcome = {
   titleAccent: "Düşük Karbon",
   titleRest: "Modu Aktif",
   body: "Şu an bu siteyi Karanlık Mod'da görüntüleyerek ekran enerjisinden tasarruf ediyor ve dijital karbon ayak izimizi küçültüyorsunuz.",
-  button: "Gezegen için teşekkürler.",
+  button: "Harika",
+  thanks: "Gezegen için teşekkürler.",
 };
 
 export const hero = {
@@ -809,7 +805,7 @@ export const team = [
   },
   {
     name: "Bilal Çetinkaya",
-    role: "İçerik ve Araştırma",
+    role: "Ekip Üyesi",
     meta: "Kırklareli Üniversitesi · Hukuk",
     photo: "/images/ekip-3.jpg",
     quote: "Kataloğa yazdığımız her maddenin arkasında bir kaynak, bir mevzuat hükmü ve bir akademisyen onayı var.",
