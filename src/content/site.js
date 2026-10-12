@@ -63,7 +63,7 @@ export const hero = {
     },
     {
       icon: "calendar",
-      text: "19 – 22 Ekim 2026 · Fidan Dikimi ve Katalog Dağıtımı",
+      text: "· Fidan Dikimi ve Katalog Dağıtımı",
     },
   ],
   slides: [
@@ -90,7 +90,7 @@ export const hero = {
       label: "Ekip Üyesi",
     },
     {
-      value: 240,
+      value: 500,
       suffix: "+",
       label: "Hedef Öğrenci",
     },
@@ -521,7 +521,7 @@ export const projects = [
 export const law = {
   eyebrow: "Çevre Hukuku",
   title: "İklim eyleminin hukuki zemini",
-  source: "Prof. Dr. Ahmet Mithat Güneş · Çevre Hukuku",
+  source: "",
   intro: [
     "Çevre Kanununun ikinci maddesinde çevrenin korunmasına ilişkin oldukça kapsamlı bir tanıma yer verildiği dikkat çekmektedir. Buna göre çevre korunması çevresel değerlerin ve ekolojik dengenin tahribini, bozulmasını ve yok olmasını önlemeye, mevcut bozulmaları gidermeye, çevreyi iyileştirmeye ve geliştirmeye, çevre kirliliğini önlemeye yönelik çalışmaların bütününü tanımlar. Dikkat çekilmesi gereken diğer bir husus, çevrenin korunmasına yönelik girişimlerin insanlardan ve insan gereksinimlerinden soyutlanmadan gerçekleştirilmesi gerektiğidir. Zira çevre hukukunun amacı çevresel varlıkları insanlardan soyutlayarak korumak değildir; aksine çevresel denge bozulmayacak şekilde insanların çevreden yararlanmalarının düzenlenmesi amaçlanmaktadır.",
     "Çevre hukukunun temel ilkeleri, çevre hukukuna temel oluşturan, bu hukuk dalının bağımsız bir alan olarak gelişmesinde ve kendine özgü bir karakter kazanmasında belirleyici olan ilkelerdir. Önleme ilkesi, ihtiyat ilkesi, kirleten öder ilkesi, sürdürülebilir kalkınma ilkesi, katılım ilkesi, entegrasyon ilkesi ve iş birliği ilkesi, bu bağlamda karşımıza çıkan başlıca ilkelerdir. İlkeler, modern bir çevre politikasının taşıyıcı sütunlarına benzetilebilir.",
