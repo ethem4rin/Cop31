@@ -16,7 +16,7 @@ import * as site from "./site";
  *  - "site.js indir" ile değişiklikler kalıcı hale getirilebilir.
  * -------------------------------------------------------------------------*/
 
-export const STORAGE_KEY = "cop31-content-v1";
+export const STORAGE_KEY = "cop31-content-v2";
 
 /** site.js içindeki bölümler — admin panelinde bu sırayla listelenir. */
 export const SECTION_KEYS = [
