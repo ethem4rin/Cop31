@@ -547,7 +547,7 @@ export const projects = [
       "Yenilenebilir enerji ve temiz üretim seçenekleri.",
       "İçeriklerin akademik değerlendirmeden geçirilmesi.",
     ],
-    themesTitle: "İşletmenizi 10 Adımda Yeşilleştirin",
+    themesTitle: "İşletmenizi 15 Adımda Yeşilleştirin",
     themes: [
       "Enerji tüketimini takip et.",
       "Gereksiz enerji kullanımını azalt.",
@@ -559,6 +559,11 @@ export const projects = [
       "Ulaşım kaynaklı emisyonları azalt.",
       "Yenilenebilir enerji seçeneklerini değerlendir.",
       "Çevresel iyileştirmeleri düzenli olarak takip et.",
+      "Yağmur suyunu ve arıtılan suyu üretimde yeniden kullan.",
+      "Kâğıt kullanımını dijitalleşmeyle en aza indir.",
+      "Çevre izin, lisans ve beyanlarını eksiksiz ve güncel tut.",
+      "Baca emisyonlarını düzenli ölç ve filtrele.",
+      "Geri dönüştürülebilir ürünlerle döngüsel ekonomiyi destekle.",
     ],
   },
 ];
