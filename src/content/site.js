@@ -520,7 +520,7 @@ export const projects = [
 
 export const law = {
   eyebrow: "Çevre Hukuku",
-  title: "İklim eyleminin hukuki zemini",
+  title: "Küresel İklim Değişikliğiyle Mücadelede Etkili Bir Araç Olarak Çevre Hukuku ",
   source: "",
   intro: [
     "Çevre Kanununun ikinci maddesinde çevrenin korunmasına ilişkin oldukça kapsamlı bir tanıma yer verildiği dikkat çekmektedir. Buna göre çevre korunması çevresel değerlerin ve ekolojik dengenin tahribini, bozulmasını ve yok olmasını önlemeye, mevcut bozulmaları gidermeye, çevreyi iyileştirmeye ve geliştirmeye, çevre kirliliğini önlemeye yönelik çalışmaların bütününü tanımlar. Dikkat çekilmesi gereken diğer bir husus, çevrenin korunmasına yönelik girişimlerin insanlardan ve insan gereksinimlerinden soyutlanmadan gerçekleştirilmesi gerektiğidir. Zira çevre hukukunun amacı çevresel varlıkları insanlardan soyutlayarak korumak değildir; aksine çevresel denge bozulmayacak şekilde insanların çevreden yararlanmalarının düzenlenmesi amaçlanmaktadır.",
@@ -560,7 +560,7 @@ export const law = {
     },
   ],
   national: {
-    title: "Ulusal Düzenlemeler",
+    title: "Çevre ve İklim Konusunda Temel Ulusal Düzenlemeler",
     items: [
       {
         name: "Türkiye Cumhuriyeti Anayasası",
@@ -593,7 +593,7 @@ export const law = {
     ],
   },
   international: {
-    title: "Uluslararası Düzenlemeler",
+    title: "Uluslararası Çevre Hukuku",
     items: [
       {
         name: "BM İklim Değişikliği Çerçeve Sözleşmesi",
@@ -704,56 +704,180 @@ export const law = {
 export const campusMap = {
   eyebrow: "Nerede?",
   title: "Kırklareli Üniversitesi Yerleşke Haritası",
-  lead: "31 fidan, ağaç dikimine elverişli alanların durumuna göre yerleşkelere paylaştırılacaktır. Her nokta bir fidanı ve temasını temsil eder; üzerine dokunarak temasını görebilirsiniz.",
+  lead: "31 fidan, ağaç dikimine elverişli alanların durumuna göre 8 yerleşkeye paylaştırılacaktır. Dikim noktaları harita üzerinde işaretlenecektir.",
   note: "Yerleştirmeler temsilidir.",
   campuses: [
     {
       name: "Kayalı Yerleşkesi",
       image: "/images/yerleske-kayali.webp",
       points: [
-        { x: 73.1, y: 49.9, theme: "İklim değişikliğiyle mücadele" },
-        { x: 15.4, y: 30.5, theme: "Ormanların korunması" },
-        { x: 46.8, y: 41.6, theme: "Biyoçeşitlilik" },
-        { x: 90.2, y: 16.9, theme: "Su kaynaklarının korunması" },
-        { x: 64.1, y: 31.2, theme: "Yenilenebilir enerji" },
-        { x: 48.6, y: 21.4, theme: "Enerji verimliliği" },
-        { x: 89.8, y: 38.7, theme: "Sıfır atık" },
-        { x: 46.2, y: 52.6, theme: "Geri dönüşüm" },
-        { x: 9.0, y: 59.8, theme: "Sürdürülebilir ulaşım" },
-        { x: 87.4, y: 69.0, theme: "Sürdürülebilir tüketim" },
-        { x: 22.0, y: 51.6, theme: "Karbon ayak izinin azaltılması" },
+        {
+          x: 73.1,
+          y: 49.9,
+          theme: "İklim değişikliğiyle mücadele",
+        },
+        {
+          x: 15.4,
+          y: 30.5,
+          theme: "Ormanların korunması",
+        },
+        {
+          x: 46.8,
+          y: 41.6,
+          theme: "Biyoçeşitlilik",
+        },
+        {
+          x: 90.2,
+          y: 16.9,
+          theme: "Su kaynaklarının korunması",
+        },
+        {
+          x: 64.1,
+          y: 31.2,
+          theme: "Yenilenebilir enerji",
+        },
+        {
+          x: 48.6,
+          y: 21.4,
+          theme: "Enerji verimliliği",
+        },
+        {
+          x: 89.8,
+          y: 38.7,
+          theme: "Sıfır atık",
+        },
+        {
+          x: 46.2,
+          y: 52.6,
+          theme: "Geri dönüşüm",
+        },
+        {
+          x: 9,
+          y: 59.8,
+          theme: "Sürdürülebilir ulaşım",
+        },
+        {
+          x: 87.4,
+          y: 69,
+          theme: "Sürdürülebilir tüketim",
+        },
+        {
+          x: 22,
+          y: 51.6,
+          theme: "Karbon ayak izinin azaltılması",
+        },
       ],
     },
     {
       name: "Kavaklı Yerleşkesi",
       image: "/images/yerleske-kavakli.webp",
       points: [
-        { x: 74.7, y: 12.6, theme: "İklim okuryazarlığı" },
-        { x: 71.6, y: 61.6, theme: "Doğa temelli çözümler" },
-        { x: 73.8, y: 33.8, theme: "Toprak sağlığı" },
-        { x: 38.8, y: 48.6, theme: "Ekosistemlerin korunması" },
-        { x: 58.7, y: 12.1, theme: "İklim dostu kampüs" },
-        { x: 85.4, y: 52.6, theme: "Yeşil alanların artırılması" },
-        { x: 62.7, y: 54.0, theme: "Sürdürülebilir tarım" },
-        { x: 22.9, y: 39.6, theme: "Gıda israfının azaltılması" },
-        { x: 83.1, y: 65.5, theme: "Yerel üretimin desteklenmesi" },
-        { x: 61.1, y: 33.8, theme: "Döngüsel ekonomi" },
+        {
+          x: 74.7,
+          y: 12.6,
+          theme: "İklim okuryazarlığı",
+        },
+        {
+          x: 71.6,
+          y: 61.6,
+          theme: "Doğa temelli çözümler",
+        },
+        {
+          x: 73.8,
+          y: 33.8,
+          theme: "Toprak sağlığı",
+        },
+        {
+          x: 38.8,
+          y: 48.6,
+          theme: "Ekosistemlerin korunması",
+        },
+        {
+          x: 58.7,
+          y: 12.1,
+          theme: "İklim dostu kampüs",
+        },
+        {
+          x: 85.4,
+          y: 52.6,
+          theme: "Yeşil alanların artırılması",
+        },
+        {
+          x: 62.7,
+          y: 54,
+          theme: "Sürdürülebilir tarım",
+        },
+        {
+          x: 22.9,
+          y: 39.6,
+          theme: "Gıda israfının azaltılması",
+        },
+        {
+          x: 83.1,
+          y: 65.5,
+          theme: "Yerel üretimin desteklenmesi",
+        },
+        {
+          x: 61.1,
+          y: 33.8,
+          theme: "Döngüsel ekonomi",
+        },
       ],
     },
     {
       name: "Karahıdır Yerleşkesi",
       image: "/images/yerleske-karahidir.webp",
       points: [
-        { x: 51.3, y: 34.7, theme: "Temiz üretim" },
-        { x: 25.8, y: 17.0, theme: "Çevre eğitimi" },
-        { x: 48.1, y: 47.2, theme: "Gençlerin iklim eylemi" },
-        { x: 59.8, y: 52.1, theme: "İklim adaleti" },
-        { x: 44.0, y: 11.9, theme: "İklim dirençliliği" },
-        { x: 26.2, y: 57.1, theme: "Sürdürülebilir şehirler" },
-        { x: 20.8, y: 37.4, theme: "Temiz hava" },
-        { x: 62.5, y: 66.0, theme: "Su ayak izinin azaltılması" },
-        { x: 79.2, y: 41.0, theme: "Gelecek nesiller" },
-        { x: 74.8, y: 15.2, theme: "İklim için ortak eylem" },
+        {
+          x: 51.3,
+          y: 34.7,
+          theme: "Temiz üretim",
+        },
+        {
+          x: 25.8,
+          y: 17,
+          theme: "Çevre eğitimi",
+        },
+        {
+          x: 48.1,
+          y: 47.2,
+          theme: "Gençlerin iklim eylemi",
+        },
+        {
+          x: 59.8,
+          y: 52.1,
+          theme: "İklim adaleti",
+        },
+        {
+          x: 44,
+          y: 11.9,
+          theme: "İklim dirençliliği",
+        },
+        {
+          x: 26.2,
+          y: 57.1,
+          theme: "Sürdürülebilir şehirler",
+        },
+        {
+          x: 20.8,
+          y: 37.4,
+          theme: "Temiz hava",
+        },
+        {
+          x: 62.5,
+          y: 66,
+          theme: "Su ayak izinin azaltılması",
+        },
+        {
+          x: 79.2,
+          y: 41,
+          theme: "Gelecek nesiller",
+        },
+        {
+          x: 74.8,
+          y: 15.2,
+          theme: "İklim için ortak eylem",
+        },
       ],
     },
   ],
