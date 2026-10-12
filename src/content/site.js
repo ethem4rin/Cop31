@@ -1,6 +1,6 @@
 /* ============================================================================
  *  COP31 — İÇERİK DOSYASI
- *  Bu dosya admin panelinden (11.10.2026) güncellenmiştir.
+ *  Bu dosya admin panelinden (12.10.2026) güncellenmiştir.
  *  Görseller: public/images/ klasörüne atılıp yolu "/images/ad.webp" yazılır.
  * ==========================================================================*/
 
@@ -59,7 +59,7 @@ export const hero = {
   info: [
     {
       icon: "pin",
-      text: "Kırklareli Üniversitesi · 8 Yerleşke",
+      text: "Kırklareli Üniversitesi · 3 Yerleşke",
     },
     {
       icon: "calendar",
@@ -80,7 +80,7 @@ export const hero = {
       label: "Dikilecek Fidan",
     },
     {
-      value: 8,
+      value: 3,
       suffix: "",
       label: "Yerleşke",
     },
