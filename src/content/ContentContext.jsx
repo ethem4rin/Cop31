@@ -26,7 +26,6 @@ export const SECTION_KEYS = [
   "hero",
   "about",
   "copHistory",
-  "sdg",
   "university",
   "projectsSection",
   "projects",

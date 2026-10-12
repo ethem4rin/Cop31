@@ -333,56 +333,6 @@ export const copHistory = {
   ],
 };
 
-export const sdg = {
-  eyebrow: "Sürdürülebilir Kalkınma",
-  title: "Birleşmiş Milletler Kalkınma Amaçları",
-  lead: "Sürdürülebilir Kalkınma Amaçları (SKA), Birleşmiş Milletler tarafından 2015 yılında kabul edilen ve 2030 yılına kadar dünyada yoksulluğu bitirmek, gezegeni korumak ve refahı güvence altına almak için belirlenen 17 küresel amaçtan oluşur. Projemiz, bu 17 amaçtan başlıca şunların gerçekleştirilmesine katkı sağlamayı hedefler:",
-  items: [
-    {
-      code: "6",
-      name: "Temiz Su ve Sanitasyon",
-      icon: "/images/ska-6.webp",
-      body: "Herkes için su ve sanitasyonun erişilebilirliğini ve sürdürülebilir yönetimini güvence altına almak.",
-    },
-    {
-      code: "7",
-      name: "Erişilebilir ve Temiz Enerji",
-      icon: "/images/ska-7.webp",
-      body: "Herkes için güvenilir, sürdürülebilir ve modern enerjiye erişimi sağlamak.",
-    },
-    {
-      code: "11",
-      name: "Sürdürülebilir Şehirler ve Topluluklar",
-      icon: "/images/ska-11.webp",
-      body: "Şehirleri ve insan yerleşimlerini kapsayıcı, güvenli, dayanıklı ve sürdürülebilir kılmak.",
-    },
-    {
-      code: "12",
-      name: "Sorumlu Üretim ve Tüketim",
-      icon: "/images/ska-12.webp",
-      body: "Sürdürülebilir üretim ve tüketim kalıplarını garanti altına almak.",
-    },
-    {
-      code: "13",
-      name: "İklim Eylemi",
-      icon: "/images/ska-13.webp",
-      body: "İklim değişikliği ve etkileriyle mücadele etmek için acil eyleme geçmek.",
-    },
-    {
-      code: "14",
-      name: "Sudaki Yaşam",
-      icon: "/images/ska-14.webp",
-      body: "Okyanusları, denizleri ve deniz kaynaklarını sürdürülebilir kalkınma için korumak ve sürdürülebilir şekilde kullanmak.",
-    },
-    {
-      code: "15",
-      name: "Karasal Yaşam",
-      icon: "/images/ska-15.webp",
-      body: "Karasal ekosistemleri korumak ve sürdürülebilir kullanımını desteklemek; ormanları sürdürülebilir yönetmek, çölleşmeyle mücadele etmek ve biyolojik çeşitlilik kaybını durdurmak.",
-    },
-  ],
-};
-
 export const university = {
   eyebrow: "Kırklareli Üniversitesi",
   title: "COP31 Çalışmalarımız",
@@ -761,8 +711,8 @@ export const campusMap = {
       image: "/images/yerleske-kayali.webp",
     },
     {
-      name: "Lüleburgaz Yerleşkesi",
-      image: "/images/yerleske-luleburgaz.webp",
+      name: "Kavaklı Yerleşkesi",
+      image: "/images/yerleske-kavakli.webp",
     },
     {
       name: "Karahıdır Yerleşkesi",
