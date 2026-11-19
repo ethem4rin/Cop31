@@ -20,7 +20,7 @@ export default function Timeline({ items }) {
           hasScrolled.current = true;
           // Kısa bir gecikmeyle smooth scroll yap
           setTimeout(() => {
-            el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
+            el.scrollTo({ left: el.scrollWidth, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
           }, 400);
         }
       },
@@ -79,6 +79,9 @@ export default function Timeline({ items }) {
       <div
         className={`tl-track ${isDragging ? "is-dragging" : ""}`}
         ref={trackRef}
+        tabIndex={0}
+        role="region"
+        aria-label={copHistory.title}
       >
         {items.map((item, i) => {
           const isFinal = !!item.highlight;

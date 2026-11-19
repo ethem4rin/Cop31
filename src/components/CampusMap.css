@@ -13,7 +13,7 @@
 /* ===== Yerleşke kartları ===== */
 .map__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(16px, 2vw, 26px);
 }
 
@@ -29,8 +29,6 @@
   border-radius: clamp(14px, 1.6vw, 20px);
   border: var(--rule) solid var(--border);
   background: var(--bg);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16),
-    0 26px 54px -30px rgba(0, 0, 0, 0.6);
 }
 
 .campus__media {
@@ -82,8 +80,8 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: #fff;
-  background: rgba(6, 195, 119, 0.92);
+  color: #042016;
+  background: var(--green);
   padding: 2px 8px;
   border-radius: 999px;
   text-shadow: none;
@@ -92,8 +90,8 @@
 /* ===== Fidan dikim noktaları ===== */
 .campus__pin {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
   transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
@@ -102,22 +100,10 @@
   padding: 0;
   cursor: pointer;
   z-index: 2;
-  animation: campusPop 0.45s var(--ease) both;
 }
 
 .campus__pin.is-active {
   z-index: 6;
-}
-
-@keyframes campusPop {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
 }
 
 .campus__dot {
@@ -137,100 +123,38 @@
   transform: scale(1.25);
 }
 
-/* Nabız halkası */
-.campus__ping {
-  position: absolute;
-  width: 13px;
-  height: 13px;
+.campus__pin:focus-visible {
+  z-index: 7;
+  outline-color: #fff;
   border-radius: 50%;
-  background: var(--green);
-  opacity: 0.55;
-  animation: campusPing 2.4s ease-out infinite;
 }
 
-@keyframes campusPing {
-  0% {
-    transform: scale(1);
-    opacity: 0.55;
-  }
-  70%,
-  100% {
-    transform: scale(3.4);
-    opacity: 0;
-  }
+.campus__selection {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  margin-top: 12px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .campus__pin {
-    animation: none;
-  }
-  .campus__ping {
-    animation: none;
-    opacity: 0;
-  }
-}
-
-/* Tema kutucuğu */
-.campus__tip {
-  position: absolute;
-  bottom: calc(100% + 11px);
-  left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
-  max-width: 172px;
-  text-align: center;
+.campus__selection select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
   background: var(--surface);
   color: var(--text);
-  border: var(--rule) solid var(--border);
-  border-radius: 9px;
-  padding: 7px 11px;
-  font-size: 12.5px;
-  font-weight: 600;
-  line-height: 1.32;
-  letter-spacing: -0.01em;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.55);
-  z-index: 7;
+  font: inherit;
+  font-size: 14px;
 }
 
-/* Küçük ok işareti */
-.campus__tip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: var(--surface);
-}
-
-.campus__tip.is-left {
-  left: -6px;
-  transform: none;
-}
-.campus__tip.is-left::after {
-  left: 14px;
-}
-.campus__tip.is-right {
-  left: auto;
-  right: -6px;
-  transform: none;
-}
-.campus__tip.is-right::after {
-  left: auto;
-  right: 14px;
-  transform: none;
-}
-
-/* Üstteki noktalarda ipucu aşağı açılır */
-.campus__tip.is-below {
-  bottom: auto;
-  top: calc(100% + 11px);
-}
-.campus__tip.is-below::after {
-  top: auto;
-  bottom: 100%;
-  border-top-color: transparent;
-  border-bottom-color: var(--surface);
+.campus__detail {
+  min-height: 3em;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 /* Fotoğraf eklenmeden önceki yer tutucu */

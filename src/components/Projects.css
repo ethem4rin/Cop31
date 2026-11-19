@@ -22,17 +22,16 @@
 .pcard {
   display: flex;
   flex-direction: column;
-  padding-top: 22px;
-  border-top: 2px solid var(--text);
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
 }
 
 .pcard__frame {
   width: 100%;
   aspect-ratio: 16 / 10;
-  max-height: 34vh;
   overflow: hidden;
-  border-radius: 15px;
-  margin-bottom: 22px;
+  border-radius: 8px;
+  margin-bottom: 24px;
 }
 
 .pcard__img {
@@ -44,7 +43,7 @@
 .pcard__head {
   display: flex;
   align-items: baseline;
-  gap: 14px;
+  gap: 12px;
   margin-bottom: 12px;
 }
 
@@ -57,10 +56,9 @@
 }
 
 .pcard__badge {
-  font-size: 10.5px;
+  font-size: 12px;
   font-weight: var(--w-bold);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: var(--text-faint);
   line-height: 1.4;
 }
@@ -73,7 +71,7 @@
 }
 
 .pcard__subtitle {
-  margin-top: 9px;
+  margin-top: 8px;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
@@ -82,7 +80,7 @@
 
 .pcard__summary {
   margin-top: 16px;
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.72;
   color: var(--text-soft);
 }
@@ -98,28 +96,28 @@
   align-items: baseline;
   justify-content: space-between;
   gap: 16px;
-  padding: 10px 0;
+  padding: 12px 0;
   border-bottom: var(--rule) solid var(--border-soft);
 }
 
 .pcard__facts dt {
   font-size: 11px;
   font-weight: var(--w-bold);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   color: var(--text-faint);
 }
 
 .pcard__facts dd {
   margin: 0;
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: var(--w-bold);
   text-align: right;
+  overflow-wrap: anywhere;
 }
 
 /* --------------------------- Açılır paneller --------------------------- */
 .pcard__panels {
-  margin-top: 22px;
+  margin-top: 24px;
 }
 
 .pcard__toggle {
@@ -127,12 +125,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-  padding: 14px 0;
+  gap: 12px;
+  padding: 12px 0;
+  min-height: 44px;
   border-bottom: var(--rule) solid var(--border);
   font-size: 14px;
   font-weight: var(--w-bold);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   text-align: left;
   transition: color 0.18s linear;
 }
@@ -167,7 +166,7 @@
   gap: 12px;
   align-items: baseline;
   padding: 7px 0;
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 1.55;
   color: var(--text-soft);
   border-bottom: var(--rule) solid var(--border-soft);
@@ -188,8 +187,5 @@
   .projects__grid {
     grid-template-columns: 1fr;
     gap: 48px;
-  }
-  .pcard__frame {
-    max-height: 42vh;
   }
 }

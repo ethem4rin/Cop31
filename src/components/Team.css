@@ -53,9 +53,9 @@
 
 .member__role {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: var(--w-bold);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: clamp(16px, 1.8vw, 22px);
@@ -75,7 +75,7 @@
   margin-top: 8px;
   padding-top: 12px;
   border-top: var(--rule) solid var(--border-soft);
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--text-soft);
 }

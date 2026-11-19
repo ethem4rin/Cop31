@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useContent } from "../content/ContentContext";
 import Countdown from "./Countdown";
 import "./Hero.css";
@@ -7,12 +7,7 @@ import "./Hero.css";
 export default function Hero() {
   const { hero } = useContent();
   const [index, setIndex] = useState(0);
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const reduceMotion = useReducedMotion();
 
   const slides = hero.slides?.length ? hero.slides : [{ image: "", caption: "" }];
 
@@ -26,8 +21,8 @@ export default function Hero() {
   }, [slides.length, hero.slideDurationMs]);
 
   return (
-    <section className="hero" id="anasayfa" ref={ref}>
-      <motion.div className="hero__bg" style={{ y }}>
+    <section className="hero" id="anasayfa">
+      <div className="hero__bg">
         <AnimatePresence mode="sync">
           <motion.div
             key={index}
@@ -35,62 +30,37 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
+            transition={{ duration: reduceMotion ? 0 : 0.45, ease: "easeInOut" }}
           >
             <Slide slide={slides[index]} />
           </motion.div>
         </AnimatePresence>
         <div className="hero__scrim" />
-      </motion.div>
+      </div>
 
       <div className="hero__inner container">
         {hero.eyebrow?.trim() && (
-          <motion.p
-            className="hero__eyebrow"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
+          <p className="hero__eyebrow">
             {hero.eyebrow}
-          </motion.p>
+          </p>
         )}
 
         <h1 className="hero__title">
           {(hero.titleLines || []).filter(Boolean).map((line, i) => (
             <span className="hero__line" key={i}>
-              <motion.span
-                initial={{ y: "105%" }}
-                animate={{ y: 0 }}
-                transition={{
-                  duration: 0.9,
-                  delay: 0.2 + i * 0.1,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                {line}
-              </motion.span>
+              {line}
             </span>
           ))}
         </h1>
 
         {hero.subtitle?.trim() && (
-          <motion.p
-            className="hero__subtitle"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.45 }}
-          >
+          <p className="hero__subtitle">
             {hero.subtitle}
-          </motion.p>
+          </p>
         )}
 
         {!!hero.info?.length && (
-          <motion.ul
-            className="hero__info"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.58 }}
-          >
+          <ul className="hero__info">
             {hero.info.map((it) => (
               <li key={it.text}>
                 <span className="hero__infoicon" aria-hidden="true">
@@ -99,27 +69,17 @@ export default function Hero() {
                 {it.text}
               </li>
             ))}
-          </motion.ul>
+          </ul>
         )}
 
         {/* Geri sayım kartı — sol alt alana yerleştirildi */}
-        <motion.div
-          className="hero__countdown"
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.72 }}
-        >
+        <div className="hero__countdown">
           <Countdown />
-        </motion.div>
+        </div>
       </div>
 
       {/* Alt şerit: rakamlar + slayt göstergesi */}
-      <motion.div
-        className="hero__foot"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.7 }}
-      >
+      <div className="hero__foot">
         <div className="container hero__footinner">
           <dl className="hero__stats">
             {(hero.stats || []).map((s) => (
@@ -141,13 +101,14 @@ export default function Hero() {
                   key={i}
                   className={`hero__dot ${i === index ? "is-on" : ""}`}
                   onClick={() => setIndex(i)}
+                  aria-pressed={i === index}
                   aria-label={`Görsel ${i + 1}`}
                 />
               ))}
             </div>
           )}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

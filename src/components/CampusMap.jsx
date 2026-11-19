@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { useContent } from "../content/ContentContext";
 import Reveal from "./Reveal";
 import SectionHead from "./SectionHead";
@@ -56,11 +56,17 @@ export default function CampusMap() {
 function CampusCard({ campus }) {
   const [failed, setFailed] = useState(false);
   const [active, setActive] = useState(null);
+  const selectId = useId();
   const hasImage = campus.image && !failed;
   const points = campus.points || [];
 
   return (
-    <figure className="campus">
+    <figure
+      className="campus"
+      onKeyDown={(event) => {
+        if (event.key === "Escape") setActive(null);
+      }}
+    >
       <div className="campus__frame" onClick={() => setActive(null)}>
         <div className="campus__media">
           {hasImage ? (
@@ -88,29 +94,45 @@ function CampusCard({ campus }) {
 
         {/* Fidan dikim noktaları — konum işaretleri */}
         {points.map((p, i) => {
-          const side = p.x < 18 ? "is-left" : p.x > 82 ? "is-right" : "";
-          const below = p.y < 24 ? "is-below" : "";
           return (
             <button
               key={i}
               type="button"
               className={`campus__pin ${active === i ? "is-active" : ""}`}
-              style={{ left: `${p.x}%`, top: `${p.y}%`, animationDelay: `${0.4 + i * 0.05}s` }}
+              style={{ left: `${p.x}%`, top: `${p.y}%` }}
               onClick={(e) => {
                 e.stopPropagation();
-                setActive(active === i ? null : i);
+                setActive((current) => (current === i ? null : i));
               }}
               aria-label={p.theme}
+              aria-pressed={active === i}
             >
-              <span className="campus__ping" aria-hidden="true" />
               <span className="campus__dot" aria-hidden="true" />
-              {active === i && (
-                <span className={`campus__tip ${side} ${below}`}>{p.theme}</span>
-              )}
             </button>
           );
         })}
       </div>
+      {!!points.length && (
+        <div className="campus__selection">
+          <label className="sr-only" htmlFor={selectId}>
+            {campus.name}
+          </label>
+          <select
+            id={selectId}
+            value={active ?? ""}
+            onChange={(event) => {
+              const { value } = event.target;
+              setActive(value === "" ? null : Number(value));
+            }}
+          >
+            <option value="">Fidan se?in</option>
+            {points.map((point, index) => (
+              <option key={index} value={index}>{point.theme}</option>
+            ))}
+          </select>
+          <p className="campus__detail" aria-live="polite">{points[active]?.theme}</p>
+        </div>
+      )}
     </figure>
   );
 }

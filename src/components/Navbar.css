@@ -18,18 +18,17 @@
 
 /* ---------------------------- Beyaz kapsül ---------------------------- */
 .nav__inner {
-  width: 80%;
+  width: 100%;
+  max-width: var(--maxw);
   height: calc(var(--nav-h) - 22px);
   display: flex;
   align-items: center;
-  margin-left: 9%;
+  margin-inline: auto;
   gap: 24px;
   padding: 0 8px 0 18px;
   /* Hafif buzlu cam: arkadaki fotoğraf belli belirsiz sızar,
      yazılar okunur kalır. */
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(18px) saturate(135%);
-  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  background: var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 999px;
   transition: background-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
@@ -43,13 +42,13 @@
 
 /* Sayfa kaydırılınca kapsül biraz daha matlaşır ve içerikten ayrılır */
 .nav.is-scrolled .nav__inner {
-  background: rgba(255, 255, 255, 0.94);
+  background: var(--surface);
   border-color: var(--border);
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.14);
 }
 
 :root[data-theme="dark"] .nav.is-scrolled .nav__inner {
-  background: rgba(23, 31, 27, 0.9);
+  background: var(--surface);
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
 }
 
@@ -60,7 +59,7 @@
   gap: 12px;
   flex-shrink: 0;
   min-width: 0;
-  margin-left: 35px;
+  margin-left: 0;
 }
 
 .nav__logos {
@@ -329,8 +328,8 @@
   }
   /* Tema düğmesi, hamburger ile birebir aynı daire olsun */
   .nav .themetoggle {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     padding: 0;
     gap: 0;
     border-radius: 50%;
@@ -349,8 +348,7 @@
     /* Telefonda %80 genişlik dar kalıyor ve hamburger kapsülün dışına
        taşıyordu; dar ekranlarda kapsül tam genişlik olsun. */
     width: 100%;
-    margin-left: 0;
-    gap: 10px;
+    gap: 8px;
     padding: 0 6px 0 10px;
   }
   .nav__logo {
@@ -367,19 +365,21 @@
      COP31'in altına hizalı ve dar ekrana sığacak kadar küçük. */
   .nav__words em {
     display: block;
-    font-size: 8px;
+    font-size: 11px;
+    white-space: normal;
     letter-spacing: 0.04em;
   }
   .nav__brand {
-    gap: 9px;
+    gap: 8px;
+    flex-shrink: 1;
   }
   .nav__burger {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
   }
   /* Tema düğmesi de hamburgerle aynı: 38px daire */
   .nav .themetoggle {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
   }
 }
