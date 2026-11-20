@@ -67,6 +67,12 @@ function CampusCard({ campus }) {
         if (event.key === "Escape") setActive(null);
       }}
     >
+      <figcaption className="campus__caption">
+        <h3 className="campus__name">{campus.name}</h3>
+        {!!points.length && (
+          <span className="campus__count">{points.length} fidan</span>
+        )}
+      </figcaption>
       <div className="campus__frame" onClick={() => setActive(null)}>
         <div className="campus__media">
           {hasImage ? (
@@ -83,13 +89,6 @@ function CampusCard({ campus }) {
               <span>public{campus.image} olarak ekleyin</span>
             </div>
           )}
-          <span className="campus__scrim" aria-hidden="true" />
-          <figcaption className="campus__name">
-            {campus.name}
-            {!!points.length && (
-              <span className="campus__count">{points.length} fidan</span>
-            )}
-          </figcaption>
         </div>
 
         {/* Fidan dikim noktaları — konum işaretleri */}
@@ -117,19 +116,22 @@ function CampusCard({ campus }) {
           <label className="sr-only" htmlFor={selectId}>
             {campus.name}
           </label>
-          <select
-            id={selectId}
-            value={active ?? ""}
-            onChange={(event) => {
-              const { value } = event.target;
-              setActive(value === "" ? null : Number(value));
-            }}
-          >
-            <option value="">Fidan se?in</option>
-            {points.map((point, index) => (
-              <option key={index} value={index}>{point.theme}</option>
-            ))}
-          </select>
+          <div className="campus__control">
+            <select
+              id={selectId}
+              value={active ?? ""}
+              onChange={(event) => {
+                const { value } = event.target;
+                setActive(value === "" ? null : Number(value));
+              }}
+            >
+              <option value="">Fidan seçin</option>
+              {points.map((point, index) => (
+                <option key={index} value={index}>{point.theme}</option>
+              ))}
+            </select>
+            <span className="disclosure-chevron" aria-hidden="true" />
+          </div>
           <p className="campus__detail" aria-live="polite">{points[active]?.theme}</p>
         </div>
       )}

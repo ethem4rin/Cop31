@@ -1,317 +1,169 @@
-/* ============================================================================
- *  ÇEVRE HUKUKU — koyu yeşil band bölüm
- *  Konu/Amaç → 6 Temel İlke (akordeon) → Ulusal / Uluslararası Düzenlemeler
- *  → BM Kalkınma Amaçları (SKA kartları)
- * ==========================================================================*/
-
-/* ----------------------------- Başlık -------------------------------- */
-.law__top {
-  padding-bottom: 26px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-  margin-bottom: clamp(32px, 4vw, 48px);
+.law {
+  background: var(--bg);
 }
 
-.law__title {
-  max-width: 22ch;
-  color: #fff;
-}
+.law__top { margin-bottom: 24px; }
+.law__title { max-width: 28ch; }
 
 .law__source {
-  margin-top: 14px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  color: var(--green);
+  margin-top: 12px;
+  color: var(--text-faint);
+  font-size: 14px;
 }
 
-/* --------------------------- Giriş metni ----------------------------- */
-.law__intro {
-  max-width: 72ch;
+.law__intro,
+.law__reading { max-width: 68ch; }
+
+.law__p,
+.reg__text,
+.impact__item {
+  color: var(--text-soft);
+  font-size: 16px;
+  line-height: 1.75;
 }
 
-.law__p {
-  font-size: clamp(15.5px, 1.4vw, 17px);
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.82);
-  margin-bottom: 20px;
-}
+.law__intro > * + *,
+.law__reading > * + *,
+.acc__inner p + p { margin-top: 16px; }
 
-/* --------------------------- Alt bloklar ----------------------------- */
 .law__block {
-  margin-top: clamp(52px, 6vw, 84px);
+  margin-top: clamp(48px, 7vw, 88px);
+  border-top: 1px solid var(--border);
+  padding-top: clamp(24px, 4vw, 40px);
 }
 
 .law__blocktitle {
-  font-size: clamp(21px, 2.6vw, 30px);
-  font-weight: var(--w-display);
-  letter-spacing: -0.03em;
-  color: #fff;
-  padding-bottom: 16px;
-  margin-bottom: clamp(22px, 2.6vw, 32px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  margin-bottom: 24px;
+  max-width: 32ch;
+  font-size: clamp(24px, 2.5vw, 32px);
+  line-height: 1.24;
+  text-wrap: pretty;
 }
 
-/* ======================= Akordeon (6 ilke) ========================== */
-.acc {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
+.law__spread,
+.reg {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.35fr);
+  gap: clamp(24px, 5vw, 64px);
 }
 
-.acc__item {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 11px;
-  overflow: hidden;
-  transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease);
-}
+.law__spread .law__blocktitle { margin-bottom: 0; }
 
-.acc__item.is-open {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.22);
-}
+.acc,
+.regs { border-top: 1px solid var(--border); }
+
+.acc__item,
+.reg { border-bottom: 1px solid var(--border); }
 
 .acc__head {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 13px;
-  padding: 13px clamp(14px, 1.8vw, 20px);
+  gap: 16px;
+  min-height: 56px;
+  padding: 12px;
   text-align: left;
 }
 
+.acc__head:hover,
+.acc__item.is-open { background: var(--bg-alt); }
+
 .acc__no {
-  flex-shrink: 0;
-  width: 27px;
-  height: 27px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--green);
-  color: #04140d;
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  font-weight: 700;
+  flex: 0 0 2ch;
+  color: var(--text-faint);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
 }
 
 .acc__title {
   flex: 1;
-  font-size: clamp(14.5px, 1.5vw, 16px);
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  color: #fff;
-}
-
-.acc__icon {
-  position: relative;
-  flex-shrink: 0;
-  width: 17px;
-  height: 17px;
-}
-
-.acc__icon::before,
-.acc__icon::after {
-  content: "";
-  position: absolute;
-  background: var(--green);
-  border-radius: 2px;
-  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
-}
-
-.acc__icon::before {
-  /* yatay çizgi */
-  top: 7.5px;
-  left: 1px;
-  right: 1px;
-  height: 2px;
-}
-
-.acc__icon::after {
-  /* dikey çizgi (açıkken kaybolur → eksi işareti) */
-  left: 7.5px;
-  top: 1px;
-  bottom: 1px;
-  width: 2px;
-}
-
-.acc__item.is-open .acc__icon::after {
-  transform: scaleY(0);
-  opacity: 0;
-}
-
-/* Açılır panel: max-height geçişi */
-.acc__panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s var(--ease);
-}
-
-.acc__item.is-open .acc__panel {
-  grid-template-rows: 1fr;
+  font-weight: 600;
 }
 
 .acc__inner {
-  overflow: hidden;
-  min-height: 0;
+  padding: 0 16px 20px 48px;
+  color: var(--text-soft);
+  line-height: 1.75;
 }
 
-.acc__inner p {
-  padding: 0 clamp(18px, 2.2vw, 26px);
-  font-size: 15px;
-  line-height: 1.78;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-.acc__inner p:first-child {
-  padding-top: 2px;
-}
-
-.acc__inner p:last-child {
-  padding-bottom: 22px;
-}
-
-.acc__inner p + p {
-  margin-top: 14px;
-}
-
-/* ===================== Düzenleme kartları ========================== */
-.regs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.reg {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: clamp(20px, 2.2vw, 26px);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-}
+.reg { padding: 24px 0; }
 
 .reg__head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 4px;
+  display: grid;
+  align-content: start;
+  gap: 4px;
 }
 
 .reg__name {
-  font-size: 16px;
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-  color: #fff;
+  font-size: 18px;
+  line-height: 1.35;
 }
 
-.reg__year {
-  flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--green);
-  white-space: nowrap;
-}
-
+.reg__year,
 .reg__en {
-  font-size: 11.5px;
-  font-style: italic;
-  letter-spacing: 0.01em;
-  color: var(--band-soft);
-  margin-bottom: 12px;
+  color: var(--text-faint);
+  font-size: 14px;
 }
 
-.reg__text {
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.74);
-}
+.reg__year { font-variant-numeric: tabular-nums; }
+.reg__text { max-width: 68ch; }
 
 .reg__intro {
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--text);
   font-weight: 500;
 }
 
-/* Diğer düzenlemeler — çip listesi */
 .reg__others {
-  margin-top: 22px;
+  margin-top: 24px;
+  padding: clamp(16px, 3vw, 32px);
+  background: var(--bg-alt);
 }
 
 .reg__otherstitle {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--band-soft);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+  font-size: 16px;
 }
 
-.reg__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.reg__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 24px;
 }
 
-.reg__chips li {
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 12.5px;
-  color: rgba(255, 255, 255, 0.8);
+.reg__list li {
+  padding: 8px 0;
+  border-top: 1px solid var(--border-soft);
+  color: var(--text-soft);
+  font-size: 15px;
 }
 
-/* ---------------------------- Duyarlı -------------------------------- */
-@media (max-width: 920px) {
-  .regs {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 620px) {
-  .regs {
-    grid-template-columns: 1fr;
-  }
-  .acc__head {
-    gap: 12px;
-    padding: 16px 16px;
-  }
-}
-
-/* --- İklim etkileri: (i)(ii)(iii) numaralı maddeler --- */
 .impact {
-  list-style: none;
-  counter-reset: impact;
-  margin: 0 0 20px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  list-style: lower-roman outside;
+  padding-inline-start: 2.5rem;
 }
 
 .impact__item {
-  counter-increment: impact;
-  position: relative;
-  padding-left: 44px;
-  font-size: clamp(15px, 1.35vw, 16.5px);
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.82);
+  padding: 12px 0 12px 8px;
+  border-top: 1px solid var(--border);
 }
 
-.impact__item::before {
-  content: "(" counter(impact, lower-roman) ")";
-  position: absolute;
-  left: 0;
-  top: 0;
-  min-width: 34px;
-  font-family: var(--font-mono);
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--green);
+.impact__item:last-child { border-bottom: 1px solid var(--border); }
+
+.impact__item::marker {
+  content: "(" counter(list-item, lower-roman) ")  ";
+  color: var(--text);
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .law__spread,
+  .reg,
+  .reg__list { grid-template-columns: 1fr; }
+
+  .reg {
+    gap: 8px;
+    padding: 16px 0;
+  }
+
+  .acc__inner { padding-inline-start: 16px; }
 }

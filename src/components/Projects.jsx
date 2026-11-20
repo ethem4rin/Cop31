@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useId, useState } from "react";
 import { useContent } from "../content/ContentContext";
 import Reveal from "./Reveal";
 import SectionHead from "./SectionHead";
@@ -24,8 +23,7 @@ export default function Projects() {
           </Reveal>
         </div>
 
-        {/* İki proje yan yana — ikisi de tek bakışta görünür */}
-        <div className="projects__grid">
+        <div>
           {projects.map((p, i) => (
             <ProjectCard key={`${p.title}-${i}`} project={p} delay={i * 0.08} />
           ))}
@@ -49,74 +47,70 @@ function ProjectCard({ project, delay }) {
         imgClassName="pcard__img"
       />
 
-      <div className="pcard__head">
-        <span className="pcard__number">{project.number}</span>
-        <span className="pcard__badge">{project.badge}</span>
-      </div>
+      <div className="pcard__body">
+        <header>
+          <p className="pcard__category">
+            <span className="pcard__number">{project.number}</span>
+            {project.badge}
+          </p>
+          <h3 className="pcard__title">{project.title}</h3>
+          <p className="pcard__subtitle">{project.subtitle}</p>
+        </header>
+        <p className="pcard__summary">{project.summary}</p>
 
-      <h3 className="pcard__title">{project.title}</h3>
-      <p className="pcard__subtitle">{project.subtitle}</p>
-      <p className="pcard__summary">{project.summary}</p>
+        <dl className="pcard__facts">
+          {project.facts.map((f) => (
+            <div key={f.label}>
+              <dt>{f.label}</dt>
+              <dd>{f.value}</dd>
+            </div>
+          ))}
+        </dl>
 
-      <dl className="pcard__facts">
-        {project.facts.map((f) => (
-          <div key={f.label}>
-            <dt>{f.label}</dt>
-            <dd>{f.value}</dd>
-          </div>
-        ))}
-      </dl>
-
-      <div className="pcard__panels">
-        <Panel
-          title={project.bulletsTitle || "Projenin kapsamı"}
-          open={open === "bullets"}
-          onToggle={() => toggle("bullets")}
-          items={project.bullets}
-        />
-        <Panel
-          title={project.themesTitle}
-          open={open === "themes"}
-          onToggle={() => toggle("themes")}
-          items={project.themes}
-        />
+        <div className="pcard__panels">
+          <Panel
+            title={project.bulletsTitle || "Projenin kapsamı"}
+            open={open === "bullets"}
+            onToggle={() => toggle("bullets")}
+            items={project.bullets}
+          />
+          <Panel
+            title={project.themesTitle}
+            open={open === "themes"}
+            onToggle={() => toggle("themes")}
+            items={project.themes}
+          />
+        </div>
       </div>
     </Reveal>
   );
 }
 
 function Panel({ title, open, onToggle, items = [] }) {
+  const id = useId();
   return (
     <div className="pcard__panel">
       <button
-        className={`pcard__toggle ${open ? "is-open" : ""}`}
+        type="button"
+        className="pcard__toggle"
         onClick={onToggle}
         aria-expanded={open}
+        aria-controls={id}
       >
         <span>{title}</span>
-        <i aria-hidden="true">{open ? "−" : "+"}</i>
+        <span className="disclosure-chevron" aria-hidden="true" />
       </button>
 
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            className="pcard__list"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <ul>
-              {items.map((t, i) => (
-                <li key={t}>
-                  <span>{String(i + 1).padStart(2, "0")}</span>
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="pcard__list" id={id} hidden={!open}>
+        <ol role="list">
+          {items.map((t, i) => (
+            <li key={t}>
+              <span aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              {t}
+            </li>
+          ))}
+        </ol>
+      </div>
     </div>
   );
 }

@@ -238,10 +238,9 @@ ol {
 }
 
 .seclabel {
-  font-size: 12px;
-  font-weight: var(--w-bold);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
   color: var(--text-soft);
 }
 
@@ -265,6 +264,29 @@ ol {
 .section-lead strong {
   font-weight: 700;
   color: var(--text);
+}
+
+.disclosure-chevron {
+  display: block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  color: var(--text-soft);
+}
+
+.disclosure-chevron::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 2px auto 0;
+  border: solid currentColor;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+
+[aria-expanded="true"] > .disclosure-chevron {
+  transform: rotate(180deg);
 }
 
 .accent {

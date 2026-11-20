@@ -1,11 +1,14 @@
-import { useCallback, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useContent } from "../content/ContentContext";
 import "./WelcomeModal.css";
 
 export default function WelcomeModal() {
   const { welcome } = useContent();
   const [open, setOpen] = useState(false);
+  const closeRef = useRef(null);
+  const ctaRef = useRef(null);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     let seen = null;
@@ -30,9 +33,20 @@ export default function WelcomeModal() {
 
   useEffect(() => {
     if (!open) return;
-    const onKey = (e) => e.key === "Escape" && close();
+    const previousFocus = document.activeElement;
+    closeRef.current?.focus();
+    const onKey = (e) => {
+      if (e.key === "Escape") close();
+      if (e.key !== "Tab") return;
+      e.preventDefault();
+      const next = document.activeElement === closeRef.current ? ctaRef : closeRef;
+      next.current?.focus();
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      previousFocus?.focus({ preventScroll: true });
+    };
   }, [open, close]);
 
   return (
@@ -43,21 +57,21 @@ export default function WelcomeModal() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: reducedMotion ? 0 : 0.16 }}
           onClick={close}
           role="dialog"
           aria-modal="true"
           aria-labelledby="wm-title"
+          aria-describedby="wm-body"
         >
           <motion.div
             className="wm__card"
-            initial={{ opacity: 0, y: 26, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 14, scale: 0.98 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ y: reducedMotion ? 0 : 8 }}
+            animate={{ y: 0 }}
+            transition={{ duration: reducedMotion ? 0 : 0.2 }}
             onClick={(e) => e.stopPropagation()}
           >
-            <button className="wm__close" onClick={close} aria-label="Kapat">
+            <button ref={closeRef} type="button" className="wm__close" onClick={close} aria-label="Kapat">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path
                   d="M6 6l12 12M18 6 6 18"
@@ -78,17 +92,17 @@ export default function WelcomeModal() {
               />
             </div>
 
-            <span className="wm__rule" aria-hidden="true" />
-
             <h2 className="wm__title" id="wm-title">
-              <span className="accent">{welcome.titleAccent}</span> {welcome.titleRest}
+              {welcome.titleAccent} {welcome.titleRest}
             </h2>
 
-            <p className="wm__body">{welcome.body}</p>
+            <p className="wm__body" id="wm-body">{welcome.body}</p>
 
-            <button className="btn btn--primary wm__cta" onClick={close}>
-              {welcome.button}
-            </button>
+            <div className="wm__actions">
+              <button ref={ctaRef} type="button" className="wm__cta" onClick={close}>
+                {welcome.button}
+              </button>
+            </div>
           </motion.div>
         </motion.div>
       )}

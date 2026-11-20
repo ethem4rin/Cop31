@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { useContent } from "../content/ContentContext";
 import Reveal from "./Reveal";
 import SectionHead from "./SectionHead";
@@ -9,7 +9,7 @@ export default function Law() {
   const id = navLinks[3]?.id || "hukuk";
 
   return (
-    <section className="section section--band law" id={id}>
+    <section className="section law" id={id}>
       <div className="container">
         <SectionHead label={law.eyebrow} />
 
@@ -36,7 +36,7 @@ export default function Law() {
 
         {/* --- 6 Temel İlke (akordeon) --- */}
         {!!law.principles?.length && (
-          <div className="law__block">
+          <div className="law__block law__spread">
             <Reveal>
               <h3 className="law__blocktitle">{law.principlesTitle}</h3>
             </Reveal>
@@ -75,35 +75,35 @@ export default function Law() {
 /* --- İklim değişikliği etki bloğu (giriş + numaralı maddeler + kapanış) --- */
 function ImpactBlock({ data }) {
   return (
-    <div className="law__block">
+    <article className="law__block law__spread">
       <Reveal>
         <h3 className="law__blocktitle">{data.title}</h3>
       </Reveal>
 
-      {(data.intro || []).map((p, i) => (
-        <Reveal key={`in-${i}`} delay={0.04 * i} y={16}>
-          <p className="law__p">{p}</p>
-        </Reveal>
-      ))}
+      <div className="law__reading">
+        {(data.intro || []).map((p, i) => (
+          <Reveal key={`in-${i}`} delay={0.04 * i} y={16}>
+            <p className="law__p">{p}</p>
+          </Reveal>
+        ))}
 
-      {!!data.points?.length && (
-        <Reveal delay={0.06}>
-          <ol className="impact">
-            {data.points.map((p, i) => (
-              <li key={i} className="impact__item">
-                {p}
-              </li>
-            ))}
-          </ol>
-        </Reveal>
-      )}
+        {!!data.points?.length && (
+          <Reveal delay={0.06}>
+            <ol className="impact">
+              {data.points.map((p, i) => (
+                <li key={i} className="impact__item">{p}</li>
+              ))}
+            </ol>
+          </Reveal>
+        )}
 
-      {(data.after || []).map((p, i) => (
-        <Reveal key={`af-${i}`} delay={0.04 * i} y={16}>
-          <p className="law__p">{p}</p>
-        </Reveal>
-      ))}
-    </div>
+        {(data.after || []).map((p, i) => (
+          <Reveal key={`af-${i}`} delay={0.04 * i} y={16}>
+            <p className="law__p">{p}</p>
+          </Reveal>
+        ))}
+      </div>
+    </article>
   );
 }
 
@@ -119,11 +119,11 @@ function RegulationBlock({ data, international }) {
         {(data.items || []).map((it, i) => (
           <Reveal key={it.name} delay={0.04 * (i % 3)}>
             <article className="reg">
-              <div className="reg__head">
+              <header className="reg__head">
                 <h4 className="reg__name">{it.name}</h4>
                 {it.year && <span className="reg__year">{it.year}</span>}
-              </div>
-              {international && it.en && <p className="reg__en">{it.en}</p>}
+                {international && it.en && <p className="reg__en" lang="en">{it.en}</p>}
+              </header>
               <p className="reg__text">
                 {it.intro && <span className="reg__intro">{it.intro} </span>}
                 {it.detail}
@@ -136,8 +136,8 @@ function RegulationBlock({ data, international }) {
       {!!data.others?.length && (
         <Reveal delay={0.08}>
           <div className="reg__others">
-            <span className="reg__otherstitle">{data.othersTitle}</span>
-            <ul className="reg__chips">
+            <h4 className="reg__otherstitle">{data.othersTitle}</h4>
+            <ul className="reg__list" role="list">
               {data.others.map((o) => (
                 <li key={o}>{o}</li>
               ))}
@@ -152,23 +152,26 @@ function RegulationBlock({ data, international }) {
 /* --- Basit akordeon --- */
 function Accordion({ items }) {
   const [open, setOpen] = useState(null);
+  const id = useId();
   return (
-    <ul className="acc">
-      {items.map((it) => {
+    <ul className="acc" role="list">
+      {items.map((it, index) => {
         const isOpen = open === it.key;
+        const panelId = `${id}-${index}`;
         return (
           <li key={it.key} className={`acc__item ${isOpen ? "is-open" : ""}`}>
             <button
               type="button"
               className="acc__head"
               aria-expanded={isOpen}
-              onClick={() => setOpen(isOpen ? null : it.key)}
+              aria-controls={panelId}
+              onClick={() => setOpen((current) => current === it.key ? null : it.key)}
             >
               {it.lead && <span className="acc__no">{it.lead}</span>}
               <span className="acc__title">{it.title}</span>
-              <span className="acc__icon" aria-hidden="true" />
+              <span className="disclosure-chevron" aria-hidden="true" />
             </button>
-            <div className="acc__panel">
+            <div className="acc__panel" id={panelId} hidden={!isOpen}>
               <div className="acc__inner">
                 {String(it.body)
                   .split("\n\n")

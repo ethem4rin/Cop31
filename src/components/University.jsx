@@ -14,7 +14,7 @@ export default function University() {
       <div className="container">
         <SectionHead label={university.eyebrow} />
 
-        <div className="university__top university__top--last">
+        <div className="university__top">
           <Reveal className="university__intro">
             <h2 className="section-title">{university.title}</h2>
             <p className="section-lead">{richText(university.lead)}</p>
@@ -30,18 +30,15 @@ export default function University() {
                   label={university.imageName}
                   imgClassName="rektor__img"
                 />
-                {university.imageBadge?.trim() && (
-                  <span className="rektor__badge">
-                    <span className="rektor__badge-dash" aria-hidden="true" />
-                    {university.imageBadge}
-                  </span>
-                )}
-                {university.imageName?.trim() && (
-                  <figcaption className="rektor__name">
-                    {university.imageName}
-                  </figcaption>
-                )}
               </div>
+              {(university.imageName?.trim() || university.imageBadge?.trim()) && (
+                <figcaption className="rektor__caption">
+                  {university.imageName?.trim() && (
+                    <strong className="rektor__name">{university.imageName}</strong>
+                  )}
+                  {university.imageBadge?.trim() && <span>{university.imageBadge}</span>}
+                </figcaption>
+              )}
             </figure>
           </Reveal>
         </div>

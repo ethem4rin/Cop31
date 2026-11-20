@@ -30,7 +30,7 @@
      yazılar okunur kalır. */
   background: var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 999px;
+  border-radius: 8px;
   transition: background-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
@@ -123,7 +123,7 @@
 }
 
 :root[data-theme="dark"] .nav__words em {
-  color: var(--green);
+  color: #a8c5b4;
 }
 
 /* ------------------------------ Linkler ------------------------------- */
@@ -158,7 +158,7 @@
 
 :root[data-theme="dark"] .nav__links a:hover,
 :root[data-theme="dark"] .nav__links a.is-active {
-  color: var(--green);
+  color: #a8c5b4;
 }
 
 .nav__links a::after {
@@ -169,7 +169,7 @@
   bottom: 0;
   height: 2.5px;
   border-radius: 2px;
-  background: var(--green);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s var(--ease);
@@ -190,22 +190,26 @@
 /* Referanstaki mavi "Ziyaretçi Rehberi" düğmesinin karşılığı:
    dolu yeşil kapsül içinde tema anahtarı */
 .nav .themetoggle {
-  height: calc(var(--nav-h) - 48px);
-  padding: 0 16px 0 13px;
-  gap: 9px;
-  background: #fffff0;
-  border: 1px solid #ffffff8c;
-  border-radius: 999px;
-  color: var(--blue-deep);
+  min-height: 40px;
+  padding: 0 12px;
+  gap: 8px;
 }
 
-.nav .themetoggle:hover {
-  background: var(--blue-deep);
-  color: #fff;
+.nav .themetoggle,
+.nav__burger {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+}
+
+.nav .themetoggle:hover,
+.nav__burger:hover {
+  background: var(--bg-mute);
 }
 
 .nav .themetoggle__icon {
-  color: var(--blue-deep);
+  color: inherit;
   width: 18px;
   height: 18px;
 }
@@ -223,30 +227,6 @@
   text-transform: none;
 }
 
-/* Koyu temada koyu kapsül üzerinde daha parlak yeşil */
-:root[data-theme="dark"] .nav .themetoggle {
-  background: var(--green);
-  color: var(--accent-ink);
-}
-
-:root[data-theme="dark"] .nav .themetoggle:hover {
-  background: var(--accent);
-  color: var(--accent-ink);
-}
-
-:root[data-theme="dark"] .nav .themetoggle__icon {
-  color: var(--accent-ink);
-}
-
-:root[data-theme="dark"] .nav__burger {
-  background: var(--green);
-}
-
-:root[data-theme="dark"] .nav__burger span {
-  background: var(--accent-ink);
-}
-
-/* Kapsül içinde ayraç çizgisine gerek yok */
 .nav__divider {
   display: none;
 }
@@ -256,8 +236,6 @@
   display: none;
   width: 42px;
   height: 42px;
-  border-radius: 50%;
-  background: var(--blue-deep);
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -268,7 +246,7 @@
   display: block;
   width: 18px;
   height: 2px;
-  background: #fff;
+  background: currentColor;
   transition: transform 0.28s var(--ease);
 }
 
@@ -332,7 +310,6 @@
     height: 44px;
     padding: 0;
     gap: 0;
-    border-radius: 50%;
     justify-content: center;
   }
 }

@@ -25,13 +25,15 @@ export default function Team() {
 
         <div className="teamsec__grid">
           {team.map((m, i) => (
-            <Reveal key={`${m.name}-${i}`} delay={0.04 * (i % 3)}>
-              <article className="member">
-                <span className="member__logo" aria-hidden="true" />
-                <span className="member__role">{m.role}</span>
-                <h3 className="member__name">{m.name}</h3>
-                {m.meta && <p className="member__meta">{m.meta}</p>}
-              </article>
+            <Reveal as="article" className="member" key={`${m.name}-${i}`} delay={0.04 * (i % 3)}>
+              <header className="member__header">
+                <img className="member__logo" src="/images/klu-logo.png" alt="" width="40" height="40" loading="lazy" />
+                <div>
+                  <h3 className="member__name">{m.name}</h3>
+                  <p className="member__role">{m.role}</p>
+                </div>
+              </header>
+              {m.meta && <p className="member__meta">{m.meta}</p>}
             </Reveal>
           ))}
         </div>
