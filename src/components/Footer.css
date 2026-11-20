@@ -1,5 +1,5 @@
 .footer {
-  padding: 24px 0;
+  padding: 1.5rem 0;
   background: var(--bg-mute);
   border-top: var(--rule) solid var(--border);
 }
@@ -7,13 +7,13 @@
 .footer__bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
   align-items: center;
   justify-content: space-between;
 }
 
 .footer__logo {
-  font-size: 13.5px;
+  font-size: 0.84375rem;
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--text, #ffffff);
@@ -23,22 +23,22 @@
   font-style: normal;
   font-weight: 400;
   color: var(--text-faint, rgba(255, 255, 255, 0.6));
-  margin-left: 8px;
+  margin-left: 0.5rem;
 }
 
 .footer__copy {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--text-faint, rgba(255, 255, 255, 0.6));
 }
 
 @media (max-width: 600px) {
   .footer {
-    padding: 20px 0;
+    padding: 1.25rem 0;
   }
 
   .footer__bar {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 0.5rem;
   }
 }

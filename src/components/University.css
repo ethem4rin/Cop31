@@ -1,7 +1,7 @@
 .university__top {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.85fr);
-  gap: clamp(32px, 8vw, 104px);
+  gap: clamp(2rem, 8vw, 6.5rem);
   align-items: start;
 }
 
@@ -15,14 +15,14 @@
 }
 
 .rektor {
-  max-width: 400px;
+  max-width: 25rem;
   margin: 0 0 0 auto;
 }
 
 .rektor__frame {
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: var(--surface);
 }
 
@@ -39,36 +39,36 @@
 
 .rektor__caption {
   display: grid;
-  gap: 4px;
-  margin-top: 12px;
+  gap: 0.25rem;
+  margin-top: 0.75rem;
   border-top: 1px solid var(--border);
-  padding-top: 12px;
+  padding-top: 0.75rem;
   color: var(--text-soft);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .rektor__name {
   color: var(--text);
-  font-size: 17px;
+  font-size: 1.0625rem;
   font-weight: 600;
 }
 
 @media (max-width: 720px) {
   .university__top {
     grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
+    gap: 1.75rem;
   }
 
   .rektor {
     margin-inline: 0;
-    max-width: 360px;
+    max-width: 22.5rem;
   }
 }
 
 .uniworks {
   position: relative;
-  margin-top: clamp(52px, 6.5vw, 88px);
-  border-radius: 18px;
+  margin-top: clamp(3.25rem, 6.5vw, 5.5rem);
+  border-radius: 1.125rem;
   overflow: hidden;
   border: 1px solid var(--border);
 }
@@ -98,27 +98,27 @@
 .uniworks__inner {
   position: relative;
   z-index: 1;
-  padding: clamp(26px, 4vw, 46px);
+  padding: clamp(1.625rem, 4vw, 2.875rem);
 }
 
 /* --- Başlık --- */
 .uniworks__head {
-  margin-bottom: clamp(24px, 3vw, 36px);
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
 }
 
 .uniworks__kicker {
   display: block;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .uniworks__title {
-  font-size: clamp(22px, 2.6vw, 30px);
+  font-size: clamp(1.375rem, 2.6vw, 1.875rem);
   font-weight: var(--w-display);
   letter-spacing: -0.03em;
   text-wrap: balance;
@@ -128,7 +128,7 @@
 .uniworks__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  gap: 0.875rem;
 }
 
 /* Kartlar <Reveal> sarmalayıcısı içinde. Sarmalayıcı grid hücresini
@@ -149,11 +149,11 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 20px 20px;
-  border-radius: 12px;
+  padding: 1.25rem 1.25rem;
+  border-radius: 0.75rem;
   background: rgba(20, 27, 23, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.625rem 1.875rem -1.125rem rgba(0, 0, 0, 0.5);
   transition: transform 0.3s var(--ease), border-color 0.3s ease,
     background-color 0.3s ease;
 }
@@ -164,7 +164,7 @@
 }
 
 .wcard:hover {
-  transform: translateY(-4px);
+  transform: translateY(-0.25rem);
   border-color: rgba(255, 255, 255, 0.22);
 }
 
@@ -177,15 +177,15 @@
    Beyaz disk sayesinde lacivert arma hem açık hem koyu temada net görünür. */
 .wcard__badge {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 38px;
-  height: 38px;
+  top: 0.9375rem;
+  right: 0.9375rem;
+  width: 2.375rem;
+  height: 2.375rem;
   z-index: 2;
   pointer-events: none;
   border-radius: 50%;
   background: #fff url("/images/klu-logo.png") center / 74% no-repeat;
-  box-shadow: 0 2px 10px -4px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 2px 0.625rem -0.25rem rgba(0, 0, 0, 0.45);
   opacity: 0.92;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -202,7 +202,7 @@
 
 .wcard__num {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 0.75rem;
   letter-spacing: 0.04em;
   color: var(--text-faint);
   transition: color 0.25s ease;
@@ -213,30 +213,30 @@
 }
 
 .wcard__title {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 650;
   line-height: 1.28;
   letter-spacing: -0.012em;
-  margin: 11px 0 8px;
-  padding-right: 42px;
+  margin: 0.6875rem 0 0.5rem;
+  padding-right: 2.625rem;
   text-wrap: balance;
   color: var(--text);
 }
 
 .wcard__desc {
-  font-size: 13.5px;
+  font-size: 0.84375rem;
   line-height: 1.55;
   color: var(--text-soft);
-  margin: 0 0 16px;
+  margin: 0 0 1rem;
 }
 
 .wcard__go {
   margin-top: auto;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   font-family: var(--font-mono);
-  font-size: 12.5px;
+  font-size: 0.78125rem;
   font-weight: 500;
   color: var(--accent);
 }
@@ -246,7 +246,7 @@
 }
 
 .wcard:hover .wcard__arw {
-  transform: translate(3px, -3px);
+  transform: translate(0.1875rem, -0.1875rem);
 }
 
 @media (max-width: 640px) {
@@ -269,8 +269,8 @@
 
   .uniworks__bg {
     inset: 0 0 auto 0;
-    height: 540px; /* svh desteklenmeyen eski tarayıcılar için yedek */
-    height: min(72svh, 560px);
+    height: 33.75rem; /* svh desteklenmeyen eski tarayıcılar için yedek */
+    height: min(72svh, 35rem);
     background-image: linear-gradient(
         to bottom,
         transparent 52%,

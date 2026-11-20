@@ -20,7 +20,9 @@ function isAdminRoute() {
   return path === `/${target}` || hash === target;
 }
 
-const Root = isAdminRoute() ? Admin : App;
+const adminRoute = isAdminRoute();
+const Root = adminRoute ? Admin : App;
+document.documentElement.dataset.layout = adminRoute ? "admin" : "public";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

@@ -8,13 +8,13 @@
   --accent: #b0cdbb;
 }
 
-.law__top { margin-bottom: 24px; }
+.law__top { margin-bottom: 1.5rem; }
 .law__title { max-width: 28ch; }
 
 .law__source {
-  margin-top: 12px;
+  margin-top: 0.75rem;
   color: var(--text-faint);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .law__intro,
@@ -24,24 +24,24 @@
 .reg__text,
 .impact__item {
   color: var(--text-soft);
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.75;
 }
 
 .law__intro > * + *,
 .law__reading > * + *,
-.acc__inner p + p { margin-top: 16px; }
+.acc__inner p + p { margin-top: 1rem; }
 
 .law__block {
-  margin-top: clamp(48px, 7vw, 88px);
+  margin-top: clamp(3rem, 7vw, 5.5rem);
   border-top: 1px solid var(--border);
-  padding-top: clamp(24px, 4vw, 40px);
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .law__blocktitle {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
   max-width: 32ch;
-  font-size: clamp(24px, 2.5vw, 32px);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   line-height: 1.24;
   text-wrap: pretty;
 }
@@ -50,7 +50,7 @@
 .reg {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 2.35fr);
-  gap: clamp(24px, 5vw, 64px);
+  gap: clamp(1.5rem, 5vw, 4rem);
 }
 
 .law__spread .law__blocktitle { margin-bottom: 0; }
@@ -65,9 +65,9 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 16px;
-  min-height: 56px;
-  padding: 12px;
+  gap: 1rem;
+  min-height: 3.5rem;
+  padding: 0.75rem;
   text-align: left;
 }
 
@@ -77,7 +77,7 @@
 .acc__no {
   flex: 0 0 2ch;
   color: var(--text-faint);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -87,28 +87,28 @@
 }
 
 .acc__inner {
-  padding: 0 16px 20px 48px;
+  padding: 0 1rem 1.25rem 3rem;
   color: var(--text-soft);
   line-height: 1.75;
 }
 
-.reg { padding: 24px 0; }
+.reg { padding: 1.5rem 0; }
 
 .reg__head {
   display: grid;
   align-content: start;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 .reg__name {
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.35;
 }
 
 .reg__year,
 .reg__en {
   color: var(--text-faint);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .reg__year { font-variant-numeric: tabular-nums; }
@@ -120,27 +120,27 @@
 }
 
 .reg__others {
-  margin-top: 24px;
-  padding: clamp(16px, 3vw, 32px);
+  margin-top: 1.5rem;
+  padding: clamp(1rem, 3vw, 2rem);
   background: var(--bg-alt);
 }
 
 .reg__otherstitle {
-  margin-bottom: 12px;
-  font-size: 16px;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
 }
 
 .reg__list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 24px;
+  gap: 0 1.5rem;
 }
 
 .reg__list li {
-  padding: 8px 0;
+  padding: 0.5rem 0;
   border-top: 1px solid var(--border-soft);
   color: var(--text-soft);
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 
 .impact {
@@ -149,7 +149,7 @@
 }
 
 .impact__item {
-  padding: 12px 0 12px 8px;
+  padding: 0.75rem 0 0.75rem 0.5rem;
   border-top: 1px solid var(--border);
 }
 
@@ -167,9 +167,9 @@
   .reg__list { grid-template-columns: 1fr; }
 
   .reg {
-    gap: 8px;
-    padding: 16px 0;
+    gap: 0.5rem;
+    padding: 1rem 0;
   }
 
-  .acc__inner { padding-inline-start: 16px; }
+  .acc__inner { padding-inline-start: 1rem; }
 }

@@ -4,23 +4,23 @@
 
 /* ---- Kapsayıcı ---- */
 .tl-root {
-  margin-top: 40px;
+  margin-top: 2.5rem;
   position: relative;
 }
 
 /* Kaydırma ipucu */
 .tl-hint {
   text-align: center;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-faint);
-  margin-bottom: 18px;
+  margin-bottom: 1.125rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
   user-select: none;
 }
 
@@ -38,8 +38,8 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   position: relative;
-  min-height: 280px;
-  padding: 0 48px;
+  min-height: 17.5rem;
+  padding: 0 3rem;
   cursor: grab;
   user-select: none;
 }
@@ -87,36 +87,36 @@
 .tl-node {
   position: relative;
   flex: 0 0 auto;
-  width: 200px;
+  width: 12.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 280px;
+  height: 17.5rem;
   z-index: 1;
 }
 
 /* ---- Üst alan (şehir + COP kodu) ---- */
 .tl-top {
   position: absolute;
-  top: 24px;
+  top: 1.5rem;
   text-align: center;
   width: 100%;
-  padding: 0 12px;
+  padding: 0 0.75rem;
 }
 
 .tl-city {
   display: block;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--text);
   line-height: 1.35;
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
 }
 
 .tl-code {
   display: block;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--text-soft);
   letter-spacing: 0.03em;
@@ -128,8 +128,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
+  width: 1.875rem;
+  height: 1.875rem;
   border-radius: 50%;
   background: var(--bg, #fff);
   border: 2px solid var(--accent, #4caf50);
@@ -142,8 +142,8 @@
 
 .tl-dot span {
   display: block;
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
   border-radius: 50%;
   background: var(--accent, #4caf50);
 }
@@ -155,13 +155,13 @@
 /* ---- Alt alan (yıl) ---- */
 .tl-bottom {
   position: absolute;
-  bottom: 24px;
+  bottom: 1.5rem;
   text-align: center;
   width: 100%;
 }
 
 .tl-year {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: var(--w-display, 800);
   color: var(--text);
   letter-spacing: -0.03em;
@@ -172,17 +172,17 @@
    FINAL DÜĞÜM — 2026 COP31 Türkiye
    ================================================================ */
 .tl-node--final {
-  width: 300px;
+  width: 18.75rem;
   flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0;
-  padding-right: 40px;
+  padding-right: 2.5rem;
 }
 
 .tl-final-year {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: var(--w-display, 800);
   color: var(--blue-deep, #00479b);
   writing-mode: vertical-rl;
@@ -190,8 +190,8 @@
   transform: rotate(180deg);
   letter-spacing: 0.06em;
   font-family: var(--font-sans);
-  margin-right: 10px;
-  margin-bottom: 11px;
+  margin-right: 0.625rem;
+  margin-bottom: 0.6875rem;
   user-select: none;
 }
 
@@ -200,8 +200,8 @@
 }
 
 .tl-final-badge {
-  width: 96px;
-  height: 96px;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
@@ -223,11 +223,11 @@
 .tl-final-label {
   display: flex;
   flex-direction: column;
-  margin-left: 12px;
+  margin-left: 0.75rem;
 }
 
 .tl-final-label strong {
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: var(--w-display, 800);
   color: var(--blue-deep, #00479b);
   line-height: 1.15;
@@ -235,7 +235,7 @@
 }
 
 .tl-final-label span {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--blue-deep, #00479b);
   opacity: 0.8;
@@ -251,41 +251,41 @@
    ================================================================ */
 @media (max-width: 768px) {
   .tl-track {
-    padding: 0 24px;
-    min-height: 240px;
+    padding: 0 1.5rem;
+    min-height: 15rem;
   }
 
   .tl-node {
-    width: 160px;
-    height: 240px;
+    width: 10rem;
+    height: 15rem;
   }
 
   .tl-city {
-    font-size: 12.5px;
+    font-size: 0.78125rem;
   }
 
   .tl-year {
-    font-size: 22px;
+    font-size: 1.375rem;
   }
 
   .tl-node--final {
-    width: 240px;
+    width: 15rem;
   }
 
   .tl-final-badge {
-    width: 72px;
-    height: 72px;
+    width: 4.5rem;
+    height: 4.5rem;
   }
 
   .tl-final-year {
-    font-size: 22px;
+    font-size: 1.375rem;
   }
 
   .tl-final-label strong {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   .tl-final-label span {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }

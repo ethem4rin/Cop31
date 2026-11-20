@@ -4,9 +4,9 @@
 .about__intro {
   display: grid;
   grid-template-columns: 0.82fr 1.18fr;
-  gap: clamp(30px, 4.5vw, 66px);
+  gap: clamp(1.875rem, 4.5vw, 4.125rem);
   align-items: center;
-  margin-bottom: clamp(48px, 6vw, 84px);
+  margin-bottom: clamp(3rem, 6vw, 5.25rem);
 }
 
 /* ---- Sol: video ---- */
@@ -20,10 +20,10 @@
   max-height: 74vh;
   object-fit: cover;
   display: block;
-  border-radius: clamp(16px, 2vw, 22px);
+  border-radius: clamp(1rem, 2vw, 1.375rem);
   background: #0b100e;
   /* Siteye gömülü görünüm: yumuşak köşe + dağınık gölge */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18),
+  box-shadow: 0 2px 0.25rem rgba(0, 0, 0, 0.18),
     0 34px 70px -34px rgba(0, 0, 0, 0.68);
 }
 
@@ -31,23 +31,23 @@
 .about__qa {
   display: flex;
   flex-direction: column;
-  gap: clamp(30px, 4vw, 52px);
+  gap: clamp(1.875rem, 4vw, 3.25rem);
 }
 
 .about__qtitle {
-  font-size: clamp(24px, 3vw, 36px);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: var(--w-display);
   letter-spacing: -0.035em;
   line-height: 1.15;
-  padding-bottom: 14px;
+  padding-bottom: 0.875rem;
   border-bottom: var(--rule) solid var(--border);
   text-wrap: balance;
 }
 
 .about__qlead {
-  margin-top: 16px;
+  margin-top: 1rem;
   max-width: 56ch;
-  font-size: clamp(15.5px, 1.3vw, 17px);
+  font-size: clamp(0.96875rem, 1.3vw, 1.0625rem);
   line-height: 1.75;
   color: var(--text-soft);
 }
@@ -55,17 +55,17 @@
 /* ============================ COP Zirveleri ===========================
    Çizelgenin kendisi Timeline bileşeninde.                             */
 .cops {
-  margin-top: clamp(40px, 5vw, 64px);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
 }
 
 @media (max-width: 860px) {
   .about__intro {
     grid-template-columns: 1fr;
-    gap: clamp(26px, 6vw, 40px);
+    gap: clamp(1.625rem, 6vw, 2.5rem);
   }
   /* Dikey video telefonda tüm genişlikte çok uzun kalmasın */
   .about__media {
-    max-width: 340px;
+    max-width: 21.25rem;
     margin: 0 auto;
     width: 100%;
   }
