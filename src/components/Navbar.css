@@ -299,21 +299,29 @@
   }
   .nav__right {
     margin-left: auto;
+    gap: 10px;
   }
   .nav .themetoggle__label {
     display: none;
   }
-  /* Tema düğmesi, hamburger ile birebir aynı daire olsun */
-  .nav .themetoggle {
-    width: 44px;
-    height: 44px;
+  .nav .themetoggle,
+  .nav__burger {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    min-height: 36px;
     padding: 0;
+  }
+  .nav .themetoggle {
     gap: 0;
     justify-content: center;
   }
-  .nav__burger {
-    width: 44px;
-    height: 44px;
+  .nav .themetoggle::after,
+  .nav__burger::after {
+    content: "";
+    position: absolute;
+    /* The visible control is 36px, with a 44px touch target. */
+    inset: -5px;
   }
 }
 

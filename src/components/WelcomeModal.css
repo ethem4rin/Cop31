@@ -11,10 +11,10 @@
 
 .wm__card {
   position: relative;
-  width: min(30rem, 100%);
+  width: min(25rem, calc(100% - 0.75rem));
   max-height: 100%;
   overflow-y: auto;
-  padding: clamp(1.25rem, 5vw, 2rem);
+  padding: clamp(1rem, 4vw, 1.5rem);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 0.5rem;
@@ -44,19 +44,19 @@
 }
 
 .wm__logos {
-  padding: 0 2.75rem 1rem 0;
-  margin-bottom: 1.25rem;
+  padding: 0 2.75rem 0.75rem 0;
+  margin-bottom: 1rem;
   border-bottom: 1px solid var(--border);
 }
 
 .wm__logos img {
-  height: clamp(2.75rem, 9vw, 3.5rem);
+  height: clamp(2.5rem, 8vw, 3rem);
   width: auto;
 }
 
 .wm__title {
   max-width: 23ch;
-  font-size: clamp(1.5625rem, 4vw, 2rem);
+  font-size: clamp(1.375rem, 3.5vw, 1.75rem);
   font-weight: 600;
   line-height: 1.2;
 }
@@ -65,13 +65,13 @@
   margin-top: 0.75rem;
   color: var(--text-soft);
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 .wm__actions {
   display: flex;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin-top: 1.125rem;
 }
 
 .wm__cta {
