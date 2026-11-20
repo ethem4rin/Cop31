@@ -403,7 +403,7 @@ export const projects = [
     badge: "Öğrenci Etkinliği / Farkındalık",
     title: "COP31 İçin 31 Fidan",
     subtitle: "Kırklareli Üniversitesi Öğrencilerinden İklim İçin Kalıcı Bir Miras",
-    image: "/images/proje-1.webp",
+    image: "/images/proje-1-936e0b3256.webp",
     summary: "COP31'e doğrudan gönderme yapacak şekilde 31 fidan dikiyoruz. Her fidan, iklim değişikliğiyle mücadele ve sürdürülebilirlik kapsamında belirlenmiş bir temayı temsil ediyor. Fidanların yanındaki QR kodlar, ziyaretçileri o temaya ait bilgilendirme sayfasına yönlendiriyor.",
     facts: [
       {
@@ -472,7 +472,7 @@ export const projects = [
     badge: "Üniversite–Sanayi İş Birliği",
     title: "Öğrenciden İşletmeye",
     subtitle: "Kırklareli İçin Yeşil Dönüşüm Kataloğu",
-    image: "/images/proje-2.webp",
+    image: "/images/proje-2-92021ce844.webp",
     summary: "Kırklareli'nde faaliyet gösteren işletmelerin günlük operasyonlarında uygulayabilecekleri, sade ve uygulanabilir sürdürülebilirlik önerilerinden oluşan bir katalog hazırlıyoruz. İçerikler öğretim üyelerimiz tarafından doğrulanıyor, katalog işletmelere ücretsiz ulaştırılıyor.",
     facts: [
       {
