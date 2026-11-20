@@ -23,7 +23,7 @@ export default function Projects() {
           </Reveal>
         </div>
 
-        <div>
+        <div className="projects__grid">
           {projects.map((p, i) => (
             <ProjectCard key={`${p.title}-${i}`} project={p} delay={i * 0.08} />
           ))}

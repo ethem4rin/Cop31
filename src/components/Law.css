@@ -2,6 +2,12 @@
   background: var(--bg);
 }
 
+:root[data-theme="dark"] .law {
+  --bg: #172d23;
+  --bg-alt: #233b30;
+  --accent: #b0cdbb;
+}
+
 .law__top { margin-bottom: 24px; }
 .law__title { max-width: 28ch; }
 
